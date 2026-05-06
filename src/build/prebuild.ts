@@ -48,7 +48,7 @@ async function cleanNativeDirs() {
 	}
 }
 
-async function generateAndroid(config: any) {
+async function generateAndroid(_config: any) {
 	console.log(chalk.blue('🤖 Generating Android project...'))
 
 	const androidDir = resolve(process.cwd(), 'android')

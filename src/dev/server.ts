@@ -5,7 +5,7 @@ import {createServer} from 'http'
 export interface DevServerOptions {
 	web?: boolean
 	tunnel?: boolean
-	port: number
+	port: string
 	debug?: boolean
 }
 
@@ -33,7 +33,7 @@ export async function startDevServer(options: DevServerOptions) {
 		console.log(`🐛 Debug mode enabled`)
 	}
 
-	const server = createServer((req, res) => {
+	const server = createServer((_req, res) => {
 		res.writeHead(200, {'Content-Type': 'text/html'})
 		res.end(`
       <!DOCTYPE html>
@@ -64,10 +64,10 @@ export async function startDevServer(options: DevServerOptions) {
 
 	const wss = new WebSocketServer({server})
 
-	wss.on('connection', ws => {
+	wss.on('connection', (ws: any) => {
 		console.log('📱 Client connected')
 
-		ws.on('message', message => {
+		ws.on('message', (message: {toString: () => string}) => {
 			console.log('Received:', message.toString())
 		})
 	})
@@ -79,8 +79,10 @@ export async function startDevServer(options: DevServerOptions) {
 
 	process.on('SIGINT', () => {
 		console.log('\n🛑 Shutting down server...')
-		server.close()
-		wss.close()
+		const serverTyped = server as {close: (callback?: () => void) => void}
+		const wssTyped = wss as unknown as {close: (callback?: () => void) => void}
+		serverTyped.close()
+		wssTyped.close()
 		process.exit(0)
 	})
 }

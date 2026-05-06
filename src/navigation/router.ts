@@ -7,7 +7,7 @@ export interface RouterProps {
 	routes: Route[]
 }
 
-export function Router({routes}: RouterProps) {
+export function Router(_routes: Route[]) {
 	return null
 }
 

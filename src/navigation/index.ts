@@ -1,2 +1,2 @@
 export * from './router.js'
-export * from './useRouter.js'
+export {useRouter} from './useRouter.js'

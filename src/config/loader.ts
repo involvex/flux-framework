@@ -21,7 +21,8 @@ export function loadConfig(): FluxConfig | null {
 		}
 
 		const configStr = configMatch[1]
-		const config = eval(`(${configStr})`) as FluxConfig
+		const config = eval(`(${configStr})`) as FluxConfig &
+			Record<string, unknown>
 
 		return validateConfig(config)
 	} catch (error) {
@@ -30,8 +31,8 @@ export function loadConfig(): FluxConfig | null {
 	}
 }
 
-export function validateConfig(config: any): FluxConfig {
-	const required = ['name', 'version', 'slug']
+export function validateConfig(config: Record<string, unknown>): FluxConfig {
+	const required = ['name', 'version', 'slug'] as const
 
 	for (const field of required) {
 		if (!config[field]) {
@@ -39,7 +40,7 @@ export function validateConfig(config: any): FluxConfig {
 		}
 	}
 
-	return config as FluxConfig
+	return config as unknown as FluxConfig
 }
 
 export function defineConfig(config: FluxConfig): FluxConfig {

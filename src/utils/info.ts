@@ -19,7 +19,7 @@ export async function showProjectInfo() {
 
 			if (configMatch) {
 				const configStr = configMatch[1]
-				const config = eval(`(${configStr})`)
+				const config = eval(`(${configStr})`) as Record<string, unknown>
 
 				console.log(chalk.bold('App Configuration:'))
 				console.log(chalk.gray('  Name:'), config.name)
@@ -27,28 +27,32 @@ export async function showProjectInfo() {
 				console.log(chalk.gray('  Slug:'), config.slug)
 				console.log()
 			}
-		} catch (error) {
+		} catch {
 			console.log(chalk.yellow('⚠️  Could not read config'))
 		}
 	}
 
 	if (existsSync(packagePath)) {
 		try {
-			const pkg = JSON.parse(readFileSync(packagePath, 'utf-8'))
+			const pkg = JSON.parse(readFileSync(packagePath, 'utf-8')) as Record<
+				string,
+				unknown
+			>
 
 			console.log(chalk.bold('Package Information:'))
 			console.log(chalk.gray('  Name:'), pkg.name)
 			console.log(chalk.gray('  Version:'), pkg.version)
 			console.log(
 				chalk.gray('  Dependencies:'),
-				Object.keys(pkg.dependencies || {}).length,
+				Object.keys((pkg.dependencies as Record<string, unknown>) ?? {}).length,
 			)
 			console.log(
 				chalk.gray('  Dev Dependencies:'),
-				Object.keys(pkg.devDependencies || {}).length,
+				Object.keys((pkg.devDependencies as Record<string, unknown>) ?? {})
+					.length,
 			)
 			console.log()
-		} catch (error) {
+		} catch {
 			console.log(chalk.yellow('⚠️  Could not read package.json'))
 		}
 	}
@@ -63,7 +67,7 @@ export async function showProjectInfo() {
 		console.log(chalk.gray('  Platform:'), process.platform)
 		console.log(chalk.gray('  Arch:'), process.arch)
 		console.log()
-	} catch (error) {
+	} catch {
 		console.log(chalk.yellow('⚠️  Could not get environment info'))
 	}
 

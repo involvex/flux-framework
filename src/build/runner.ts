@@ -58,7 +58,7 @@ async function runAndroid(options: RunOptions) {
 	}
 }
 
-async function runWeb(options: RunOptions) {
+async function runWeb(_options: RunOptions) {
 	console.log(chalk.blue('🌐 Running on web...'))
 
 	try {
@@ -67,7 +67,7 @@ async function runWeb(options: RunOptions) {
 
 		execSync(`start http://localhost:${port}`, {
 			stdio: 'inherit',
-			shell: true,
+			shell: 'powershell.exe',
 		})
 		console.log(chalk.green('✓ Browser opened'))
 	} catch (error) {

@@ -23,7 +23,7 @@ export async function diagnoseProject() {
 		try {
 			await check()
 			passed++
-		} catch (error) {
+		} catch {
 			failed++
 		}
 	}
@@ -80,10 +80,13 @@ async function checkDependencies() {
 	const packagePath = resolve(process.cwd(), 'package.json')
 
 	if (existsSync(packagePath)) {
-		const pkg = JSON.parse(readFileSync(packagePath, 'utf-8'))
+		const pkg = JSON.parse(readFileSync(packagePath, 'utf-8')) as Record<
+			string,
+			unknown
+		>
 		console.log(
 			chalk.green('✓ Dependencies:'),
-			Object.keys(pkg.dependencies || {}).length,
+			Object.keys((pkg.dependencies as Record<string, unknown>) ?? {}).length,
 		)
 	} else {
 		console.log(chalk.red('✗ Dependencies:'), 'package.json not found')
@@ -107,7 +110,7 @@ async function checkGit() {
 	try {
 		execSync('git rev-parse --git-dir', {encoding: 'utf-8', stdio: 'pipe'})
 		console.log(chalk.green('✓ Git:'), 'Initialized')
-	} catch (error) {
+	} catch {
 		console.log(chalk.yellow('⚠ Git:'), 'Not initialized')
 	}
 }

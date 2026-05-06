@@ -16,7 +16,7 @@ export function Input({
 	return createElement('input', {
 		placeholder,
 		value,
-		onChange: (e: any) => onChange?.(e.target.value),
+		onChange: (e: {target: {value: string}}) => onChange?.(e.target.value),
 		type,
 		className: 'expoic-input',
 	})

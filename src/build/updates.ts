@@ -9,6 +9,14 @@ export interface UpdateOptions {
 	version?: string
 }
 
+interface UpdateInfo {
+	id: string
+	version: string
+	timestamp: number
+	channel: string
+	publishedAt?: string
+}
+
 export async function createUpdate() {
 	console.log(chalk.blue('📦 Creating update...'))
 
@@ -25,14 +33,14 @@ export async function createUpdate() {
 		console.log(chalk.gray(`Update ID: ${updateId}`))
 		console.log(chalk.gray(`Version: ${config.version}`))
 
-		const updateInfo = {
+		const updateInfo: UpdateInfo = {
 			id: updateId,
 			version: config.version,
 			timestamp,
 			channel: 'development',
 		}
 
-		const updatesDir = resolve(process.cwd(), '.expoic', 'updates')
+		const updatesDir = resolve(process.cwd(), '.flux', 'updates')
 		if (!existsSync(updatesDir)) {
 			execSync(`mkdir -p ${updatesDir}`, {stdio: 'inherit'})
 		}
@@ -61,7 +69,7 @@ export async function publishUpdate(options: UpdateOptions) {
 	try {
 		console.log(chalk.gray(`Channel: ${options.channel}`))
 
-		const updatesDir = resolve(process.cwd(), '.expoic', 'updates')
+		const updatesDir = resolve(process.cwd(), '.flux', 'updates')
 		const updateFiles = execSync(`ls ${updatesDir}/*.json`, {encoding: 'utf-8'})
 			.split('\n')
 			.filter(f => f.trim())
@@ -72,14 +80,14 @@ export async function publishUpdate(options: UpdateOptions) {
 		}
 
 		const latestUpdate = updateFiles[updateFiles.length - 1]
-		const updateData = JSON.parse(readFileSync(latestUpdate, 'utf-8'))
+		const updateData = JSON.parse(readFileSync(latestUpdate, 'utf-8')) as UpdateInfo
 
-		updateData.channel = options.channel
+		updateData.channel = options.channel ?? 'production'
 		updateData.publishedAt = new Date().toISOString()
 
 		writeFileSync(latestUpdate, JSON.stringify(updateData, null, 2))
 
-		console.log(chalk.green(`✓ Update published to ${options.channel} channel`))
+		console.log(chalk.green(`✓ Update published to ${updateData.channel} channel`))
 	} catch (error) {
 		console.error(chalk.red('✗ Failed to publish update'))
 		throw error
@@ -107,7 +115,7 @@ export async function inspectUpdates() {
 	console.log(chalk.blue('🔍 Inspecting updates...'))
 
 	try {
-		const updatesDir = resolve(process.cwd(), '.expoic', 'updates')
+		const updatesDir = resolve(process.cwd(), '.flux', 'updates')
 
 		if (!existsSync(updatesDir)) {
 			console.log(chalk.yellow('⚠️  No updates found'))
@@ -121,17 +129,13 @@ export async function inspectUpdates() {
 		console.log(chalk.green(`Found ${updateFiles.length} update(s):`))
 
 		updateFiles.forEach((file, index) => {
-			const updateData = JSON.parse(readFileSync(file, 'utf-8'))
+			const updateData = JSON.parse(readFileSync(file, 'utf-8')) as UpdateInfo
 			console.log(`  ${index + 1}. ${updateData.id}`)
 			console.log(`     Version: ${updateData.version}`)
-			console.log(`     Channel: ${updateData.channel || 'unpublished'}`)
-			console.log(
-				`     Created: ${new Date(updateData.timestamp).toLocaleString()}`,
-			)
+			console.log(`     Channel: ${updateData.channel ?? 'unpublished'}`)
+			console.log(`     Created: ${new Date(updateData.timestamp).toLocaleString()}`)
 			if (updateData.publishedAt) {
-				console.log(
-					`     Published: ${new Date(updateData.publishedAt).toLocaleString()}`,
-				)
+				console.log(`     Published: ${new Date(updateData.publishedAt).toLocaleString()}`)
 			}
 		})
 	} catch (error) {

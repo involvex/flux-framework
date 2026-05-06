@@ -37,7 +37,7 @@ export async function buildProject(options: BuildOptions) {
 	}
 }
 
-async function buildWeb(config: any) {
+async function buildWeb(_config: any) {
 	console.log(chalk.blue('🌐 Building for web...'))
 
 	try {
@@ -51,7 +51,7 @@ async function buildWeb(config: any) {
 	}
 }
 
-async function buildAndroid(config: any, options: BuildOptions) {
+async function buildAndroid(_config: any, options: BuildOptions) {
 	console.log(chalk.blue('🤖 Building for Android...'))
 
 	try {
