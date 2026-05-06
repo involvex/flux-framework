@@ -29,10 +29,6 @@ export async function prebuildNative(options: PrebuildOptions) {
 			await generateAndroid(config)
 		}
 
-		if (!options.platform || options.platform === 'ios') {
-			await generateIOS(config)
-		}
-
 		console.log(chalk.green('✅ Prebuild completed successfully!'))
 	} catch (error) {
 		console.error(chalk.red('❌ Prebuild failed:'), error)
@@ -41,7 +37,7 @@ export async function prebuildNative(options: PrebuildOptions) {
 }
 
 async function cleanNativeDirs() {
-	const dirs = ['android', 'ios']
+	const dirs = ['android']
 
 	for (const dir of dirs) {
 		const dirPath = resolve(process.cwd(), dir)
@@ -93,27 +89,4 @@ task clean(type: Delete) {
 
 	writeFileSync(resolve(androidDir, 'build.gradle'), buildGradle)
 	console.log(chalk.green('✓ Android project generated'))
-}
-
-async function generateIOS(config: any) {
-	console.log(chalk.blue('🍎 Generating iOS project...'))
-
-	const iosDir = resolve(process.cwd(), 'ios')
-
-	if (!existsSync(iosDir)) {
-		mkdirSync(iosDir, {recursive: true})
-	}
-
-	const podfile = `
-platform :ios, '13.0'
-use_frameworks!
-
-target '${config.name}' do
-  pod 'React-Core'
-  pod 'React-RCTAppDelegate'
-end
-`
-
-	writeFileSync(resolve(iosDir, 'Podfile'), podfile)
-	console.log(chalk.green('✓ iOS project generated'))
 }

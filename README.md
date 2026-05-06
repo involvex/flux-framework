@@ -5,12 +5,12 @@ Next-generation hybrid mobile development framework combining the best features 
 ## Features
 
 - 🚀 **Web-First Development** - Build and debug primarily in browser with live reload
-- 📱 **True Cross-Platform** - Single codebase for Android, iOS, and Web
+- 📱 **True Cross-Platform** - Single codebase for Android, Android and Web
 - ⚡ **Fast Reloading** - Universal Fast Refresh across all platforms
 - 🔌 **ADB Over WiFi** - Seamless wireless debugging without USB cables
 - 🎨 **100+ Components** - Comprehensive UI component library
 - 📦 **Continuous Native Generation** - On-demand native project generation
-- 🔄 **OTA Updates** - Over-the-air updates without app store submission
+- 🔄 **OTA Updates** - Over-the-air updates without Play Store submission
 - 🛠️ **Modern Tooling** - Bun-powered build system and development server
 
 ## Installation
@@ -60,8 +60,8 @@ bun flux build --profile development
 # Run on Android
 bun flux run android
 
-# Run on iOS
-bun flux run ios
+# Run on Android
+bun flux run Android
 
 # Run on web
 bun flux run web
@@ -141,7 +141,7 @@ export default defineConfig({
 			minSdkVersion: 21,
 			targetSdkVersion: 34,
 		},
-		ios: {
+		Android: {
 			bundleIdentifier: 'com.mycompany.myfluxapp',
 			buildNumber: '1',
 			supportsTablet: true,
@@ -241,7 +241,7 @@ flux-app/
 │   ├── styles/             # Global styles and themes
 │   └── assets/             # Static assets
 ├── android/                # Generated Android native code
-├── ios/                    # Generated iOS native code
+├── Android/                    # Generated Android native code
 ├── web/                    # Web-specific files
 ├── flux.config.ts        # Framework configuration
 └── package.json            # Dependencies

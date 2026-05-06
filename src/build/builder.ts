@@ -30,10 +30,6 @@ export async function buildProject(options: BuildOptions) {
 			await buildAndroid(config, options)
 		}
 
-		if (options.platform === 'all' || options.platform === 'ios') {
-			await buildIOS(config, options)
-		}
-
 		console.log(chalk.green('✅ Build completed successfully!'))
 	} catch (error) {
 		console.error(chalk.red('❌ Build failed:'), error)
@@ -71,20 +67,6 @@ async function buildAndroid(config: any, options: BuildOptions) {
 		console.log(chalk.green('✓ Android build complete'))
 	} catch (error) {
 		console.error(chalk.red('✗ Android build failed'))
-		throw error
-	}
-}
-
-async function buildIOS(config: any, options: BuildOptions) {
-	console.log(chalk.blue('🍎 Building for iOS...'))
-
-	try {
-		execSync('bun build src/index.ts --outdir dist/ios --target node', {
-			stdio: 'inherit',
-		})
-		console.log(chalk.green('✓ iOS build complete'))
-	} catch (error) {
-		console.error(chalk.red('✗ iOS build failed'))
 		throw error
 	}
 }

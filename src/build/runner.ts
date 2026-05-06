@@ -23,9 +23,6 @@ export async function runOnPlatform(options: RunOptions) {
 			case 'android':
 				await runAndroid(options)
 				break
-			case 'ios':
-				await runIOS(options)
-				break
 			case 'web':
 				await runWeb(options)
 				break
@@ -57,26 +54,6 @@ async function runAndroid(options: RunOptions) {
 		console.log(chalk.green('✓ App launched on Android'))
 	} catch (error) {
 		console.error(chalk.red('✗ Failed to run on Android'))
-		throw error
-	}
-}
-
-async function runIOS(options: RunOptions) {
-	console.log(chalk.blue('🍎 Running on iOS...'))
-
-	try {
-		if (options.device) {
-			console.log(chalk.gray(`Device: ${options.device}`))
-		}
-
-		if (options.debug) {
-			console.log(chalk.gray('Debug mode enabled'))
-		}
-
-		console.log(chalk.yellow('⚠️  iOS run requires Xcode'))
-		console.log(chalk.gray('Open Xcode project and run from there'))
-	} catch (error) {
-		console.error(chalk.red('✗ Failed to run on iOS'))
 		throw error
 	}
 }

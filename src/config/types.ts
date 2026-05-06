@@ -13,7 +13,6 @@ export interface FluxConfig {
 
 export interface PlatformConfig {
 	android?: AndroidConfig
-	ios?: IOSConfig
 	web?: WebConfig
 }
 
@@ -24,19 +23,13 @@ export interface AndroidConfig {
 	targetSdkVersion: number
 }
 
-export interface IOSConfig {
-	bundleIdentifier: string
-	buildNumber: string
-	supportsTablet: boolean
-}
-
 export interface WebConfig {
 	bundler: 'vite' | 'webpack'
 	output: 'static' | 'server'
 }
 
 export interface UIConfig {
-	mode: 'ios' | 'md' | 'auto'
+	mode: 'md' | 'auto'
 	theme: 'light' | 'dark' | 'auto'
 	animations: boolean
 	hardwareBackButton: boolean

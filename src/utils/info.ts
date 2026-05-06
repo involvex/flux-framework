@@ -7,7 +7,7 @@ export async function showProjectInfo() {
 	console.log(chalk.blue('📋 Project Information'))
 	console.log()
 
-	const configPath = resolve(process.cwd(), 'expoic.config.ts')
+	const configPath = resolve(process.cwd(), 'flux.config.ts')
 	const packagePath = resolve(process.cwd(), 'package.json')
 
 	if (existsSync(configPath)) {
@@ -68,16 +68,11 @@ export async function showProjectInfo() {
 	}
 
 	const androidDir = resolve(process.cwd(), 'android')
-	const iosDir = resolve(process.cwd(), 'ios')
 
 	console.log(chalk.bold('Native Projects:'))
 	console.log(
 		chalk.gray('  Android:'),
 		existsSync(androidDir) ? '✓ Generated' : '✗ Not generated',
-	)
-	console.log(
-		chalk.gray('  iOS:'),
-		existsSync(iosDir) ? '✓ Generated' : '✗ Not generated',
 	)
 	console.log()
 }

@@ -12,11 +12,6 @@ export default defineConfig({
 			minSdkVersion: 21,
 			targetSdkVersion: 34,
 		},
-		ios: {
-			bundleIdentifier: 'com.mycompany.myfluxapp',
-			buildNumber: '1',
-			supportsTablet: true,
-		},
 		web: {
 			bundler: 'vite',
 			output: 'static',

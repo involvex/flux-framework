@@ -93,17 +93,11 @@ async function checkDependencies() {
 
 async function checkNativeDirs() {
 	const androidDir = resolve(process.cwd(), 'android')
-	const iosDir = resolve(process.cwd(), 'ios')
 
 	const hasAndroid = existsSync(androidDir)
-	const hasIOS = existsSync(iosDir)
 
-	if (hasAndroid || hasIOS) {
-		console.log(
-			chalk.green('✓ Native dirs:'),
-			hasAndroid ? 'android' : '',
-			hasIOS ? 'ios' : '',
-		)
+	if (hasAndroid) {
+		console.log(chalk.green('✓ Native dirs:'), 'android')
 	} else {
 		console.log(chalk.yellow('⚠ Native dirs:'), 'None (run flux prebuild)')
 	}
