@@ -34,31 +34,31 @@ This plugin is intended to be used together with `@capacitor/push-notifications`
 ## Usage
 
 ```typescript
-import { FCM } from '@capacitor-community/fcm';
-import { PushNotifications } from '@capacitor/push-notifications';
+import {PushNotifications} from '@capacitor/push-notifications'
+import {FCM} from '@capacitor-community/fcm'
 
 // First, register for push notifications
-await PushNotifications.requestPermissions();
-await PushNotifications.register();
+await PushNotifications.requestPermissions()
+await PushNotifications.register()
 
 // Subscribe to a topic
-await FCM.subscribeTo({ topic: 'news' });
+await FCM.subscribeTo({topic: 'news'})
 
 // Unsubscribe from a topic
-await FCM.unsubscribeFrom({ topic: 'news' });
+await FCM.unsubscribeFrom({topic: 'news'})
 
 // Get FCM token (instead of the APN token returned by Capacitor)
-const { token } = await FCM.getToken();
+const {token} = await FCM.getToken()
 
 // Delete the old FCM token and get a new one
-const { token: newToken } = await FCM.refreshToken();
+const {token: newToken} = await FCM.refreshToken()
 
 // Remove FCM instance completely
-await FCM.deleteInstance();
+await FCM.deleteInstance()
 
 // Enable/disable auto initialization
-await FCM.setAutoInit({ enabled: true });
-const { enabled } = await FCM.isAutoInitEnabled();
+await FCM.setAutoInit({enabled: true})
+const {enabled} = await FCM.isAutoInitEnabled()
 ```
 
 ## Notes

@@ -39,19 +39,19 @@ Requires API key with billing enabled from Google Cloud Console.
 ## Usage
 
 ```typescript
-import { GoogleMap } from '@capacitor/google-maps';
+import {GoogleMap} from '@capacitor/google-maps'
 
 const map = await GoogleMap.create({
-  id: 'my-map',
-  element: document.getElementById('map'),
-  apiKey: 'YOUR_API_KEY',
-  config: { center: { lat: 33.6, lng: -117.9 }, zoom: 8 },
-});
+	id: 'my-map',
+	element: document.getElementById('map'),
+	apiKey: 'YOUR_API_KEY',
+	config: {center: {lat: 33.6, lng: -117.9}, zoom: 8},
+})
 
 const markerId = await map.addMarker({
-  coordinate: { lat: 33.6, lng: -117.9 },
-  title: 'My Location',
-});
+	coordinate: {lat: 33.6, lng: -117.9},
+	title: 'My Location',
+})
 ```
 
 ## Notes

@@ -54,39 +54,39 @@ plugins: {
 ## Usage
 
 ```typescript
-import { Media } from '@capacitor-community/media';
+import {Media} from '@capacitor-community/media'
 
 // Get albums
-const { albums } = await Media.getAlbums();
+const {albums} = await Media.getAlbums()
 
 // Create an album
-await Media.createAlbum({ name: 'My Album' });
+await Media.createAlbum({name: 'My Album'})
 
 // Save a photo (from URL, base64, or local file path)
 const result = await Media.savePhoto({
-  path: 'https://example.com/photo.jpg',
-  albumIdentifier: albums[0].identifier,
-});
+	path: 'https://example.com/photo.jpg',
+	albumIdentifier: albums[0].identifier,
+})
 
 // Save a video
 await Media.saveVideo({
-  path: 'https://example.com/video.mp4',
-  albumIdentifier: albums[0].identifier,
-});
+	path: 'https://example.com/video.mp4',
+	albumIdentifier: albums[0].identifier,
+})
 
 // Get media thumbnails (iOS only)
-const { medias } = await Media.getMedias({
-  quantity: 50,
-  thumbnailWidth: 256,
-  thumbnailHeight: 256,
-  thumbnailQuality: 80,
-  types: 'all',
-});
+const {medias} = await Media.getMedias({
+	quantity: 50,
+	thumbnailWidth: 256,
+	thumbnailHeight: 256,
+	thumbnailQuality: 80,
+	types: 'all',
+})
 
 // Get full-quality file path from identifier (iOS only)
-const { path } = await Media.getMediaByIdentifier({
-  identifier: medias[0].identifier,
-});
+const {path} = await Media.getMediaByIdentifier({
+	identifier: medias[0].identifier,
+})
 ```
 
 ## Notes

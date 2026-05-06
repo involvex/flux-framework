@@ -42,12 +42,12 @@ In `capacitor.config.ts`:
 
 ```typescript
 const config: CapacitorConfig = {
-  plugins: {
-    MediaSession: {
-      smallIcon: 'ic_notification',
-    },
-  },
-};
+	plugins: {
+		MediaSession: {
+			smallIcon: 'ic_notification',
+		},
+	},
+}
 ```
 
 For a custom icon, add it to `android/app/src/main/res/drawable/` (single-color white with transparent background).
@@ -57,52 +57,60 @@ For a custom icon, add it to `android/app/src/main/res/drawable/` (single-color 
 ### Set Metadata
 
 ```typescript
-import { MediaSession } from '@capawesome-team/capacitor-media-session';
+import {MediaSession} from '@capawesome-team/capacitor-media-session'
 
 await MediaSession.setMetadata({
-  title: 'Test Song',
-  artist: 'My Awesome Artist',
-  album: 'My Awesome Album',
-  artwork: [
-    { src: 'https://example.com/cover-512x512.png', sizes: '512x512', type: 'image/png' },
-  ],
-});
+	title: 'Test Song',
+	artist: 'My Awesome Artist',
+	album: 'My Awesome Album',
+	artwork: [
+		{
+			src: 'https://example.com/cover-512x512.png',
+			sizes: '512x512',
+			type: 'image/png',
+		},
+	],
+})
 ```
 
 ### Register Action Handlers and Listen for Actions
 
 ```typescript
-import { MediaSession, MediaSessionAction, MediaSessionPlaybackState } from '@capawesome-team/capacitor-media-session';
+import {
+	MediaSession,
+	MediaSessionAction,
+	MediaSessionPlaybackState,
+} from '@capawesome-team/capacitor-media-session'
 
-await MediaSession.registerActionHandler({ action: MediaSessionAction.Play });
-await MediaSession.registerActionHandler({ action: MediaSessionAction.Pause });
-await MediaSession.registerActionHandler({ action: MediaSessionAction.SeekTo });
-await MediaSession.registerActionHandler({ action: MediaSessionAction.Stop });
+await MediaSession.registerActionHandler({action: MediaSessionAction.Play})
+await MediaSession.registerActionHandler({action: MediaSessionAction.Pause})
+await MediaSession.registerActionHandler({action: MediaSessionAction.SeekTo})
+await MediaSession.registerActionHandler({action: MediaSessionAction.Stop})
 
-MediaSession.addListener('action', async (event) => {
-  switch (event.action) {
-    case MediaSessionAction.Play:
-      await MediaSession.setPlaybackState({
-        playbackState: MediaSessionPlaybackState.Playing,
-      });
-      break;
-    case MediaSessionAction.Pause:
-      await MediaSession.setPlaybackState({
-        playbackState: MediaSessionPlaybackState.Paused,
-      });
-      break;
-  }
-});
+MediaSession.addListener('action', async event => {
+	switch (event.action) {
+		case MediaSessionAction.Play:
+			await MediaSession.setPlaybackState({
+				playbackState: MediaSessionPlaybackState.Playing,
+			})
+			break
+		case MediaSessionAction.Pause:
+			await MediaSession.setPlaybackState({
+				playbackState: MediaSessionPlaybackState.Paused,
+			})
+			break
+	}
+})
 ```
 
 ### Set Position State
 
 ```typescript
 await MediaSession.setPositionState({
-  duration: 180,
-  playbackRate: 1.0,
-  position: 30,
-});
+	duration: 180,
+	playbackRate: 1.0,
+	position: 30,
+})
 ```
 
 ## Key Methods

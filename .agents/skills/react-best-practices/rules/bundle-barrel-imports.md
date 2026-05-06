@@ -16,11 +16,11 @@ Popular icon and component libraries can have **up to 10,000 re-exports** in the
 **Incorrect (imports entire library):**
 
 ```tsx
-import { Check, X, Menu } from 'lucide-react'
 // Loads 1,583 modules, takes ~2.8s extra in dev
 // Runtime cost: 200-800ms on every cold start
 
-import { Button, TextField } from '@mui/material'
+import {Button, TextField} from '@mui/material'
+import {Check, X, Menu} from 'lucide-react'
 // Loads 2,225 modules, takes ~4.2s extra in dev
 ```
 
@@ -28,12 +28,12 @@ import { Button, TextField } from '@mui/material'
 
 ```tsx
 import Check from 'lucide-react/dist/esm/icons/check'
-import X from 'lucide-react/dist/esm/icons/x'
 import Menu from 'lucide-react/dist/esm/icons/menu'
+import TextField from '@mui/material/TextField'
+import X from 'lucide-react/dist/esm/icons/x'
 // Loads only 3 modules (~2KB vs ~1MB)
 
 import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
 // Loads only what you use
 ```
 
@@ -42,13 +42,13 @@ import TextField from '@mui/material/TextField'
 ```js
 // next.config.js - use optimizePackageImports
 module.exports = {
-  experimental: {
-    optimizePackageImports: ['lucide-react', '@mui/material']
-  }
+	experimental: {
+		optimizePackageImports: ['lucide-react', '@mui/material'],
+	},
 }
 
 // Then you can keep the ergonomic barrel imports:
-import { Check, X, Menu } from 'lucide-react'
+import {Check, X, Menu} from 'lucide-react'
 // Automatically transformed to direct imports at build time
 ```
 

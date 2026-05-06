@@ -18,6 +18,7 @@ npm install jeep-sqlite sql.js
 ```
 
 Then copy `node_modules/sql.js/dist/sql-wasm.wasm` to your app's assets folder:
+
 - **Angular:** `src/assets/`
 - **Vue/React:** `public/assets/`
 
@@ -99,27 +100,39 @@ No additional steps required.
 ## Usage
 
 ```typescript
-import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
+import {
+	CapacitorSQLite,
+	SQLiteConnection,
+	SQLiteDBConnection,
+} from '@capacitor-community/sqlite'
 
-const sqlite = new SQLiteConnection(CapacitorSQLite);
+const sqlite = new SQLiteConnection(CapacitorSQLite)
 
 // Create and open a connection
-const db: SQLiteDBConnection = await sqlite.createConnection('mydb', false, 'no-encryption', 1, false);
-await db.open();
+const db: SQLiteDBConnection = await sqlite.createConnection(
+	'mydb',
+	false,
+	'no-encryption',
+	1,
+	false,
+)
+await db.open()
 
 // Execute SQL
-await db.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)');
+await db.execute(
+	'CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)',
+)
 
 // Run a parameterized statement
-await db.run('INSERT INTO users (name) VALUES (?)', ['Alice']);
+await db.run('INSERT INTO users (name) VALUES (?)', ['Alice'])
 
 // Query
-const result = await db.query('SELECT * FROM users');
-console.log(result.values);
+const result = await db.query('SELECT * FROM users')
+console.log(result.values)
 
 // Close connection
-await db.close();
-await sqlite.closeConnection('mydb');
+await db.close()
+await sqlite.closeConnection('mydb')
 ```
 
 ## Notes

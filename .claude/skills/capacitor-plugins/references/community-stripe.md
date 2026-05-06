@@ -14,43 +14,43 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { Stripe } from '@capacitor-community/stripe';
+import {Stripe} from '@capacitor-community/stripe'
 
 // Initialize with your publishable key
-await Stripe.initialize({ publishableKey: 'pk_test_xxx' });
+await Stripe.initialize({publishableKey: 'pk_test_xxx'})
 
 // --- Payment Sheet ---
 await Stripe.createPaymentSheet({
-  paymentIntentClientSecret: 'pi_xxx_secret_xxx',
-  merchantDisplayName: 'My Store',
-});
-const { paymentResult } = await Stripe.presentPaymentSheet();
+	paymentIntentClientSecret: 'pi_xxx_secret_xxx',
+	merchantDisplayName: 'My Store',
+})
+const {paymentResult} = await Stripe.presentPaymentSheet()
 
 // --- Payment Flow (two-step: select then confirm) ---
 await Stripe.createPaymentFlow({
-  paymentIntentClientSecret: 'pi_xxx_secret_xxx',
-  merchantDisplayName: 'My Store',
-});
-const { cardNumber } = await Stripe.presentPaymentFlow();
-const { paymentResult: flowResult } = await Stripe.confirmPaymentFlow();
+	paymentIntentClientSecret: 'pi_xxx_secret_xxx',
+	merchantDisplayName: 'My Store',
+})
+const {cardNumber} = await Stripe.presentPaymentFlow()
+const {paymentResult: flowResult} = await Stripe.confirmPaymentFlow()
 
 // --- Apple Pay ---
-const isApplePayAvailable = await Stripe.isApplePayAvailable();
+const isApplePayAvailable = await Stripe.isApplePayAvailable()
 await Stripe.createApplePay({
-  paymentIntentClientSecret: 'pi_xxx_secret_xxx',
-  paymentSummaryItems: [{ label: 'Total', amount: 1000 }],
-  merchantIdentifier: 'merchant.com.example',
-  countryCode: 'US',
-  currency: 'USD',
-});
-const { paymentResult: appleResult } = await Stripe.presentApplePay();
+	paymentIntentClientSecret: 'pi_xxx_secret_xxx',
+	paymentSummaryItems: [{label: 'Total', amount: 1000}],
+	merchantIdentifier: 'merchant.com.example',
+	countryCode: 'US',
+	currency: 'USD',
+})
+const {paymentResult: appleResult} = await Stripe.presentApplePay()
 
 // --- Google Pay ---
-const isGooglePayAvailable = await Stripe.isGooglePayAvailable();
+const isGooglePayAvailable = await Stripe.isGooglePayAvailable()
 await Stripe.createGooglePay({
-  paymentIntentClientSecret: 'pi_xxx_secret_xxx',
-});
-const { paymentResult: googleResult } = await Stripe.presentGooglePay();
+	paymentIntentClientSecret: 'pi_xxx_secret_xxx',
+})
+const {paymentResult: googleResult} = await Stripe.presentGooglePay()
 ```
 
 ## Notes

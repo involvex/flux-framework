@@ -81,9 +81,9 @@ In Capacitor 6, `https` is the default `androidScheme`. To avoid data loss from 
 
 ```typescript
 {
-  server: {
-    androidScheme: "http"
-  }
+	server: {
+		androidScheme: 'http'
+	}
 }
 ```
 
@@ -171,6 +171,6 @@ npx cap run ios
 
 ## Error Handling
 
-* If `npx cap migrate` fails partially, apply the failed steps manually.
-* If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
-* If `addListener` calls fail to compile, update the code — `addListener` now only returns a `Promise` (remove `& PluginListenerHandle` if present).
+- If `npx cap migrate` fails partially, apply the failed steps manually.
+- If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
+- If `addListener` calls fail to compile, update the code — `addListener` now only returns a `Promise` (remove `& PluginListenerHandle` if present).

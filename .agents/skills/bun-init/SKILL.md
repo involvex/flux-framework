@@ -2,7 +2,7 @@
 name: bun-init
 description: Initialize a new Bun project with TypeScript and optimal configuration. Use when starting a new Bun project or converting a directory to a Bun project.
 compatibility: Requires Bun 1.0+
-allowed-tools: ["Bash", "Write", "Read"]
+allowed-tools: [Bash, Write, Read]
 metadata:
   author: dale
   category: bun-runtime
@@ -43,6 +43,7 @@ bun init -y
 ```
 
 This creates:
+
 - `package.json` with Bun-optimized scripts
 - `tsconfig.json` with recommended TypeScript settings
 - `index.ts` as the entry point
@@ -53,81 +54,85 @@ This creates:
 Read the generated `tsconfig.json` and enhance it based on project type:
 
 **For CLI Tools:**
+
 ```json
 {
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "types": ["bun-types"],
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true
-  }
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"types": ["bun-types"],
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true
+	}
 }
 ```
 
 **For Web Apps:**
+
 ```json
 {
-  "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "jsx": "react-jsx",
-    "types": ["bun-types"],
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true
-  }
+	"compilerOptions": {
+		"target": "ES2022",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"jsx": "react-jsx",
+		"types": ["bun-types"],
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true
+	}
 }
 ```
 
 **For API Servers:**
+
 ```json
 {
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "types": ["bun-types"],
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"types": ["bun-types"],
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true,
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	}
 }
 ```
 
 **For Libraries:**
+
 ```json
 {
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "types": ["bun-types"],
-    "strict": true,
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true
-  }
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"types": ["bun-types"],
+		"strict": true,
+		"declaration": true,
+		"declarationMap": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true
+	}
 }
 ```
 
@@ -136,6 +141,7 @@ Read the generated `tsconfig.json` and enhance it based on project type:
 Generate appropriate directory structure and files:
 
 **CLI Tool:**
+
 ```
 project/
 ├── src/
@@ -152,26 +158,29 @@ project/
 ```
 
 Create `src/index.ts`:
+
 ```typescript
 #!/usr/bin/env bun
 
-console.log("Hello from Bun CLI!");
+console.log('Hello from Bun CLI!')
 
 // Example: Parse command line arguments
-const args = process.argv.slice(2);
-console.log("Arguments:", args);
+const args = process.argv.slice(2)
+console.log('Arguments:', args)
 ```
 
 Update `package.json` to add bin field:
+
 ```json
 {
-  "bin": {
-    "your-cli-name": "./src/index.ts"
-  }
+	"bin": {
+		"your-cli-name": "./src/index.ts"
+	}
 }
 ```
 
 **Web App:**
+
 ```
 project/
 ├── src/
@@ -190,6 +199,7 @@ project/
 ```
 
 **API Server:**
+
 ```
 project/
 ├── src/
@@ -207,18 +217,20 @@ project/
 ```
 
 Create `src/index.ts`:
+
 ```typescript
 const server = Bun.serve({
-  port: 3000,
-  fetch(request) {
-    return new Response("Welcome to Bun!");
-  },
-});
+	port: 3000,
+	fetch(request) {
+		return new Response('Welcome to Bun!')
+	},
+})
 
-console.log(`Server running at http://localhost:${server.port}`);
+console.log(`Server running at http://localhost:${server.port}`)
 ```
 
 **Library:**
+
 ```
 project/
 ├── src/
@@ -291,50 +303,54 @@ PORT=3000
 Add project-type-specific scripts:
 
 **CLI Tool:**
+
 ```json
 {
-  "scripts": {
-    "dev": "bun run src/index.ts",
-    "test": "bun test",
-    "lint": "bun run --bun eslint src",
-    "typecheck": "bun run --bun tsc --noEmit"
-  }
+	"scripts": {
+		"dev": "bun run src/index.ts",
+		"test": "bun test",
+		"lint": "bun run --bun eslint src",
+		"typecheck": "bun run --bun tsc --noEmit"
+	}
 }
 ```
 
 **Web App:**
+
 ```json
 {
-  "scripts": {
-    "dev": "bun run --hot src/index.tsx",
-    "build": "bun build src/index.tsx --outdir=dist --minify",
-    "test": "bun test",
-    "typecheck": "bun run --bun tsc --noEmit"
-  }
+	"scripts": {
+		"dev": "bun run --hot src/index.tsx",
+		"build": "bun build src/index.tsx --outdir=dist --minify",
+		"test": "bun test",
+		"typecheck": "bun run --bun tsc --noEmit"
+	}
 }
 ```
 
 **API Server:**
+
 ```json
 {
-  "scripts": {
-    "dev": "bun run --hot src/index.ts",
-    "start": "bun run src/index.ts",
-    "test": "bun test",
-    "typecheck": "bun run --bun tsc --noEmit"
-  }
+	"scripts": {
+		"dev": "bun run --hot src/index.ts",
+		"start": "bun run src/index.ts",
+		"test": "bun test",
+		"typecheck": "bun run --bun tsc --noEmit"
+	}
 }
 ```
 
 **Library:**
+
 ```json
 {
-  "scripts": {
-    "build": "bun build src/index.ts --outdir=dist --minify --sourcemap=external",
-    "test": "bun test",
-    "typecheck": "bun run --bun tsc --noEmit",
-    "prepublishOnly": "bun run build && bun test"
-  }
+	"scripts": {
+		"build": "bun build src/index.ts --outdir=dist --minify --sourcemap=external",
+		"test": "bun test",
+		"typecheck": "bun run --bun tsc --noEmit",
+		"prepublishOnly": "bun run build && bun test"
+	}
 }
 ```
 
@@ -343,24 +359,28 @@ Add project-type-specific scripts:
 Suggest installing common dependencies based on project type:
 
 **CLI Tool:**
+
 ```bash
 bun add commander chalk ora
 bun add -d @types/node
 ```
 
 **Web App:**
+
 ```bash
 bun add react react-dom
 bun add -d @types/react @types/react-dom
 ```
 
 **API Server:**
+
 ```bash
 bun add hono
 bun add -d @types/node
 ```
 
 **Library:**
+
 ```bash
 # No default dependencies - user will add as needed
 ```
@@ -370,13 +390,13 @@ bun add -d @types/node
 Create a basic test file in `tests/`:
 
 ```typescript
-import { describe, expect, test } from "bun:test";
+import {describe, expect, test} from 'bun:test'
 
-describe("Initial test", () => {
-  test("basic assertion", () => {
-    expect(1 + 1).toBe(2);
-  });
-});
+describe('Initial test', () => {
+	test('basic assertion', () => {
+		expect(1 + 1).toBe(2)
+	})
+})
 ```
 
 ## Post-Initialization Checklist
@@ -404,41 +424,45 @@ After completing the setup, provide the user with:
 **If user wants workspaces (monorepo):**
 
 Add to `package.json`:
+
 ```json
 {
-  "workspaces": ["packages/*"]
+	"workspaces": ["packages/*"]
 }
 ```
 
 **If user wants path aliases:**
 
 Add to `tsconfig.json`:
+
 ```json
 {
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"]
-    }
-  }
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./src/*"],
+			"@components/*": ["./src/components/*"]
+		}
+	}
 }
 ```
 
 **If user wants JSX without React:**
 
 Update `tsconfig.json`:
+
 ```json
 {
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact" // or other JSX runtime
-  }
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact" // or other JSX runtime
+	}
 }
 ```
 
 ## Completion
 
 Once all files are created, inform the user that initialization is complete and provide a summary of:
+
 - Project structure
 - Available npm scripts
 - Recommended next steps

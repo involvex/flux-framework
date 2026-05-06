@@ -37,13 +37,13 @@ Optional variable in `android/app/variables.gradle`:
 ## Usage
 
 ```typescript
-import { FileOpener } from '@capawesome-team/capacitor-file-opener';
+import {FileOpener} from '@capawesome-team/capacitor-file-opener'
 
 const open = async () => {
-  await FileOpener.openFile({
-    path: 'content://com.android.providers.downloads.documents/document/msf%3A1000000073',
-  });
-};
+	await FileOpener.openFile({
+		path: 'content://com.android.providers.downloads.documents/document/msf%3A1000000073',
+	})
+}
 ```
 
 ## Key Options

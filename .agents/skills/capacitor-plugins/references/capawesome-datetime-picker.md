@@ -18,26 +18,26 @@ No platform-specific configuration required.
 ## Usage
 
 ```typescript
-import { DatetimePicker } from '@capawesome-team/capacitor-datetime-picker';
+import {DatetimePicker} from '@capawesome-team/capacitor-datetime-picker'
 
 const present = async () => {
-  const date = new Date('1995-12-24T02:23:00');
+	const date = new Date('1995-12-24T02:23:00')
 
-  const { value } = await DatetimePicker.present({
-    cancelButtonText: 'Cancel',
-    doneButtonText: 'Ok',
-    mode: 'time',
-    value: date.toISOString(),
-    theme: 'dark',
-    locale: 'en-US',
-  });
+	const {value} = await DatetimePicker.present({
+		cancelButtonText: 'Cancel',
+		doneButtonText: 'Ok',
+		mode: 'time',
+		value: date.toISOString(),
+		theme: 'dark',
+		locale: 'en-US',
+	})
 
-  return value;
-};
+	return value
+}
 
 const cancel = async () => {
-  await DatetimePicker.cancel();
-};
+	await DatetimePicker.cancel()
+}
 ```
 
 ## Key Options

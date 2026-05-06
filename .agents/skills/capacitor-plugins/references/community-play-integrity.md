@@ -22,17 +22,17 @@ This plugin uses the following project variable (defined in `android/variables.g
 ## Usage
 
 ```typescript
-import { PlayIntegrity } from '@capacitor-community/play-integrity';
+import {PlayIntegrity} from '@capacitor-community/play-integrity'
 
 try {
-  const result = await PlayIntegrity.requestIntegrityToken({
-    nonce: 'your-unique-nonce',
-    googleCloudProjectNumber: 0, // 0 for default, or your Firebase project number
-  });
-  // Send result.token to your backend for decryption and verification
-  console.log('Play Integrity token', result.token);
+	const result = await PlayIntegrity.requestIntegrityToken({
+		nonce: 'your-unique-nonce',
+		googleCloudProjectNumber: 0, // 0 for default, or your Firebase project number
+	})
+	// Send result.token to your backend for decryption and verification
+	console.log('Play Integrity token', result.token)
 } catch (err) {
-  // Handle error - consider reporting to backend and exiting the app
+	// Handle error - consider reporting to backend and exiting the app
 }
 ```
 

@@ -20,6 +20,7 @@ npx cap sync
 ### Android
 
 Set up Play Integrity via Firebase Console. Set Gradle variables in `variables.gradle`:
+
 - `firebaseAppCheckPlayIntegrityVersion` (default: `19.0.1`)
 - `firebaseAppCheckDebugVersion` (default: `19.0.1`)
 
@@ -35,17 +36,17 @@ Set up reCAPTCHA provider via Firebase Console.
 ## Usage
 
 ```typescript
-import { FirebaseAppCheck } from '@capacitor-firebase/app-check';
+import {FirebaseAppCheck} from '@capacitor-firebase/app-check'
 
 await FirebaseAppCheck.initialize({
-  debugToken: true, // For development only
-});
+	debugToken: true, // For development only
+})
 
-const { token } = await FirebaseAppCheck.getToken({ forceRefresh: false });
+const {token} = await FirebaseAppCheck.getToken({forceRefresh: false})
 
-await FirebaseAppCheck.addListener('tokenChanged', (event) => {
-  console.log('tokenChanged', event);
-});
+await FirebaseAppCheck.addListener('tokenChanged', event => {
+	console.log('tokenChanged', event)
+})
 ```
 
 ## Notes

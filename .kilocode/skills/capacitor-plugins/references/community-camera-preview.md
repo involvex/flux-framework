@@ -43,29 +43,29 @@ Add the following keys to `ios/App/App/Info.plist`:
 ## Usage
 
 ```typescript
-import { CameraPreview } from '@capacitor-community/camera-preview';
+import {CameraPreview} from '@capacitor-community/camera-preview'
 
 // Start preview
 await CameraPreview.start({
-  position: 'rear',
-  width: 1080,
-  height: 1920,
-  toBack: true,
-});
+	position: 'rear',
+	width: 1080,
+	height: 1920,
+	toBack: true,
+})
 
 // Capture a photo (returns base64 by default)
-const result = await CameraPreview.capture({ quality: 85 });
-const base64Data = result.value;
+const result = await CameraPreview.capture({quality: 85})
+const base64Data = result.value
 
 // Flip between front/rear camera (Android/iOS only)
-await CameraPreview.flip();
+await CameraPreview.flip()
 
 // Record video (Android/iOS only)
-await CameraPreview.startRecordVideo({ position: 'rear' });
-const video = await CameraPreview.stopRecordVideo();
+await CameraPreview.startRecordVideo({position: 'rear'})
+const video = await CameraPreview.stopRecordVideo()
 
 // Stop preview
-await CameraPreview.stop();
+await CameraPreview.stop()
 ```
 
 ## Notes

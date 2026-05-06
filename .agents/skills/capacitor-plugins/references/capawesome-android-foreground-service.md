@@ -43,88 +43,91 @@ Replace `location` with your desired foreground service type.
 ### Start a foreground service
 
 ```typescript
-import { ForegroundService } from '@capawesome-team/capacitor-android-foreground-service';
+import {ForegroundService} from '@capawesome-team/capacitor-android-foreground-service'
 
 await ForegroundService.startForegroundService({
-  id: 1,
-  title: 'Title',
-  body: 'Body',
-  smallIcon: 'ic_stat_icon_config_sample',
-  buttons: [
-    { title: 'Button 1', id: 1 },
-    { title: 'Button 2', id: 2 },
-  ],
-  silent: false,
-  notificationChannelId: 'default',
-});
+	id: 1,
+	title: 'Title',
+	body: 'Body',
+	smallIcon: 'ic_stat_icon_config_sample',
+	buttons: [
+		{title: 'Button 1', id: 1},
+		{title: 'Button 2', id: 2},
+	],
+	silent: false,
+	notificationChannelId: 'default',
+})
 ```
 
 ### Update the foreground service notification
 
 ```typescript
-import { ForegroundService } from '@capawesome-team/capacitor-android-foreground-service';
+import {ForegroundService} from '@capawesome-team/capacitor-android-foreground-service'
 
 await ForegroundService.updateForegroundService({
-  id: 1,
-  title: 'Updated Title',
-  body: 'Updated Body',
-  smallIcon: 'ic_stat_icon_config_sample',
-});
+	id: 1,
+	title: 'Updated Title',
+	body: 'Updated Body',
+	smallIcon: 'ic_stat_icon_config_sample',
+})
 ```
 
 ### Stop the foreground service
 
 ```typescript
-import { ForegroundService } from '@capawesome-team/capacitor-android-foreground-service';
+import {ForegroundService} from '@capawesome-team/capacitor-android-foreground-service'
 
-await ForegroundService.stopForegroundService();
+await ForegroundService.stopForegroundService()
 ```
 
 ### Create a notification channel
 
 ```typescript
-import { ForegroundService, Importance } from '@capawesome-team/capacitor-android-foreground-service';
+import {
+	ForegroundService,
+	Importance,
+} from '@capawesome-team/capacitor-android-foreground-service'
 
 await ForegroundService.createNotificationChannel({
-  id: 'default',
-  name: 'Default',
-  description: 'Default channel',
-  importance: Importance.Default,
-});
+	id: 'default',
+	name: 'Default',
+	description: 'Default channel',
+	importance: Importance.Default,
+})
 ```
 
 ### Handle notification button clicks
 
 ```typescript
-import { ForegroundService } from '@capawesome-team/capacitor-android-foreground-service';
+import {ForegroundService} from '@capawesome-team/capacitor-android-foreground-service'
 
-await ForegroundService.addListener('buttonClicked', (event) => {
-  console.log('Button clicked:', event.buttonId);
-});
+await ForegroundService.addListener('buttonClicked', event => {
+	console.log('Button clicked:', event.buttonId)
+})
 ```
 
 ### Request notification permissions (Android 13+)
 
 ```typescript
-import { ForegroundService } from '@capawesome-team/capacitor-android-foreground-service';
+import {ForegroundService} from '@capawesome-team/capacitor-android-foreground-service'
 
-const status = await ForegroundService.checkPermissions();
+const status = await ForegroundService.checkPermissions()
 if (status.display !== 'granted') {
-  await ForegroundService.requestPermissions();
+	await ForegroundService.requestPermissions()
 }
 ```
 
 ### Move app to foreground
 
 ```typescript
-import { ForegroundService } from '@capawesome-team/capacitor-android-foreground-service';
+import {ForegroundService} from '@capawesome-team/capacitor-android-foreground-service'
 
 // Requires manage overlay permission on Android SDK 23+
-const { granted } = await ForegroundService.checkManageOverlayPermission();
+const {granted} = await ForegroundService.checkManageOverlayPermission()
 if (!granted) {
-  await ForegroundService.requestManageOverlayPermission();
+	await ForegroundService.requestManageOverlayPermission()
 }
-await ForegroundService.moveToForeground();
+await ForegroundService.moveToForeground()
 ```
 
 ## Notes

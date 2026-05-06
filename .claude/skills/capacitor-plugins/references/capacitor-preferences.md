@@ -31,13 +31,13 @@ Add to `ios/App/PrivacyInfo.xcprivacy` inside `NSPrivacyAccessedAPITypes`:
 ## Usage
 
 ```typescript
-import { Preferences } from '@capacitor/preferences';
+import {Preferences} from '@capacitor/preferences'
 
-await Preferences.set({ key: 'name', value: JSON.stringify({ first: 'John' }) });
-const { value } = await Preferences.get({ key: 'name' });
-await Preferences.remove({ key: 'name' });
-await Preferences.clear();
-const { keys } = await Preferences.keys();
+await Preferences.set({key: 'name', value: JSON.stringify({first: 'John'})})
+const {value} = await Preferences.get({key: 'name'})
+await Preferences.remove({key: 'name'})
+await Preferences.clear()
+const {keys} = await Preferences.keys()
 ```
 
 ## Notes

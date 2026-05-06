@@ -14,10 +14,10 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { Clipboard } from '@capacitor/clipboard';
+import {Clipboard} from '@capacitor/clipboard'
 
-await Clipboard.write({ string: 'Hello World' });
-const { value, type } = await Clipboard.read();
+await Clipboard.write({string: 'Hello World'})
+const {value, type} = await Clipboard.read()
 ```
 
 ## Notes

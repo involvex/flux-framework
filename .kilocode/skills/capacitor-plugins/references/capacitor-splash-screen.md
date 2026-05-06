@@ -17,27 +17,31 @@ In `capacitor.config.ts` (or `.json`):
 
 ```json
 {
-  "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 500,
-      "launchAutoHide": true,
-      "backgroundColor": "#ffffff",
-      "showSpinner": false,
-      "androidScaleType": "CENTER_CROP",
-      "splashFullScreen": false,
-      "splashImmersive": false
-    }
-  }
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 500,
+			"launchAutoHide": true,
+			"backgroundColor": "#ffffff",
+			"showSpinner": false,
+			"androidScaleType": "CENTER_CROP",
+			"splashFullScreen": false,
+			"splashImmersive": false
+		}
+	}
 }
 ```
 
 ## Usage
 
 ```typescript
-import { SplashScreen } from '@capacitor/splash-screen';
+import {SplashScreen} from '@capacitor/splash-screen'
 
-await SplashScreen.show({ autoHide: false, fadeInDuration: 300, fadeOutDuration: 300 });
-await SplashScreen.hide({ fadeOutDuration: 500 });
+await SplashScreen.show({
+	autoHide: false,
+	fadeInDuration: 300,
+	fadeOutDuration: 300,
+})
+await SplashScreen.hide({fadeOutDuration: 500})
 ```
 
 ## Notes

@@ -218,7 +218,7 @@ npx cap run ios
 
 ## Error Handling
 
-* If `npx cap migrate` fails partially, check the terminal output for which steps failed and apply those manually using the steps above.
-* If Android build fails after upgrade, run **Tools > AGP Upgrade Assistant** in Android Studio and select version `8.13.0`.
-* If iOS build fails, verify the deployment target is set to 15.0 in both the Xcode project settings and the Podfile.
-* If Gradle property syntax warnings appear, search all `.gradle` files for property assignments without `=` and update them.
+- If `npx cap migrate` fails partially, check the terminal output for which steps failed and apply those manually using the steps above.
+- If Android build fails after upgrade, run **Tools > AGP Upgrade Assistant** in Android Studio and select version `8.13.0`.
+- If iOS build fails, verify the deployment target is set to 15.0 in both the Xcode project settings and the Podfile.
+- If Gradle property syntax warnings appear, search all `.gradle` files for property assignments without `=` and update them.

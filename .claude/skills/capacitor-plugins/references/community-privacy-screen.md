@@ -19,36 +19,36 @@ In `capacitor.config.json`:
 
 ```json
 {
-  "plugins": {
-    "PrivacyScreen": {
-      "enable": true,
-      "imageName": "Splashscreen",
-      "contentMode": "scaleAspectFit",
-      "preventScreenshots": false
-    }
-  }
+	"plugins": {
+		"PrivacyScreen": {
+			"enable": true,
+			"imageName": "Splashscreen",
+			"contentMode": "scaleAspectFit",
+			"preventScreenshots": false
+		}
+	}
 }
 ```
 
-| Option               | Type    | Default    | Description                                                        | Platform |
-| -------------------- | ------- | ---------- | ------------------------------------------------------------------ | -------- |
-| `enable`             | boolean | `true`     | Enable privacy screen on startup.                                  | Both     |
-| `imageName`          | string  | `""`       | Custom image from assets to display instead of a gray background.  | iOS      |
-| `contentMode`        | string  | `"center"` | Content mode: `center`, `scaleToFill`, `scaleAspectFit`, `scaleAspectFill`. | iOS |
-| `preventScreenshots` | boolean | `true`     | Prevent screenshots when enabled.                                  | iOS      |
+| Option               | Type    | Default    | Description                                                                 | Platform |
+| -------------------- | ------- | ---------- | --------------------------------------------------------------------------- | -------- |
+| `enable`             | boolean | `true`     | Enable privacy screen on startup.                                           | Both     |
+| `imageName`          | string  | `""`       | Custom image from assets to display instead of a gray background.           | iOS      |
+| `contentMode`        | string  | `"center"` | Content mode: `center`, `scaleToFill`, `scaleAspectFit`, `scaleAspectFill`. | iOS      |
+| `preventScreenshots` | boolean | `true`     | Prevent screenshots when enabled.                                           | iOS      |
 
 ## Usage
 
 ```typescript
-import { PrivacyScreen } from '@capacitor-community/privacy-screen';
+import {PrivacyScreen} from '@capacitor-community/privacy-screen'
 
-await PrivacyScreen.enable();
-await PrivacyScreen.disable();
+await PrivacyScreen.enable()
+await PrivacyScreen.disable()
 
 // Listen for screen recording and screenshot events (iOS only)
-PrivacyScreen.addListener('screenRecordingStarted', () => {});
-PrivacyScreen.addListener('screenRecordingStopped', () => {});
-PrivacyScreen.addListener('screenshotTaken', () => {});
+PrivacyScreen.addListener('screenRecordingStarted', () => {})
+PrivacyScreen.addListener('screenRecordingStopped', () => {})
+PrivacyScreen.addListener('screenshotTaken', () => {})
 ```
 
 ## Notes

@@ -22,41 +22,41 @@ No configuration required for this plugin.
 ### Copy a file from the app bundle to the data directory
 
 ```typescript
-import { Directory, Filesystem } from '@capacitor/filesystem';
-import { AssetManager, Encoding } from '@capawesome/capacitor-asset-manager';
+import {AssetManager, Encoding} from '@capawesome/capacitor-asset-manager'
+import {Directory, Filesystem} from '@capacitor/filesystem'
 
 const copy = async () => {
-  const { uri } = await Filesystem.getUri({
-    directory: Directory.Cache,
-    path: 'index.html'
-  });
-  await AssetManager.copy({
-    from: 'public/index.html',
-    to: uri
-  });
-};
+	const {uri} = await Filesystem.getUri({
+		directory: Directory.Cache,
+		path: 'index.html',
+	})
+	await AssetManager.copy({
+		from: 'public/index.html',
+		to: uri,
+	})
+}
 ```
 
 ### List files in a directory
 
 ```typescript
 const list = async () => {
-  const { files } = await AssetManager.list({
-    path: 'public'
-  });
-};
+	const {files} = await AssetManager.list({
+		path: 'public',
+	})
+}
 ```
 
 ### Read a file from the app bundle
 
 ```typescript
 const read = async () => {
-  const { data } = await AssetManager.read({
-    encoding: Encoding.Utf8,
-    path: 'capacitor.config.json'
-  });
-  return JSON.parse(data);
-};
+	const {data} = await AssetManager.read({
+		encoding: Encoding.Utf8,
+		path: 'capacitor.config.json',
+	})
+	return JSON.parse(data)
+}
 ```
 
 ## Notes

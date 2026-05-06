@@ -53,33 +53,35 @@ Optionally customize the background notification in `android/app/src/main/res/va
 ## Usage
 
 ```typescript
-import { registerPlugin } from '@capacitor/core';
-import type { BackgroundGeolocationPlugin } from '@capacitor-community/background-geolocation';
+import type {BackgroundGeolocationPlugin} from '@capacitor-community/background-geolocation'
+import {registerPlugin} from '@capacitor/core'
 
-const BackgroundGeolocation = registerPlugin<BackgroundGeolocationPlugin>('BackgroundGeolocation');
+const BackgroundGeolocation = registerPlugin<BackgroundGeolocationPlugin>(
+	'BackgroundGeolocation',
+)
 
 // Add a watcher for location updates
 const watcherId = await BackgroundGeolocation.addWatcher(
-  {
-    backgroundMessage: 'Cancel to prevent battery drain.',
-    backgroundTitle: 'Tracking You.',
-    requestPermissions: true,
-    stale: false,
-    distanceFilter: 50,
-  },
-  (location, error) => {
-    if (error) {
-      if (error.code === 'NOT_AUTHORIZED') {
-        BackgroundGeolocation.openSettings();
-      }
-      return console.error(error);
-    }
-    console.log(location);
-  },
-);
+	{
+		backgroundMessage: 'Cancel to prevent battery drain.',
+		backgroundTitle: 'Tracking You.',
+		requestPermissions: true,
+		stale: false,
+		distanceFilter: 50,
+	},
+	(location, error) => {
+		if (error) {
+			if (error.code === 'NOT_AUTHORIZED') {
+				BackgroundGeolocation.openSettings()
+			}
+			return console.error(error)
+		}
+		console.log(location)
+	},
+)
 
 // Remove the watcher when no longer needed
-BackgroundGeolocation.removeWatcher({ id: watcherId });
+BackgroundGeolocation.removeWatcher({id: watcherId})
 ```
 
 ## Notes

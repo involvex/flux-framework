@@ -34,19 +34,19 @@ To disable IDFA collection, use `CapacitorFirebaseAnalytics/AnalyticsWithoutAdId
 ## Usage
 
 ```typescript
-import { FirebaseAnalytics } from '@capacitor-firebase/analytics';
+import {FirebaseAnalytics} from '@capacitor-firebase/analytics'
 
 await FirebaseAnalytics.logEvent({
-  name: 'sign_up',
-  params: { method: 'password' },
-});
+	name: 'sign_up',
+	params: {method: 'password'},
+})
 
-await FirebaseAnalytics.setUserId({ userId: '123' });
+await FirebaseAnalytics.setUserId({userId: '123'})
 
 await FirebaseAnalytics.setCurrentScreen({
-  screenName: 'Login',
-  screenClassOverride: 'LoginPage',
-});
+	screenName: 'Login',
+	screenClassOverride: 'LoginPage',
+})
 ```
 
 ## Notes

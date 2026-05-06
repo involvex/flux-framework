@@ -26,60 +26,72 @@ Optionally define in `android/variables.gradle`:
 ### Get app update info
 
 ```typescript
-import { Capacitor } from '@capacitor/core';
-import { AppUpdate } from '@capawesome/capacitor-app-update';
+import {AppUpdate} from '@capawesome/capacitor-app-update'
+import {Capacitor} from '@capacitor/core'
 
-const result = await AppUpdate.getAppUpdateInfo();
+const result = await AppUpdate.getAppUpdateInfo()
 if (Capacitor.getPlatform() === 'android') {
-  console.log('Current version code:', result.currentVersionCode);
-  console.log('Available version code:', result.availableVersionCode);
+	console.log('Current version code:', result.currentVersionCode)
+	console.log('Available version code:', result.availableVersionCode)
 } else {
-  console.log('Current version:', result.currentVersionName);
-  console.log('Available version:', result.availableVersionName);
+	console.log('Current version:', result.currentVersionName)
+	console.log('Available version:', result.availableVersionName)
 }
 ```
 
 ### Open the app store
 
 ```typescript
-import { AppUpdate } from '@capawesome/capacitor-app-update';
+import {AppUpdate} from '@capawesome/capacitor-app-update'
 
-await AppUpdate.openAppStore();
+await AppUpdate.openAppStore()
 
 // With options:
 await AppUpdate.openAppStore({
-  androidPackageName: 'com.example.app',  // Android only
-  appId: '123456789',                      // iOS only
-});
+	androidPackageName: 'com.example.app', // Android only
+	appId: '123456789', // iOS only
+})
 ```
 
 ### Perform an immediate update (Android only)
 
 ```typescript
-import { AppUpdate, AppUpdateAvailability } from '@capawesome/capacitor-app-update';
+import {
+	AppUpdate,
+	AppUpdateAvailability,
+} from '@capawesome/capacitor-app-update'
 
-const info = await AppUpdate.getAppUpdateInfo();
-if (info.updateAvailability === AppUpdateAvailability.UPDATE_AVAILABLE && info.immediateUpdateAllowed) {
-  await AppUpdate.performImmediateUpdate();
+const info = await AppUpdate.getAppUpdateInfo()
+if (
+	info.updateAvailability === AppUpdateAvailability.UPDATE_AVAILABLE &&
+	info.immediateUpdateAllowed
+) {
+	await AppUpdate.performImmediateUpdate()
 }
 ```
 
 ### Flexible update flow (Android only)
 
 ```typescript
-import { AppUpdate, AppUpdateAvailability } from '@capawesome/capacitor-app-update';
+import {
+	AppUpdate,
+	AppUpdateAvailability,
+} from '@capawesome/capacitor-app-update'
 
-const info = await AppUpdate.getAppUpdateInfo();
-if (info.updateAvailability === AppUpdateAvailability.UPDATE_AVAILABLE && info.flexibleUpdateAllowed) {
-  await AppUpdate.addListener('onFlexibleUpdateStateChange', (state) => {
-    console.log('Install status:', state.installStatus);
-    console.log('Bytes downloaded:', state.bytesDownloaded);
-  });
+const info = await AppUpdate.getAppUpdateInfo()
+if (
+	info.updateAvailability === AppUpdateAvailability.UPDATE_AVAILABLE &&
+	info.flexibleUpdateAllowed
+) {
+	await AppUpdate.addListener('onFlexibleUpdateStateChange', state => {
+		console.log('Install status:', state.installStatus)
+		console.log('Bytes downloaded:', state.bytesDownloaded)
+	})
 
-  await AppUpdate.startFlexibleUpdate();
+	await AppUpdate.startFlexibleUpdate()
 
-  // After download completes, restart to install:
-  await AppUpdate.completeFlexibleUpdate();
+	// After download completes, restart to install:
+	await AppUpdate.completeFlexibleUpdate()
 }
 ```
 

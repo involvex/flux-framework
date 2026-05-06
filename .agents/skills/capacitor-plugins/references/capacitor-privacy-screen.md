@@ -14,15 +14,15 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { PrivacyScreen } from '@capacitor/privacy-screen';
+import {PrivacyScreen} from '@capacitor/privacy-screen'
 
 await PrivacyScreen.enable({
-  android: { preventScreenshots: true, privacyModeOnActivityHidden: 'dim' },
-  ios: { blurEffect: 'dark' },
-});
+	android: {preventScreenshots: true, privacyModeOnActivityHidden: 'dim'},
+	ios: {blurEffect: 'dark'},
+})
 
-const { enabled } = await PrivacyScreen.isEnabled();
-await PrivacyScreen.disable();
+const {enabled} = await PrivacyScreen.isEnabled()
+await PrivacyScreen.disable()
 ```
 
 ## Notes

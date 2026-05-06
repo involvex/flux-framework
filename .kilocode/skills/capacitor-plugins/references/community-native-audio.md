@@ -22,47 +22,47 @@ Audio files must be placed in platform-specific folders:
 ## Usage
 
 ```typescript
-import { NativeAudio } from '@capacitor-community/native-audio';
+import {NativeAudio} from '@capacitor-community/native-audio'
 
 // Preload an audio file
 await NativeAudio.preload({
-  assetId: 'fire',
-  assetPath: 'fire.mp3',
-  audioChannelNum: 1,
-  isUrl: false,
-});
+	assetId: 'fire',
+	assetPath: 'fire.mp3',
+	audioChannelNum: 1,
+	isUrl: false,
+})
 
 // Play
-await NativeAudio.play({ assetId: 'fire' });
+await NativeAudio.play({assetId: 'fire'})
 
 // Play with seek (start at 6 seconds)
-await NativeAudio.play({ assetId: 'fire', time: 6.0 });
+await NativeAudio.play({assetId: 'fire', time: 6.0})
 
 // Loop
-await NativeAudio.loop({ assetId: 'fire' });
+await NativeAudio.loop({assetId: 'fire'})
 
 // Pause / Resume
-await NativeAudio.pause({ assetId: 'fire' });
-await NativeAudio.resume({ assetId: 'fire' });
+await NativeAudio.pause({assetId: 'fire'})
+await NativeAudio.resume({assetId: 'fire'})
 
 // Set volume (0.1 - 1.0)
-await NativeAudio.setVolume({ assetId: 'fire', volume: 0.4 });
+await NativeAudio.setVolume({assetId: 'fire', volume: 0.4})
 
 // Get duration and current time (only works if audioChannelNum == 1)
-const { duration } = await NativeAudio.getDuration({ assetId: 'fire' });
-const { currentTime } = await NativeAudio.getCurrentTime({ assetId: 'fire' });
+const {duration} = await NativeAudio.getDuration({assetId: 'fire'})
+const {currentTime} = await NativeAudio.getCurrentTime({assetId: 'fire'})
 
 // Check if playing
-const { isPlaying } = await NativeAudio.isPlaying({ assetId: 'fire' });
+const {isPlaying} = await NativeAudio.isPlaying({assetId: 'fire'})
 
 // Stop and unload
-await NativeAudio.stop({ assetId: 'fire' });
-await NativeAudio.unload({ assetId: 'fire' });
+await NativeAudio.stop({assetId: 'fire'})
+await NativeAudio.unload({assetId: 'fire'})
 
 // Listen for playback completion
-await NativeAudio.addListener('complete', (event) => {
-  console.log(`Asset ${event.assetId} finished playing`);
-});
+await NativeAudio.addListener('complete', event => {
+	console.log(`Asset ${event.assetId} finished playing`)
+})
 ```
 
 ## Notes

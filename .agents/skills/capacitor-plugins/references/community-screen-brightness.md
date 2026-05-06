@@ -14,13 +14,13 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { ScreenBrightness } from '@capacitor-community/screen-brightness';
+import {ScreenBrightness} from '@capacitor-community/screen-brightness'
 
 // Set brightness (0.0 = very dim, 1.0 = full brightness)
-await ScreenBrightness.setBrightness({ brightness: 0.5 });
+await ScreenBrightness.setBrightness({brightness: 0.5})
 
 // Get current brightness
-const { brightness } = await ScreenBrightness.getBrightness();
+const {brightness} = await ScreenBrightness.getBrightness()
 ```
 
 ## Notes

@@ -65,12 +65,12 @@ Optional configuration in `capacitor.config.ts`:
 
 ```typescript
 const config: CapacitorConfig = {
-  plugins: {
-    Wifi: {
-      useWifiManager: false, // Use deprecated WifiManager API on Android (default: false)
-    },
-  },
-};
+	plugins: {
+		Wifi: {
+			useWifiManager: false, // Use deprecated WifiManager API on Android (default: false)
+		},
+	},
+}
 ```
 
 ## Usage
@@ -78,39 +78,39 @@ const config: CapacitorConfig = {
 ### Connect and disconnect
 
 ```typescript
-import { Wifi } from '@capawesome-team/capacitor-wifi';
+import {Wifi} from '@capawesome-team/capacitor-wifi'
 
 await Wifi.connect({
-  ssid: 'MyNetwork',
-  password: 'MyPassword',
-  isHiddenSsid: false,
-});
+	ssid: 'MyNetwork',
+	password: 'MyPassword',
+	isHiddenSsid: false,
+})
 
-await Wifi.disconnect();
+await Wifi.disconnect()
 ```
 
 ### Get network info
 
 ```typescript
-import { Wifi } from '@capawesome-team/capacitor-wifi';
+import {Wifi} from '@capawesome-team/capacitor-wifi'
 
-const { ssid } = await Wifi.getSsid();
-const { address } = await Wifi.getIpAddress();
-const { rssi } = await Wifi.getRssi();
-const { enabled } = await Wifi.isEnabled();
+const {ssid} = await Wifi.getSsid()
+const {address} = await Wifi.getIpAddress()
+const {rssi} = await Wifi.getRssi()
+const {enabled} = await Wifi.isEnabled()
 ```
 
 ### Scan for networks
 
 ```typescript
-import { Wifi } from '@capawesome-team/capacitor-wifi';
+import {Wifi} from '@capawesome-team/capacitor-wifi'
 
-await Wifi.addListener('networksScanned', (event) => {
-  console.log('Networks:', event.networks);
-});
+await Wifi.addListener('networksScanned', event => {
+	console.log('Networks:', event.networks)
+})
 
-await Wifi.startScan();
-const { networks } = await Wifi.getAvailableNetworks();
+await Wifi.startScan()
+const {networks} = await Wifi.getAvailableNetworks()
 ```
 
 ## Notes

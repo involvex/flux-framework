@@ -29,13 +29,13 @@ Add to `ios/App/App/Info.plist`:
 ## Usage
 
 ```typescript
-import { BarcodeScanner } from '@capacitor/barcode-scanner';
+import {BarcodeScanner} from '@capacitor/barcode-scanner'
 
 const result = await BarcodeScanner.scanBarcode({
-  hint: CapacitorBarcodeScannerTypeHint.QR_CODE,
-  cameraDirection: CapacitorBarcodeScannerCameraDirection.BACK,
-});
-console.log(result.ScanResult);
+	hint: CapacitorBarcodeScannerTypeHint.QR_CODE,
+	cameraDirection: CapacitorBarcodeScannerCameraDirection.BACK,
+})
+console.log(result.ScanResult)
 ```
 
 ## Notes

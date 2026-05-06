@@ -92,6 +92,6 @@ Build the plugin's test/example app on both platforms to verify.
 
 ## Error Handling
 
-* If the automated upgrade tool fails, apply the manual steps above for the failing parts.
-* If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
-* If TypeScript compilation fails, check for `addListener` calls that use `& PluginListenerHandle` in the return type.
+- If the automated upgrade tool fails, apply the manual steps above for the failing parts.
+- If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
+- If TypeScript compilation fails, check for `addListener` calls that use `& PluginListenerHandle` in the return type.

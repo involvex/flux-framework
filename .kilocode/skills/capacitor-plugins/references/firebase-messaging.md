@@ -51,11 +51,11 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 
 ```json
 {
-  "plugins": {
-    "FirebaseMessaging": {
-      "presentationOptions": ["alert", "badge", "sound"]
-    }
-  }
+	"plugins": {
+		"FirebaseMessaging": {
+			"presentationOptions": ["alert", "badge", "sound"]
+		}
+	}
 }
 ```
 
@@ -66,19 +66,19 @@ Configure Web Credentials with FCM (VAPID key). Add `firebase-messaging-sw.js` t
 ## Usage
 
 ```typescript
-import { FirebaseMessaging } from '@capacitor-firebase/messaging';
+import {FirebaseMessaging} from '@capacitor-firebase/messaging'
 
-await FirebaseMessaging.requestPermissions();
-const { token } = await FirebaseMessaging.getToken();
+await FirebaseMessaging.requestPermissions()
+const {token} = await FirebaseMessaging.getToken()
 
-await FirebaseMessaging.subscribeToTopic({ topic: 'news' });
+await FirebaseMessaging.subscribeToTopic({topic: 'news'})
 
-await FirebaseMessaging.addListener('notificationReceived', (event) => {
-  console.log('notificationReceived', event);
-});
-await FirebaseMessaging.addListener('notificationActionPerformed', (event) => {
-  console.log('notificationActionPerformed', event);
-});
+await FirebaseMessaging.addListener('notificationReceived', event => {
+	console.log('notificationReceived', event)
+})
+await FirebaseMessaging.addListener('notificationActionPerformed', event => {
+	console.log('notificationActionPerformed', event)
+})
 ```
 
 ## Notes

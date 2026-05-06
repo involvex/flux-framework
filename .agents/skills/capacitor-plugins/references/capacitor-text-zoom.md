@@ -14,11 +14,11 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { TextZoom } from '@capacitor/text-zoom';
+import {TextZoom} from '@capacitor/text-zoom'
 
-const { value: currentZoom } = await TextZoom.get();
-const { value: preferred } = await TextZoom.getPreferred();
-await TextZoom.set({ value: 1.5 });
+const {value: currentZoom} = await TextZoom.get()
+const {value: preferred} = await TextZoom.getPreferred()
+await TextZoom.set({value: 1.5})
 ```
 
 ## Notes

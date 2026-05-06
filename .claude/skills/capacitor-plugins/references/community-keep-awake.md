@@ -14,13 +14,13 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { KeepAwake } from '@capacitor-community/keep-awake';
+import {KeepAwake} from '@capacitor-community/keep-awake'
 
-await KeepAwake.keepAwake();
-await KeepAwake.allowSleep();
+await KeepAwake.keepAwake()
+await KeepAwake.allowSleep()
 
-const { isSupported } = await KeepAwake.isSupported();
-const { isKeptAwake } = await KeepAwake.isKeptAwake();
+const {isSupported} = await KeepAwake.isSupported()
+const {isKeptAwake} = await KeepAwake.isKeptAwake()
 ```
 
 ## Notes

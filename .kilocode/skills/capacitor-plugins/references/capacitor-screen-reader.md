@@ -14,14 +14,14 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { ScreenReader } from '@capacitor/screen-reader';
+import {ScreenReader} from '@capacitor/screen-reader'
 
-const { value: isActive } = await ScreenReader.isEnabled();
-await ScreenReader.speak({ value: 'Hello World', language: 'en' });
+const {value: isActive} = await ScreenReader.isEnabled()
+await ScreenReader.speak({value: 'Hello World', language: 'en'})
 
-ScreenReader.addListener('stateChange', ({ value }) => {
-  console.log('Screen reader active:', value);
-});
+ScreenReader.addListener('stateChange', ({value}) => {
+	console.log('Screen reader active:', value)
+})
 ```
 
 ## Notes

@@ -28,6 +28,7 @@ Add inside `<application>`:
 ```
 
 Optional `variables.gradle` variables:
+
 - `mlkitBarcodeScanningVersion` (default: `17.3.0`)
 - `playServicesCodeScannerVersion` (default: `16.1.0`)
 
@@ -57,41 +58,44 @@ Optional polyfill: `npm install barcode-detector` then `import "barcode-detector
 ### Continuous Scanning
 
 ```typescript
-import { BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
+import {BarcodeScanner} from '@capacitor-mlkit/barcode-scanning'
 
-document.querySelector('body')?.classList.add('barcode-scanner-active');
+document.querySelector('body')?.classList.add('barcode-scanner-active')
 
-const listener = await BarcodeScanner.addListener('barcodeScanned', async (result) => {
-  console.log(result.barcode);
-});
-await BarcodeScanner.startScan();
+const listener = await BarcodeScanner.addListener(
+	'barcodeScanned',
+	async result => {
+		console.log(result.barcode)
+	},
+)
+await BarcodeScanner.startScan()
 ```
 
 To stop:
 
 ```typescript
-document.querySelector('body')?.classList.remove('barcode-scanner-active');
-await BarcodeScanner.removeAllListeners();
-await BarcodeScanner.stopScan();
+document.querySelector('body')?.classList.remove('barcode-scanner-active')
+await BarcodeScanner.removeAllListeners()
+await BarcodeScanner.stopScan()
 ```
 
 ### Ready-to-Use Interface
 
 ```typescript
-import { BarcodeScanner, BarcodeFormat } from '@capacitor-mlkit/barcode-scanning';
+import {BarcodeScanner, BarcodeFormat} from '@capacitor-mlkit/barcode-scanning'
 
-const { barcodes } = await BarcodeScanner.scan({
-  formats: [BarcodeFormat.QrCode],
-});
+const {barcodes} = await BarcodeScanner.scan({
+	formats: [BarcodeFormat.QrCode],
+})
 ```
 
 ### Scan from Image
 
 ```typescript
-const { barcodes } = await BarcodeScanner.readBarcodesFromImage({
-  path: '/path/to/image',
-  formats: [BarcodeFormat.QrCode],
-});
+const {barcodes} = await BarcodeScanner.readBarcodesFromImage({
+	path: '/path/to/image',
+	formats: [BarcodeFormat.QrCode],
+})
 ```
 
 ## Notes
@@ -99,11 +103,13 @@ const { barcodes } = await BarcodeScanner.readBarcodesFromImage({
 - Camera renders behind the WebView. Hide non-scanner UI via CSS:
   ```css
   body.barcode-scanner-active {
-    visibility: hidden;
-    --background: transparent;
-    --ion-background-color: transparent;
+  	visibility: hidden;
+  	--background: transparent;
+  	--ion-background-color: transparent;
   }
-  .barcode-scanner-modal { visibility: visible; }
+  .barcode-scanner-modal {
+  	visibility: visible;
+  }
   ```
 - `scan()` on Android requires Google Play Services. Check with `isGoogleBarcodeScannerModuleAvailable()` first.
 - Supported formats: Aztec, Codabar, Code39, Code93, Code128, DataMatrix, Ean8, Ean13, Itf, Pdf417, QrCode, UpcA, UpcE.

@@ -51,28 +51,28 @@ Replace `YOUR_IOS_CLIENT_ID` with the reversed client ID from Google Cloud Conso
 ## Usage
 
 ```typescript
-import { GoogleSignIn } from '@capawesome/capacitor-google-sign-in';
+import {GoogleSignIn} from '@capawesome/capacitor-google-sign-in'
 
 const initialize = async () => {
-  await GoogleSignIn.initialize({
-    clientId: '123456789-abc.apps.googleusercontent.com',
-    scopes: ['https://www.googleapis.com/auth/userinfo.profile'],
-  });
-};
+	await GoogleSignIn.initialize({
+		clientId: '123456789-abc.apps.googleusercontent.com',
+		scopes: ['https://www.googleapis.com/auth/userinfo.profile'],
+	})
+}
 
 const signIn = async () => {
-  const result = await GoogleSignIn.signIn();
-  console.log(result.idToken);
-  console.log(result.userId);
-  console.log(result.email);
-  console.log(result.displayName);
-  console.log(result.accessToken);
-  console.log(result.serverAuthCode);
-};
+	const result = await GoogleSignIn.signIn()
+	console.log(result.idToken)
+	console.log(result.userId)
+	console.log(result.email)
+	console.log(result.displayName)
+	console.log(result.accessToken)
+	console.log(result.serverAuthCode)
+}
 
 const signOut = async () => {
-  await GoogleSignIn.signOut();
-};
+	await GoogleSignIn.signOut()
+}
 ```
 
 ### Web Redirect Flow
@@ -80,12 +80,12 @@ const signOut = async () => {
 On Web, `signIn()` redirects to Google OAuth and the promise never resolves. After redirect, call `handleRedirectCallback()`:
 
 ```typescript
-import { Capacitor } from '@capacitor/core';
+import {Capacitor} from '@capacitor/core'
 
 const handleRedirectCallback = async () => {
-  if (Capacitor.getPlatform() !== 'web') return;
-  const result = await GoogleSignIn.handleRedirectCallback();
-};
+	if (Capacitor.getPlatform() !== 'web') return
+	const result = await GoogleSignIn.handleRedirectCallback()
+}
 ```
 
 ## Key Options

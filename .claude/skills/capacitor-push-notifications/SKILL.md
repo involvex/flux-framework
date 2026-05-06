@@ -1,6 +1,6 @@
 ---
 name: capacitor-push-notifications
-description: "Guides the agent through setting up and using push notifications in Capacitor apps using Firebase Cloud Messaging via the @capacitor-firebase/messaging plugin. Covers Firebase project setup, plugin installation, platform-specific configuration (Android, iOS, Web), APNs certificate setup, requesting permissions, retrieving FCM tokens, listening for notifications, topic subscriptions, notification channels, and testing. Do not use for local notifications, non-Firebase push providers, migrating Capacitor apps or plugins, or non-Capacitor mobile frameworks."
+description: Guides the agent through setting up and using push notifications in Capacitor apps using Firebase Cloud Messaging via the @capacitor-firebase/messaging plugin. Covers Firebase project setup, plugin installation, platform-specific configuration (Android, iOS, Web), APNs certificate setup, requesting permissions, retrieving FCM tokens, listening for notifications, topic subscriptions, notification channels, and testing. Do not use for local notifications, non-Firebase push providers, migrating Capacitor apps or plugins, or non-Capacitor mobile frameworks.
 ---
 
 # Capacitor Push Notifications
@@ -77,11 +77,11 @@ Ask the user if they want to customize iOS foreground notification presentation.
 
 ```json
 {
-  "plugins": {
-    "FirebaseMessaging": {
-      "presentationOptions": ["alert", "badge", "sound"]
-    }
-  }
+	"plugins": {
+		"FirebaseMessaging": {
+			"presentationOptions": ["alert", "badge", "sound"]
+		}
+	}
 }
 ```
 
@@ -92,6 +92,7 @@ Available options: `badge`, `sound`, `alert`, `criticalAlert`. Default is `["ale
 Read `references/implementation.md` and add the push notification code to the project. Adapt imports and structure to match the user's framework.
 
 The implementation covers:
+
 1. Requesting permissions
 2. Retrieving the FCM token
 3. Listening for incoming notifications
@@ -110,6 +111,7 @@ For each selected feature, read `references/implementation.md` and apply the rel
 ### Step 10: Sync and Test
 
 1. Sync the project:
+
    ```bash
    npx cap sync
    ```

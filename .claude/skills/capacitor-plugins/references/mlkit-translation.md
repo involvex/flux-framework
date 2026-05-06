@@ -30,17 +30,17 @@ CocoaPods only — SPM is not supported.
 ## Usage
 
 ```typescript
-import { Translation, Language } from '@capacitor-mlkit/translation';
+import {Translation, Language} from '@capacitor-mlkit/translation'
 
-const { text } = await Translation.translate({
-  text: 'Good morning!',
-  sourceLanguage: Language.English,
-  targetLanguage: Language.German,
-});
+const {text} = await Translation.translate({
+	text: 'Good morning!',
+	sourceLanguage: Language.English,
+	targetLanguage: Language.German,
+})
 
-await Translation.downloadModel({ language: Language.English });
-const { languages } = await Translation.getDownloadedModels();
-await Translation.deleteDownloadedModel({ language: Language.English });
+await Translation.downloadModel({language: Language.English})
+const {languages} = await Translation.getDownloadedModels()
+await Translation.deleteDownloadedModel({language: Language.English})
 ```
 
 ## Notes

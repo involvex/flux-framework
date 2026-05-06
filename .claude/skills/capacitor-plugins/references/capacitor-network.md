@@ -14,14 +14,14 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { Network } from '@capacitor/network';
+import {Network} from '@capacitor/network'
 
-const status = await Network.getStatus();
-console.log('Connected:', status.connected, 'Type:', status.connectionType);
+const status = await Network.getStatus()
+console.log('Connected:', status.connected, 'Type:', status.connectionType)
 
-Network.addListener('networkStatusChange', (status) => {
-  console.log('Network changed:', status.connectionType);
-});
+Network.addListener('networkStatusChange', status => {
+	console.log('Network changed:', status.connectionType)
+})
 ```
 
 ## Notes

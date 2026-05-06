@@ -24,17 +24,17 @@ Set `firebaseFunctionsVersion` in `variables.gradle` (default: `22.1.0`).
 ## Usage
 
 ```typescript
-import { FirebaseFunctions } from '@capacitor-firebase/functions';
+import {FirebaseFunctions} from '@capacitor-firebase/functions'
 
-const { data } = await FirebaseFunctions.callByName({
-  name: 'helloWorld',
-  data: { key: 'value' },
-});
+const {data} = await FirebaseFunctions.callByName({
+	name: 'helloWorld',
+	data: {key: 'value'},
+})
 
-const { data: data2 } = await FirebaseFunctions.callByUrl({
-  url: 'https://us-central1-YOUR_PROJECT_ID.cloudfunctions.net/helloWorld',
-  data: { key: 'value' },
-});
+const {data: data2} = await FirebaseFunctions.callByUrl({
+	url: 'https://us-central1-YOUR_PROJECT_ID.cloudfunctions.net/helloWorld',
+	data: {key: 'value'},
+})
 ```
 
 ## Notes

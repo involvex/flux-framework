@@ -19,13 +19,13 @@ In `capacitor.config.ts` (or `capacitor.config.json`), configure the image downl
 
 ```ts
 const config: CapacitorConfig = {
-  plugins: {
-    PhotoViewer: {
-      iosImageLocation: 'Library/Images',
-      androidImageLocation: 'Files/Images',
-    },
-  },
-};
+	plugins: {
+		PhotoViewer: {
+			iosImageLocation: 'Library/Images',
+			androidImageLocation: 'Files/Images',
+		},
+	},
+}
 ```
 
 ### iOS
@@ -96,29 +96,27 @@ npm install --save-dev jeep-photoviewer@latest
 ## Usage
 
 ```typescript
-import { PhotoViewer } from '@capacitor-community/photoviewer';
+import {PhotoViewer} from '@capacitor-community/photoviewer'
 
 // Show multiple images in a gallery/slider
 await PhotoViewer.show({
-  images: [
-    { url: 'https://example.com/photo1.jpg', title: 'Photo 1' },
-    { url: 'https://example.com/photo2.jpg', title: 'Photo 2' },
-  ],
-  mode: 'slider',
-});
+	images: [
+		{url: 'https://example.com/photo1.jpg', title: 'Photo 1'},
+		{url: 'https://example.com/photo2.jpg', title: 'Photo 2'},
+	],
+	mode: 'slider',
+})
 
 // Show with custom HTTP headers
 await PhotoViewer.show({
-  images: [
-    { url: 'https://example.com/photo1.jpg', title: 'Photo 1' },
-  ],
-  options: {
-    customHeaders: {
-      accept: 'image/jpeg, image/png',
-      cookie: 'session=foo;',
-    },
-  },
-});
+	images: [{url: 'https://example.com/photo1.jpg', title: 'Photo 1'}],
+	options: {
+		customHeaders: {
+			accept: 'image/jpeg, image/png',
+			cookie: 'session=foo;',
+		},
+	},
+})
 ```
 
 ## Notes

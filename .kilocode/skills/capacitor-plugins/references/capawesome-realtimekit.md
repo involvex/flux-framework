@@ -59,15 +59,15 @@ Add background modes to `ios/App/App/Info.plist`:
 ### Initialize and start a meeting
 
 ```typescript
-import { RealtimeKit } from '@capawesome/capacitor-realtimekit';
+import {RealtimeKit} from '@capawesome/capacitor-realtimekit'
 
-await RealtimeKit.initialize();
+await RealtimeKit.initialize()
 
 await RealtimeKit.startMeeting({
-  authToken: 'YOUR_AUTH_TOKEN',
-  enableAudio: true,
-  enableVideo: true,
-});
+	authToken: 'YOUR_AUTH_TOKEN',
+	enableAudio: true,
+	enableVideo: true,
+})
 ```
 
 ## Notes

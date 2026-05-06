@@ -26,18 +26,18 @@ Config option `disableBackButtonHandler` (boolean, default: false, Android only)
 ## Usage
 
 ```typescript
-import { App } from '@capacitor/app';
+import {App} from '@capacitor/app'
 
-App.addListener('appStateChange', ({ isActive }) => {
-  console.log('App state:', isActive);
-});
+App.addListener('appStateChange', ({isActive}) => {
+	console.log('App state:', isActive)
+})
 
-App.addListener('appUrlOpen', (data) => {
-  console.log('Deep link:', data.url);
-});
+App.addListener('appUrlOpen', data => {
+	console.log('Deep link:', data.url)
+})
 
-const info = await App.getInfo();
-const { url } = await App.getLaunchUrl();
+const info = await App.getInfo()
+const {url} = await App.getLaunchUrl()
 ```
 
 ## Notes

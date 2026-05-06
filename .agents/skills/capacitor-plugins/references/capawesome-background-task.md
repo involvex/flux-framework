@@ -20,19 +20,19 @@ No configuration required for this plugin.
 ## Usage
 
 ```typescript
-import { App } from '@capacitor/app';
-import { BackgroundTask } from '@capawesome/capacitor-background-task';
+import {BackgroundTask} from '@capawesome/capacitor-background-task'
+import {App} from '@capacitor/app'
 
-App.addListener('appStateChange', async ({ isActive }) => {
-  if (isActive) {
-    return;
-  }
-  const taskId = await BackgroundTask.beforeExit(async () => {
-    // Run your background code here...
-    // Finish the background task when done.
-    BackgroundTask.finish({ taskId });
-  });
-});
+App.addListener('appStateChange', async ({isActive}) => {
+	if (isActive) {
+		return
+	}
+	const taskId = await BackgroundTask.beforeExit(async () => {
+		// Run your background code here...
+		// Finish the background task when done.
+		BackgroundTask.finish({taskId})
+	})
+})
 ```
 
 ## Notes

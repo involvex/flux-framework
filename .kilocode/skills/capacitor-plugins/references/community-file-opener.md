@@ -41,18 +41,18 @@ Then run `npx cap sync ios`.
 ## Usage
 
 ```typescript
-import { FileOpener, FileOpenerOptions } from '@capacitor-community/file-opener';
+import {FileOpener, FileOpenerOptions} from '@capacitor-community/file-opener'
 
 const fileOpenerOptions: FileOpenerOptions = {
-  filePath: 'file:///path/to/file',
-  contentType: 'application/pdf',
-  openWithDefault: true,
-};
+	filePath: 'file:///path/to/file',
+	contentType: 'application/pdf',
+	openWithDefault: true,
+}
 
 try {
-  await FileOpener.open(fileOpenerOptions);
+	await FileOpener.open(fileOpenerOptions)
 } catch (e) {
-  console.log('Error opening file', e);
+	console.log('Error opening file', e)
 }
 ```
 

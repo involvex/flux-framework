@@ -106,9 +106,9 @@ To prepare for Capacitor 6 where `https` becomes the default, explicitly set the
 
 ```typescript
 {
-  server: {
-    androidScheme: "http"
-  }
+	server: {
+		androidScheme: 'http'
+	}
 }
 ```
 
@@ -187,6 +187,6 @@ npx cap run ios
 
 ## Error Handling
 
-* If `npx cap migrate` fails partially, apply the failed steps manually.
-* If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
-* If Jetifier removal causes build errors, a dependency still uses old support libraries — re-enable Jetifier or update the dependency.
+- If `npx cap migrate` fails partially, apply the failed steps manually.
+- If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
+- If Jetifier removal causes build errors, a dependency still uses old support libraries — re-enable Jetifier or update the dependency.

@@ -14,6 +14,7 @@ npx cap sync
 ## Configuration
 
 Config options in `capacitor.config.ts`:
+
 - `resize`: Controls app resizing when keyboard appears (default: `native`). Values: `body`, `ionic`, `native`, `none`.
 - `style`: Override keyboard styling (Dark/Light/Default).
 - `resizeOnFullScreen`: Android workaround for full-screen keyboard resizing.
@@ -21,17 +22,17 @@ Config options in `capacitor.config.ts`:
 ## Usage
 
 ```typescript
-import { Keyboard } from '@capacitor/keyboard';
+import {Keyboard} from '@capacitor/keyboard'
 
-Keyboard.addListener('keyboardWillShow', (info) => {
-  console.log('Keyboard height:', info.keyboardHeight);
-});
+Keyboard.addListener('keyboardWillShow', info => {
+	console.log('Keyboard height:', info.keyboardHeight)
+})
 Keyboard.addListener('keyboardDidHide', () => {
-  console.log('Keyboard hidden');
-});
+	console.log('Keyboard hidden')
+})
 
-await Keyboard.hide();
-await Keyboard.setAccessoryBarVisible({ isVisible: false });
+await Keyboard.hide()
+await Keyboard.setAccessoryBarVisible({isVisible: false})
 ```
 
 ## Notes

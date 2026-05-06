@@ -34,29 +34,32 @@ Change the base application theme to a MaterialComponents theme in `android/app/
 ## Usage
 
 ```typescript
-import { StripeIdentity, IdentityVerificationSheetEventsEnum } from '@capacitor-community/stripe-identity';
+import {
+	StripeIdentity,
+	IdentityVerificationSheetEventsEnum,
+} from '@capacitor-community/stripe-identity'
 
 // Listen for verification result
 const listener = await StripeIdentity.addListener(
-  IdentityVerificationSheetEventsEnum.VerificationResult,
-  (result) => {
-    console.log(result);
-    listener.remove();
-  },
-);
+	IdentityVerificationSheetEventsEnum.VerificationResult,
+	result => {
+		console.log(result)
+		listener.remove()
+	},
+)
 
 // Initialize (required only for Web)
-await StripeIdentity.initialize({ publishableKey: 'pk_test_xxx' });
+await StripeIdentity.initialize({publishableKey: 'pk_test_xxx'})
 
 // Create verification sheet
 await StripeIdentity.create({
-  ephemeralKeySecret: 'ek_xxx',
-  verificationId: 'vs_xxx',
-  clientSecret: 'cs_xxx', // required only for Web
-});
+	ephemeralKeySecret: 'ek_xxx',
+	verificationId: 'vs_xxx',
+	clientSecret: 'cs_xxx', // required only for Web
+})
 
 // Present verification sheet
-await StripeIdentity.present();
+await StripeIdentity.present()
 ```
 
 ## Notes

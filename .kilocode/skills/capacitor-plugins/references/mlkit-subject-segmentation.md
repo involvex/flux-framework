@@ -32,12 +32,12 @@ Add inside `<application>`:
 ## Usage
 
 ```typescript
-import { SubjectSegmentation } from '@capacitor-mlkit/subject-segmentation';
+import {SubjectSegmentation} from '@capacitor-mlkit/subject-segmentation'
 
-const { path } = await SubjectSegmentation.processImage({
-  path: 'path/to/image.jpg',
-  confidence: 0.7,
-});
+const {path} = await SubjectSegmentation.processImage({
+	path: 'path/to/image.jpg',
+	confidence: 0.7,
+})
 ```
 
 ## Notes

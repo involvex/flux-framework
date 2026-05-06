@@ -27,32 +27,32 @@ To request direct exemption from battery optimization, add to `android/app/src/m
 ### Check if battery optimization is enabled
 
 ```typescript
-import { Capacitor } from '@capacitor/core';
-import { BatteryOptimization } from '@capawesome-team/capacitor-android-battery-optimization';
+import {BatteryOptimization} from '@capawesome-team/capacitor-android-battery-optimization'
+import {Capacitor} from '@capacitor/core'
 
 const isBatteryOptimizationEnabled = async () => {
-  if (Capacitor.getPlatform() !== 'android') {
-    return false;
-  }
-  const { enabled } = await BatteryOptimization.isBatteryOptimizationEnabled();
-  return enabled;
-};
+	if (Capacitor.getPlatform() !== 'android') {
+		return false
+	}
+	const {enabled} = await BatteryOptimization.isBatteryOptimizationEnabled()
+	return enabled
+}
 ```
 
 ### Open battery optimization settings
 
 ```typescript
-import { BatteryOptimization } from '@capawesome-team/capacitor-android-battery-optimization';
+import {BatteryOptimization} from '@capawesome-team/capacitor-android-battery-optimization'
 
-await BatteryOptimization.openBatteryOptimizationSettings();
+await BatteryOptimization.openBatteryOptimizationSettings()
 ```
 
 ### Request ignore battery optimization
 
 ```typescript
-import { BatteryOptimization } from '@capawesome-team/capacitor-android-battery-optimization';
+import {BatteryOptimization} from '@capawesome-team/capacitor-android-battery-optimization'
 
-await BatteryOptimization.requestIgnoreBatteryOptimization();
+await BatteryOptimization.requestIgnoreBatteryOptimization()
 ```
 
 ## Notes

@@ -65,62 +65,62 @@ To access the `note` field of a contact, the app must have the `com.apple.develo
 ### Create a contact
 
 ```typescript
-import { Contacts, PhoneNumberType } from '@capawesome-team/capacitor-contacts';
+import {Contacts, PhoneNumberType} from '@capawesome-team/capacitor-contacts'
 
-const { id } = await Contacts.createContact({
-  contact: {
-    givenName: 'John',
-    familyName: 'Doe',
-    phoneNumbers: [
-      { value: '1234567890', type: PhoneNumberType.Mobile, isPrimary: true }
-    ]
-  }
-});
+const {id} = await Contacts.createContact({
+	contact: {
+		givenName: 'John',
+		familyName: 'Doe',
+		phoneNumbers: [
+			{value: '1234567890', type: PhoneNumberType.Mobile, isPrimary: true},
+		],
+	},
+})
 ```
 
 ### Get contacts with pagination
 
 ```typescript
-const { contacts } = await Contacts.getContacts({
-  fields: ['id', 'givenName', 'familyName', 'phoneNumbers'],
-  limit: 10,
-  offset: 0
-});
+const {contacts} = await Contacts.getContacts({
+	fields: ['id', 'givenName', 'familyName', 'phoneNumbers'],
+	limit: 10,
+	offset: 0,
+})
 ```
 
 ### Pick contacts
 
 ```typescript
-const { contacts } = await Contacts.pickContacts({
-  fields: ['id', 'givenName', 'familyName', 'emailAddresses'],
-  multiple: true // Web only
-});
+const {contacts} = await Contacts.pickContacts({
+	fields: ['id', 'givenName', 'familyName', 'emailAddresses'],
+	multiple: true, // Web only
+})
 ```
 
 ### Update a contact
 
 ```typescript
 await Contacts.updateContactById({
-  id: 'contact-id',
-  contact: {
-    givenName: 'Jane',
-    birthday: null,    // Deletes the field
-    note: undefined    // Preserves existing value
-  }
-});
+	id: 'contact-id',
+	contact: {
+		givenName: 'Jane',
+		birthday: null, // Deletes the field
+		note: undefined, // Preserves existing value
+	},
+})
 ```
 
 ### Delete a contact
 
 ```typescript
-await Contacts.deleteContactById({ id: 'contact-id' });
+await Contacts.deleteContactById({id: 'contact-id'})
 ```
 
 ### Permissions
 
 ```typescript
-const status = await Contacts.checkPermissions();
-await Contacts.requestPermissions();
+const status = await Contacts.checkPermissions()
+await Contacts.requestPermissions()
 ```
 
 ## Notes

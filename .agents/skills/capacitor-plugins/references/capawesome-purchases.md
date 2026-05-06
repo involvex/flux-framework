@@ -43,58 +43,62 @@ Enable the `In-App Purchase` capability in Xcode under Signing & Capabilities. S
 ### Purchase a product
 
 ```typescript
-import { Purchases } from '@capawesome-team/capacitor-purchases';
+import {Purchases} from '@capawesome-team/capacitor-purchases'
 
-const { transaction } = await Purchases.purchaseProduct({ productId: 'my_product_id' });
+const {transaction} = await Purchases.purchaseProduct({
+	productId: 'my_product_id',
+})
 // Deliver the purchased content or enable the service
 // ...
 // Finish the transaction
-await Purchases.finishTransaction({ transactionId: transaction.id });
+await Purchases.finishTransaction({transactionId: transaction.id})
 ```
 
 ### Get product details
 
 ```typescript
-import { Purchases } from '@capawesome-team/capacitor-purchases';
+import {Purchases} from '@capawesome-team/capacitor-purchases'
 
-const { product } = await Purchases.getProductById({ productId: 'my_product_id' });
-console.log('Name:', product.displayName);
-console.log('Price:', product.displayPrice);
-console.log('Type:', product.type);
+const {product} = await Purchases.getProductById({productId: 'my_product_id'})
+console.log('Name:', product.displayName)
+console.log('Price:', product.displayPrice)
+console.log('Type:', product.type)
 ```
 
 ### Restore purchases
 
 ```typescript
-import { Purchases } from '@capawesome-team/capacitor-purchases';
+import {Purchases} from '@capawesome-team/capacitor-purchases'
 
-await Purchases.syncTransactions();
-const { transactions } = await Purchases.getCurrentTransactions();
+await Purchases.syncTransactions()
+const {transactions} = await Purchases.getCurrentTransactions()
 for (const transaction of transactions) {
-  // Deliver the purchased content or enable the service
+	// Deliver the purchased content or enable the service
 }
 ```
 
 ### Check for unfinished transactions
 
 ```typescript
-import { Purchases } from '@capawesome-team/capacitor-purchases';
+import {Purchases} from '@capawesome-team/capacitor-purchases'
 
-const { transactions } = await Purchases.getUnfinishedTransactions();
+const {transactions} = await Purchases.getUnfinishedTransactions()
 for (const transaction of transactions) {
-  // Process and finish the transaction
-  await Purchases.finishTransaction({ transactionId: transaction.id });
+	// Process and finish the transaction
+	await Purchases.finishTransaction({transactionId: transaction.id})
 }
 ```
 
 ### Check intro offer eligibility
 
 ```typescript
-import { Purchases } from '@capawesome-team/capacitor-purchases';
+import {Purchases} from '@capawesome-team/capacitor-purchases'
 
-const { isIntroOfferAvailable } = await Purchases.isIntroOfferAvailableForProduct({
-  productId: 'my_subscription_id',
-});
+const {isIntroOfferAvailable} = await Purchases.isIntroOfferAvailableForProduct(
+	{
+		productId: 'my_subscription_id',
+	},
+)
 ```
 
 ## Notes

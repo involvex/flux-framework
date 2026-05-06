@@ -37,8 +37,8 @@ Android 11+ requires declaring target apps in `android/app/src/main/AndroidManif
 ## Usage
 
 ```typescript
-import { AppLauncher } from '@capacitor/app-launcher';
+import {AppLauncher} from '@capacitor/app-launcher'
 
-const { value } = await AppLauncher.canOpenUrl({ url: 'com.example.app' });
-const { completed } = await AppLauncher.openUrl({ url: 'com.example.app://page' });
+const {value} = await AppLauncher.canOpenUrl({url: 'com.example.app'})
+const {completed} = await AppLauncher.openUrl({url: 'com.example.app://page'})
 ```

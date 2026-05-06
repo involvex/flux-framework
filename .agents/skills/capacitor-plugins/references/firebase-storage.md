@@ -24,23 +24,26 @@ Set `firebaseStorageVersion` in `variables.gradle` (default: `22.0.1`).
 ## Usage
 
 ```typescript
-import { FirebaseStorage } from '@capacitor-firebase/storage';
+import {FirebaseStorage} from '@capacitor-firebase/storage'
 
 await FirebaseStorage.uploadFile(
-  { path: 'images/mountains.png', uri: 'file:///path/to/mountains.png' },
-  (event, error) => {
-    if (error) { console.error(error); }
-    else if (event?.completed) { console.log('Upload complete'); }
-  },
-);
+	{path: 'images/mountains.png', uri: 'file:///path/to/mountains.png'},
+	(event, error) => {
+		if (error) {
+			console.error(error)
+		} else if (event?.completed) {
+			console.log('Upload complete')
+		}
+	},
+)
 
-const { downloadUrl } = await FirebaseStorage.getDownloadUrl({
-  path: 'images/mountains.png',
-});
+const {downloadUrl} = await FirebaseStorage.getDownloadUrl({
+	path: 'images/mountains.png',
+})
 
-await FirebaseStorage.deleteFile({ path: 'images/mountains.png' });
+await FirebaseStorage.deleteFile({path: 'images/mountains.png'})
 
-const { items } = await FirebaseStorage.listFiles({ path: 'images' });
+const {items} = await FirebaseStorage.listFiles({path: 'images'})
 ```
 
 ## Notes

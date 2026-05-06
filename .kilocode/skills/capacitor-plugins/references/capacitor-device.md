@@ -14,12 +14,12 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { Device } from '@capacitor/device';
+import {Device} from '@capacitor/device'
 
-const info = await Device.getInfo();
-const id = await Device.getId();
-const battery = await Device.getBatteryInfo();
-const { value } = await Device.getLanguageCode();
+const info = await Device.getInfo()
+const id = await Device.getId()
+const battery = await Device.getBatteryInfo()
+const {value} = await Device.getLanguageCode()
 ```
 
 ## Notes

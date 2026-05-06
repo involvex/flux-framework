@@ -59,63 +59,63 @@ If using Proguard, add to `android/app/proguard-rules.pro`:
 ### Login
 
 ```typescript
-import { Oauth } from '@capawesome-team/capacitor-oauth';
+import {Oauth} from '@capawesome-team/capacitor-oauth'
 
 const result = await Oauth.login({
-  issuerUrl: 'https://accounts.google.com',
-  clientId: 'YOUR_CLIENT_ID',
-  redirectUrl: 'com.example.app://oauth/callback',
-  scopes: ['openid', 'profile', 'email', 'offline_access'],
-});
-console.log('Access token:', result.accessToken);
-console.log('ID token:', result.idToken);
-console.log('Refresh token:', result.refreshToken);
+	issuerUrl: 'https://accounts.google.com',
+	clientId: 'YOUR_CLIENT_ID',
+	redirectUrl: 'com.example.app://oauth/callback',
+	scopes: ['openid', 'profile', 'email', 'offline_access'],
+})
+console.log('Access token:', result.accessToken)
+console.log('ID token:', result.idToken)
+console.log('Refresh token:', result.refreshToken)
 ```
 
 ### Refresh token
 
 ```typescript
-import { Oauth } from '@capawesome-team/capacitor-oauth';
+import {Oauth} from '@capawesome-team/capacitor-oauth'
 
 const result = await Oauth.refreshToken({
-  issuerUrl: 'https://accounts.google.com',
-  clientId: 'YOUR_CLIENT_ID',
-  refreshToken: 'YOUR_REFRESH_TOKEN',
-});
-console.log('New access token:', result.accessToken);
+	issuerUrl: 'https://accounts.google.com',
+	clientId: 'YOUR_CLIENT_ID',
+	refreshToken: 'YOUR_REFRESH_TOKEN',
+})
+console.log('New access token:', result.accessToken)
 ```
 
 ### Logout
 
 ```typescript
-import { Oauth } from '@capawesome-team/capacitor-oauth';
+import {Oauth} from '@capawesome-team/capacitor-oauth'
 
 await Oauth.logout({
-  issuerUrl: 'https://accounts.google.com',
-  idToken: 'YOUR_ID_TOKEN',
-  postLogoutRedirectUrl: 'com.example.app://oauth/logout',
-});
+	issuerUrl: 'https://accounts.google.com',
+	idToken: 'YOUR_ID_TOKEN',
+	postLogoutRedirectUrl: 'com.example.app://oauth/logout',
+})
 ```
 
 ### Handle web redirect callback
 
 ```typescript
-import { Oauth } from '@capawesome-team/capacitor-oauth';
-import { Capacitor } from '@capacitor/core';
+import {Oauth} from '@capawesome-team/capacitor-oauth'
+import {Capacitor} from '@capacitor/core'
 
 if (Capacitor.getPlatform() === 'web') {
-  const result = await Oauth.handleRedirectCallback();
-  console.log('Access token:', result.accessToken);
+	const result = await Oauth.handleRedirectCallback()
+	console.log('Access token:', result.accessToken)
 }
 ```
 
 ### Decode an ID token
 
 ```typescript
-import { Oauth } from '@capawesome-team/capacitor-oauth';
+import {Oauth} from '@capawesome-team/capacitor-oauth'
 
-const { payload } = await Oauth.decodeIdToken({ token: 'YOUR_ID_TOKEN' });
-console.log('Claims:', payload);
+const {payload} = await Oauth.decodeIdToken({token: 'YOUR_ID_TOKEN'})
+console.log('Claims:', payload)
 ```
 
 ## Notes

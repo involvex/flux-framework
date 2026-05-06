@@ -14,13 +14,13 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { TapJacking } from '@capacitor-community/tap-jacking';
+import {TapJacking} from '@capacitor-community/tap-jacking'
 
 // Prevent overlays from intercepting touches
-await TapJacking.preventOverlays();
+await TapJacking.preventOverlays()
 
 // Re-enable overlays
-await TapJacking.enableOverlays();
+await TapJacking.enableOverlays()
 ```
 
 ## Notes

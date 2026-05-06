@@ -24,10 +24,10 @@ npm install html2canvas
 ### Take a screenshot
 
 ```typescript
-import { Screenshot } from '@capawesome/capacitor-screenshot';
+import {Screenshot} from '@capawesome/capacitor-screenshot'
 
-const { uri } = await Screenshot.take();
-console.log('Screenshot saved at:', uri);
+const {uri} = await Screenshot.take()
+console.log('Screenshot saved at:', uri)
 ```
 
 ## Notes

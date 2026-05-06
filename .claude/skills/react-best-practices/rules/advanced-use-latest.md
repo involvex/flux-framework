@@ -13,37 +13,37 @@ Access latest values in callbacks without adding them to dependency arrays. Prev
 
 ```typescript
 function useLatest<T>(value: T) {
-  const ref = useRef(value)
-  useEffect(() => {
-    ref.current = value
-  }, [value])
-  return ref
+	const ref = useRef(value)
+	useEffect(() => {
+		ref.current = value
+	}, [value])
+	return ref
 }
 ```
 
 **Incorrect (effect re-runs on every callback change):**
 
 ```tsx
-function SearchInput({ onSearch }: { onSearch: (q: string) => void }) {
-  const [query, setQuery] = useState('')
+function SearchInput({onSearch}: {onSearch: (q: string) => void}) {
+	const [query, setQuery] = useState('')
 
-  useEffect(() => {
-    const timeout = setTimeout(() => onSearch(query), 300)
-    return () => clearTimeout(timeout)
-  }, [query, onSearch])
+	useEffect(() => {
+		const timeout = setTimeout(() => onSearch(query), 300)
+		return () => clearTimeout(timeout)
+	}, [query, onSearch])
 }
 ```
 
 **Correct (stable effect, fresh callback):**
 
 ```tsx
-function SearchInput({ onSearch }: { onSearch: (q: string) => void }) {
-  const [query, setQuery] = useState('')
-  const onSearchRef = useLatest(onSearch)
+function SearchInput({onSearch}: {onSearch: (q: string) => void}) {
+	const [query, setQuery] = useState('')
+	const onSearchRef = useLatest(onSearch)
 
-  useEffect(() => {
-    const timeout = setTimeout(() => onSearchRef.current(query), 300)
-    return () => clearTimeout(timeout)
-  }, [query])
+	useEffect(() => {
+		const timeout = setTimeout(() => onSearchRef.current(query), 300)
+		return () => clearTimeout(timeout)
+	}, [query])
 }
 ```

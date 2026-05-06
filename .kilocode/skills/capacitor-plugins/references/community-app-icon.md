@@ -48,19 +48,19 @@ Remove `<category android:name="android.intent.category.LAUNCHER" />` from the m
 ## Usage
 
 ```typescript
-import { AppIcon } from '@capacitor-community/app-icon';
+import {AppIcon} from '@capacitor-community/app-icon'
 
 // Change to an alternate icon
-await AppIcon.change({ name: 'alternate', suppressNotification: true });
+await AppIcon.change({name: 'alternate', suppressNotification: true})
 
 // Get the current icon name (null if using the original)
-const { value } = await AppIcon.getName();
+const {value} = await AppIcon.getName()
 
 // Reset to the original icon
-await AppIcon.reset({ suppressNotification: true, disable: ['alternate'] });
+await AppIcon.reset({suppressNotification: true, disable: ['alternate']})
 
 // Check if alternate icons are supported (iOS only)
-const { value: supported } = await AppIcon.isSupported();
+const {value: supported} = await AppIcon.isSupported()
 ```
 
 ## Notes

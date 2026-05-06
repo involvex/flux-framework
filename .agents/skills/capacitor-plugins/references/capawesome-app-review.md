@@ -25,21 +25,21 @@ Optionally define in `android/variables.gradle`:
 ### Request an in-app review
 
 ```typescript
-import { AppReview } from '@capawesome/capacitor-app-review';
+import {AppReview} from '@capawesome/capacitor-app-review'
 
-await AppReview.requestReview();
+await AppReview.requestReview()
 ```
 
 ### Open the app store page
 
 ```typescript
-import { AppReview } from '@capawesome/capacitor-app-review';
+import {AppReview} from '@capawesome/capacitor-app-review'
 
 // Without options (opens current app's store page)
-await AppReview.openAppStore();
+await AppReview.openAppStore()
 
 // With specific app ID (iOS only)
-await AppReview.openAppStore({ appId: '123456789' });
+await AppReview.openAppStore({appId: '123456789'})
 ```
 
 ## Notes

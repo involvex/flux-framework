@@ -58,43 +58,43 @@ Add to `ios/App/App/Info.plist`:
 ### Authenticate
 
 ```typescript
-import { Biometrics, ErrorCode } from '@capawesome-team/capacitor-biometrics';
+import {Biometrics, ErrorCode} from '@capawesome-team/capacitor-biometrics'
 
 try {
-  await Biometrics.authenticate({
-    title: 'Authentication Required',
-    subtitle: 'Please authenticate to continue',
-    cancelButtonText: 'Cancel',
-    iosFallbackButtonText: 'Use Passcode',
-    allowDeviceCredential: true,
-  });
-  // Authentication successful
+	await Biometrics.authenticate({
+		title: 'Authentication Required',
+		subtitle: 'Please authenticate to continue',
+		cancelButtonText: 'Cancel',
+		iosFallbackButtonText: 'Use Passcode',
+		allowDeviceCredential: true,
+	})
+	// Authentication successful
 } catch (error) {
-  if (error.code === ErrorCode.USER_CANCELED) {
-    console.log('User canceled');
-  } else if (error.code === ErrorCode.NOT_ENROLLED) {
-    console.log('No biometric enrolled');
-  } else if (error.code === ErrorCode.NOT_AVAILABLE) {
-    console.log('Biometric not available');
-  }
+	if (error.code === ErrorCode.USER_CANCELED) {
+		console.log('User canceled')
+	} else if (error.code === ErrorCode.NOT_ENROLLED) {
+		console.log('No biometric enrolled')
+	} else if (error.code === ErrorCode.NOT_AVAILABLE) {
+		console.log('Biometric not available')
+	}
 }
 ```
 
 ### Check availability and enrollment
 
 ```typescript
-const { isAvailable } = await Biometrics.isAvailable();
-const { isEnrolled } = await Biometrics.isEnrolled();
-const { hasDeviceCredential } = await Biometrics.hasDeviceCredential();
-const { strengthLevel } = await Biometrics.getBiometricStrengthLevel(); // Android only
-const { biometricType } = await Biometrics.getBiometricType(); // Face, Fingerprint, Iris, None
+const {isAvailable} = await Biometrics.isAvailable()
+const {isEnrolled} = await Biometrics.isEnrolled()
+const {hasDeviceCredential} = await Biometrics.hasDeviceCredential()
+const {strengthLevel} = await Biometrics.getBiometricStrengthLevel() // Android only
+const {biometricType} = await Biometrics.getBiometricType() // Face, Fingerprint, Iris, None
 ```
 
 ### Other operations
 
 ```typescript
-await Biometrics.cancelAuthentication(); // Android SDK 29+, iOS
-await Biometrics.enroll(); // Android only
+await Biometrics.cancelAuthentication() // Android SDK 29+, iOS
+await Biometrics.enroll() // Android only
 ```
 
 ## Notes

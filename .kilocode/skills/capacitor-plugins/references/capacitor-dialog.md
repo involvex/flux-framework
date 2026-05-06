@@ -14,15 +14,18 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { Dialog } from '@capacitor/dialog';
+import {Dialog} from '@capacitor/dialog'
 
-await Dialog.alert({ title: 'Error', message: 'Something went wrong' });
+await Dialog.alert({title: 'Error', message: 'Something went wrong'})
 
-const { value } = await Dialog.confirm({ title: 'Confirm', message: 'Are you sure?' });
+const {value} = await Dialog.confirm({
+	title: 'Confirm',
+	message: 'Are you sure?',
+})
 
-const { value: name, cancelled } = await Dialog.prompt({
-  title: 'Name',
-  message: 'Enter your name',
-  inputPlaceholder: 'John Doe',
-});
+const {value: name, cancelled} = await Dialog.prompt({
+	title: 'Name',
+	message: 'Enter your name',
+	inputPlaceholder: 'John Doe',
+})
 ```

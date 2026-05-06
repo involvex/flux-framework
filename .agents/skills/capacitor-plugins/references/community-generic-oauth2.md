@@ -55,40 +55,40 @@ In `ios/App/App/Info.plist`, add a URL scheme matching the `redirectUrl` value (
 ## Usage
 
 ```typescript
-import { GenericOAuth2 } from '@capacitor-community/generic-oauth2';
+import {GenericOAuth2} from '@capacitor-community/generic-oauth2'
 
 // Authenticate
 const response = await GenericOAuth2.authenticate({
-  appId: 'your-client-id',
-  authorizationBaseUrl: 'https://accounts.google.com/o/oauth2/auth',
-  accessTokenEndpoint: 'https://www.googleapis.com/oauth2/v4/token',
-  scope: 'email profile',
-  resourceUrl: 'https://www.googleapis.com/userinfo/v2/me',
-  responseType: 'code',
-  pkceEnabled: true,
-  web: {
-    redirectUrl: 'http://localhost:4200',
-    windowOptions: 'height=600,left=0,top=0',
-  },
-  android: {
-    redirectUrl: 'com.example.yourapp:/',
-  },
-  ios: {
-    redirectUrl: 'com.example.yourapp:/',
-  },
-});
+	appId: 'your-client-id',
+	authorizationBaseUrl: 'https://accounts.google.com/o/oauth2/auth',
+	accessTokenEndpoint: 'https://www.googleapis.com/oauth2/v4/token',
+	scope: 'email profile',
+	resourceUrl: 'https://www.googleapis.com/userinfo/v2/me',
+	responseType: 'code',
+	pkceEnabled: true,
+	web: {
+		redirectUrl: 'http://localhost:4200',
+		windowOptions: 'height=600,left=0,top=0',
+	},
+	android: {
+		redirectUrl: 'com.example.yourapp:/',
+	},
+	ios: {
+		redirectUrl: 'com.example.yourapp:/',
+	},
+})
 
-const accessToken = response['access_token'];
+const accessToken = response['access_token']
 
 // Refresh token (iOS/Android only)
 const refreshResponse = await GenericOAuth2.refreshToken({
-  appId: 'your-client-id',
-  accessTokenEndpoint: 'https://www.googleapis.com/oauth2/v4/token',
-  refreshToken: 'your-refresh-token',
-});
+	appId: 'your-client-id',
+	accessTokenEndpoint: 'https://www.googleapis.com/oauth2/v4/token',
+	refreshToken: 'your-refresh-token',
+})
 
 // Logout
-await GenericOAuth2.logout();
+await GenericOAuth2.logout()
 ```
 
 ## Notes

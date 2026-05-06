@@ -23,23 +23,23 @@ npm install firebase-admin
 Send a notification:
 
 ```typescript
-import * as admin from 'firebase-admin';
+import * as admin from 'firebase-admin'
 
 // Initialize with service account
 admin.initializeApp({
-  credential: admin.credential.cert('path/to/serviceAccountKey.json'),
-});
+	credential: admin.credential.cert('path/to/serviceAccountKey.json'),
+})
 
 const message = {
-  notification: {
-    title: 'Test Notification',
-    body: 'This is a test push notification.',
-  },
-  token: '<FCM_DEVICE_TOKEN>',
-};
+	notification: {
+		title: 'Test Notification',
+		body: 'This is a test push notification.',
+	},
+	token: '<FCM_DEVICE_TOKEN>',
+}
 
-const response = await admin.messaging().send(message);
-console.log('Message sent:', response);
+const response = await admin.messaging().send(message)
+console.log('Message sent:', response)
 ```
 
 ## Via cURL

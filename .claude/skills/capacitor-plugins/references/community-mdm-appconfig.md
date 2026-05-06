@@ -39,10 +39,10 @@ No additional configuration is required. Values are obtained from `UserDefaults`
 ## Usage
 
 ```typescript
-import { AppConfig } from '@capacitor-community/mdm-appconfig';
+import {AppConfig} from '@capacitor-community/mdm-appconfig'
 
-const result = await AppConfig.getValue({ key: 'my.variable.name' });
-console.log(result.value);
+const result = await AppConfig.getValue({key: 'my.variable.name'})
+console.log(result.value)
 ```
 
 ## Notes

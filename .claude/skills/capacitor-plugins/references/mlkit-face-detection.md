@@ -36,17 +36,23 @@ CocoaPods only — SPM is not supported.
 ## Usage
 
 ```typescript
-import { FaceDetection, PerformanceMode, LandmarkMode, ContourMode, ClassificationMode } from '@capacitor-mlkit/face-detection';
+import {
+	FaceDetection,
+	PerformanceMode,
+	LandmarkMode,
+	ContourMode,
+	ClassificationMode,
+} from '@capacitor-mlkit/face-detection'
 
-const { faces } = await FaceDetection.processImage({
-  path: 'path/to/image.jpg',
-  performanceMode: PerformanceMode.Fast,
-  landmarkMode: LandmarkMode.All,
-  contourMode: ContourMode.All,
-  classificationMode: ClassificationMode.All,
-  minFaceSize: 0.1,
-  enableTracking: false,
-});
+const {faces} = await FaceDetection.processImage({
+	path: 'path/to/image.jpg',
+	performanceMode: PerformanceMode.Fast,
+	landmarkMode: LandmarkMode.All,
+	contourMode: ContourMode.All,
+	classificationMode: ClassificationMode.All,
+	minFaceSize: 0.1,
+	enableTracking: false,
+})
 ```
 
 ## Notes

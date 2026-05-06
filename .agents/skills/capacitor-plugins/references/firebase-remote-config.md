@@ -26,13 +26,17 @@ Set `firebaseConfigVersion` in `variables.gradle` (default: `23.0.1`).
 ## Usage
 
 ```typescript
-import { FirebaseRemoteConfig } from '@capacitor-firebase/remote-config';
+import {FirebaseRemoteConfig} from '@capacitor-firebase/remote-config'
 
-await FirebaseRemoteConfig.fetchAndActivate();
+await FirebaseRemoteConfig.fetchAndActivate()
 
-const { value: isSale } = await FirebaseRemoteConfig.getBoolean({ key: 'is_sale' });
-const { value: licenseKey } = await FirebaseRemoteConfig.getString({ key: 'license_key' });
-const { value: maintenance } = await FirebaseRemoteConfig.getNumber({ key: 'upcoming_maintenance' });
+const {value: isSale} = await FirebaseRemoteConfig.getBoolean({key: 'is_sale'})
+const {value: licenseKey} = await FirebaseRemoteConfig.getString({
+	key: 'license_key',
+})
+const {value: maintenance} = await FirebaseRemoteConfig.getNumber({
+	key: 'upcoming_maintenance',
+})
 ```
 
 ## Notes

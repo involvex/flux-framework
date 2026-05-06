@@ -14,24 +14,24 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { FileTransfer } from '@capacitor/file-transfer';
+import {FileTransfer} from '@capacitor/file-transfer'
 
 const result = await FileTransfer.downloadFile({
-  url: 'https://example.com/file.pdf',
-  path: 'file:///data/user/0/com.example/files/file.pdf',
-  progress: true,
-});
+	url: 'https://example.com/file.pdf',
+	path: 'file:///data/user/0/com.example/files/file.pdf',
+	progress: true,
+})
 
 await FileTransfer.uploadFile({
-  url: 'https://example.com/upload',
-  path: 'file:///data/user/0/com.example/files/photo.jpg',
-  method: 'POST',
-  progress: true,
-});
+	url: 'https://example.com/upload',
+	path: 'file:///data/user/0/com.example/files/photo.jpg',
+	method: 'POST',
+	progress: true,
+})
 
-FileTransfer.addListener('progress', (event) => {
-  console.log(`${event.bytes} / ${event.contentLength}`);
-});
+FileTransfer.addListener('progress', event => {
+	console.log(`${event.bytes} / ${event.contentLength}`)
+})
 ```
 
 ## Notes

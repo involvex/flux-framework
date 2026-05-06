@@ -46,51 +46,54 @@ On iPad, add to `ios/App/App/Info.plist`:
 ### Lock orientation
 
 ```typescript
-import { ScreenOrientation, OrientationType } from '@capawesome/capacitor-screen-orientation';
+import {
+	ScreenOrientation,
+	OrientationType,
+} from '@capawesome/capacitor-screen-orientation'
 
-await ScreenOrientation.lock({ type: OrientationType.LANDSCAPE });
+await ScreenOrientation.lock({type: OrientationType.LANDSCAPE})
 ```
 
 ### Unlock orientation
 
 ```typescript
-import { ScreenOrientation } from '@capawesome/capacitor-screen-orientation';
+import {ScreenOrientation} from '@capawesome/capacitor-screen-orientation'
 
-await ScreenOrientation.unlock();
+await ScreenOrientation.unlock()
 ```
 
 ### Get current orientation
 
 ```typescript
-import { ScreenOrientation } from '@capawesome/capacitor-screen-orientation';
+import {ScreenOrientation} from '@capawesome/capacitor-screen-orientation'
 
-const { type } = await ScreenOrientation.getCurrentOrientation();
-console.log('Current orientation:', type);
+const {type} = await ScreenOrientation.getCurrentOrientation()
+console.log('Current orientation:', type)
 ```
 
 ### Listen for orientation changes
 
 ```typescript
-import { ScreenOrientation } from '@capawesome/capacitor-screen-orientation';
+import {ScreenOrientation} from '@capawesome/capacitor-screen-orientation'
 
-await ScreenOrientation.addListener('screenOrientationChange', (change) => {
-  console.log('Orientation changed to:', change.type);
-});
+await ScreenOrientation.addListener('screenOrientationChange', change => {
+	console.log('Orientation changed to:', change.type)
+})
 
 // Later:
-await ScreenOrientation.removeAllListeners();
+await ScreenOrientation.removeAllListeners()
 ```
 
 ## Orientation Types
 
-| Value | Description |
-|---|---|
-| `landscape` | Either landscape-primary or landscape-secondary |
-| `landscape-primary` | Primary landscape mode |
-| `landscape-secondary` | Secondary landscape mode |
-| `portrait` | Either portrait-primary or portrait-secondary |
-| `portrait-primary` | Primary portrait mode |
-| `portrait-secondary` | Secondary portrait mode |
+| Value                 | Description                                     |
+| --------------------- | ----------------------------------------------- |
+| `landscape`           | Either landscape-primary or landscape-secondary |
+| `landscape-primary`   | Primary landscape mode                          |
+| `landscape-secondary` | Secondary landscape mode                        |
+| `portrait`            | Either portrait-primary or portrait-secondary   |
+| `portrait-primary`    | Primary portrait mode                           |
+| `portrait-secondary`  | Secondary portrait mode                         |
 
 ## Notes
 

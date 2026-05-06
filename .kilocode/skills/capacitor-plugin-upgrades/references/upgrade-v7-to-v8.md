@@ -77,21 +77,21 @@ ext {
 
 #### Version Changes from v7
 
-| Variable                            | v7 Value  | v8 Value  |
-| ----------------------------------- | --------- | --------- |
-| `androidxAppCompatVersion`          | `1.7.0`   | `1.7.1`   |
-| `androidxJunitVersion`              | `1.2.1`   | `1.3.0`   |
-| `androidxEspressoCoreVersion`       | `3.6.1`   | `3.7.0`   |
-| `androidxActivityVersion`           | —         | `1.11.0`  |
-| `androidxCoordinatorLayoutVersion`  | —         | `1.3.0`   |
-| `androidxCoreVersion`               | —         | `1.17.0`  |
-| `androidxFragmentVersion`           | —         | `1.8.9`   |
-| `firebaseMessagingVersion`          | —         | `25.0.1`  |
-| `androidxBrowserVersion`            | —         | `1.9.0`   |
-| `androidxMaterialVersion`           | —         | `1.13.0`  |
-| `androidxExifInterfaceVersion`      | —         | `1.4.1`   |
-| `coreSplashScreenVersion`           | —         | `1.2.0`   |
-| `androidxWebkitVersion`             | —         | `1.14.0`  |
+| Variable                           | v7 Value | v8 Value |
+| ---------------------------------- | -------- | -------- |
+| `androidxAppCompatVersion`         | `1.7.0`  | `1.7.1`  |
+| `androidxJunitVersion`             | `1.2.1`  | `1.3.0`  |
+| `androidxEspressoCoreVersion`      | `3.6.1`  | `3.7.0`  |
+| `androidxActivityVersion`          | —        | `1.11.0` |
+| `androidxCoordinatorLayoutVersion` | —        | `1.3.0`  |
+| `androidxCoreVersion`              | —        | `1.17.0` |
+| `androidxFragmentVersion`          | —        | `1.8.9`  |
+| `firebaseMessagingVersion`         | —        | `25.0.1` |
+| `androidxBrowserVersion`           | —        | `1.9.0`  |
+| `androidxMaterialVersion`          | —        | `1.13.0` |
+| `androidxExifInterfaceVersion`     | —        | `1.4.1`  |
+| `coreSplashScreenVersion`          | —        | `1.2.0`  |
+| `androidxWebkitVersion`            | —        | `1.14.0` |
 
 ## Step 5: Update Gradle Plugin and Wrapper
 
@@ -201,6 +201,7 @@ Use `JvmTarget.JVM_21` if using Java 21 (recommended), or match the Java version
 #### `kotlin-android-extensions` plugin removed
 
 The `kotlin-android-extensions` plugin is no longer available. Replace with:
+
 - `kotlin-parcelize` plugin for `Parcelable` implementation.
 - Android Jetpack's view bindings for synthetic view access.
 
@@ -257,7 +258,7 @@ Build the plugin's test/example app on both platforms to verify.
 
 ## Error Handling
 
-* If the automated upgrade tool (`@capacitor/plugin-migration-v7-to-v8`) fails, apply the manual steps above for the failing parts.
-* If Android build fails with Gradle property syntax errors, search all `.gradle` files for property assignments without `=` and update them. Remember: method calls do not use `=`.
-* If Kotlin compilation fails after updating to 2.2, check the Kotlin 2.2 breaking changes in Step 7c above.
-* If iOS build fails, verify the deployment target is set to 15.0 in both the podspec and Package.swift (if applicable).
+- If the automated upgrade tool (`@capacitor/plugin-migration-v7-to-v8`) fails, apply the manual steps above for the failing parts.
+- If Android build fails with Gradle property syntax errors, search all `.gradle` files for property assignments without `=` and update them. Remember: method calls do not use `=`.
+- If Kotlin compilation fails after updating to 2.2, check the Kotlin 2.2 breaking changes in Step 7c above.
+- If iOS build fails, verify the deployment target is set to 15.0 in both the podspec and Package.swift (if applicable).

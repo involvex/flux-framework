@@ -14,14 +14,14 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { Haptics, ImpactStyle, NotificationType } from '@capacitor/haptics';
+import {Haptics, ImpactStyle, NotificationType} from '@capacitor/haptics'
 
-await Haptics.impact({ style: ImpactStyle.Heavy });
-await Haptics.notification({ type: NotificationType.Success });
-await Haptics.vibrate({ duration: 500 });
-await Haptics.selectionStart();
-await Haptics.selectionChanged();
-await Haptics.selectionEnd();
+await Haptics.impact({style: ImpactStyle.Heavy})
+await Haptics.notification({type: NotificationType.Success})
+await Haptics.vibrate({duration: 500})
+await Haptics.selectionStart()
+await Haptics.selectionChanged()
+await Haptics.selectionEnd()
 ```
 
 ## Notes

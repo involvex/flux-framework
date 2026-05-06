@@ -10,36 +10,41 @@
 ### 1.1 Core React Imports
 
 #### ✅ CORRECT: React Imports
+
 ```typescript
-import React from 'react';
-import { useState, useEffect, useCallback, memo } from 'react';
-import ReactDOM from 'react-dom/client';
+import {useState, useEffect, useCallback, memo} from 'react'
+import ReactDOM from 'react-dom/client'
+import React from 'react'
 ```
 
 ### 1.2 Router Imports
 
 #### ✅ CORRECT: React Router Imports
+
 ```typescript
-import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom'
 ```
 
 ### 1.3 Animation Imports
 
 #### ✅ CORRECT: Framer Motion Imports
+
 ```typescript
-import { motion, AnimatePresence } from 'framer-motion';
+import {motion, AnimatePresence} from 'framer-motion'
 ```
 
 ### 1.4 Utility Imports
 
 #### ✅ CORRECT: Class Merging
+
 ```typescript
-import clsx from 'clsx';
+import clsx from 'clsx'
 ```
 
 ### 1.5 Anti-Patterns (ERRORS)
 
 #### ❌ INCORRECT: Using outdated imports
+
 ```typescript
 // WRONG - outdated createRoot API
 import ReactDOM from 'react-dom';
@@ -54,17 +59,19 @@ const React = require('react');
 ## 2. Color System Patterns
 
 ### 2.1 ✅ CORRECT: Brand Colors
+
 ```typescript
 // Brand purple palette
 const brandColors = {
-  brand: '#8251EE',
-  brandHover: '#9366F5',
-  brandLight: '#A37EF5',
-  brandSubtle: 'rgba(130, 81, 238, 0.15)',
-};
+	brand: '#8251EE',
+	brandHover: '#9366F5',
+	brandLight: '#A37EF5',
+	brandSubtle: 'rgba(130, 81, 238, 0.15)',
+}
 ```
 
 ### 2.2 ✅ CORRECT: Neutral Background Colors
+
 ```typescript
 // Dark theme neutral backgrounds (bg1 darkest to bg6 lightest)
 <div className="bg-neutral-bg1">Page background</div>
@@ -74,6 +81,7 @@ const brandColors = {
 ```
 
 ### 2.3 ✅ CORRECT: Text Colors
+
 ```typescript
 <h1 className="text-text-primary">Primary text (white)</h1>
 <p className="text-text-secondary">Secondary text (gray)</p>
@@ -81,6 +89,7 @@ const brandColors = {
 ```
 
 ### 2.4 ✅ CORRECT: Border Colors
+
 ```typescript
 <div className="border border-border-subtle">Subtle border</div>
 <div className="border border-border">Default border</div>
@@ -88,6 +97,7 @@ const brandColors = {
 ```
 
 ### 2.5 ✅ CORRECT: Status Colors
+
 ```typescript
 <span className="text-status-success">Success</span>
 <span className="text-status-warning">Warning</span>
@@ -98,6 +108,7 @@ const brandColors = {
 ### 2.6 Anti-Patterns (ERRORS)
 
 #### ❌ INCORRECT: Using light theme colors
+
 ```typescript
 // WRONG - light theme background
 <div className="bg-white">...</div>
@@ -111,6 +122,7 @@ const brandColors = {
 ## 3. Glass Effect Patterns
 
 ### 3.1 ✅ CORRECT: Glass Card
+
 ```typescript
 <div className="glass-card p-6">
   <h2 className="text-lg font-semibold text-text-primary">Card Title</h2>
@@ -119,6 +131,7 @@ const brandColors = {
 ```
 
 ### 3.2 ✅ CORRECT: Glass Panel
+
 ```typescript
 <aside className="glass-panel w-64 h-screen p-4">
   <nav className="space-y-2">
@@ -128,6 +141,7 @@ const brandColors = {
 ```
 
 ### 3.3 ✅ CORRECT: Glass Overlay (Modal)
+
 ```typescript
 <div className="fixed inset-0 glass-overlay flex items-center justify-center z-50">
   <div className="glass-card p-6 max-w-md w-full mx-4">
@@ -137,6 +151,7 @@ const brandColors = {
 ```
 
 ### 3.4 ✅ CORRECT: Glass Input
+
 ```typescript
 <input className="glass-input px-4 py-2 rounded-lg w-full" />
 ```
@@ -146,6 +161,7 @@ const brandColors = {
 ## 4. Animation Patterns
 
 ### 4.1 ✅ CORRECT: Fade In Variant
+
 ```typescript
 const fadeIn = {
   initial: { opacity: 0 },
@@ -158,48 +174,52 @@ const fadeIn = {
 ```
 
 ### 4.2 ✅ CORRECT: Slide Up Variant
+
 ```typescript
 const slideUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: 20 },
-  transition: { duration: 0.3, ease: 'easeOut' },
-};
+	initial: {opacity: 0, y: 20},
+	animate: {opacity: 1, y: 0},
+	exit: {opacity: 0, y: 20},
+	transition: {duration: 0.3, ease: 'easeOut'},
+}
 ```
 
 ### 4.3 ✅ CORRECT: Scale on Hover
+
 ```typescript
 const scaleOnHover = {
-  whileHover: { scale: 1.02 },
-  whileTap: { scale: 0.98 },
-  transition: { type: 'spring', stiffness: 400, damping: 17 },
-};
+	whileHover: {scale: 1.02},
+	whileTap: {scale: 0.98},
+	transition: {type: 'spring', stiffness: 400, damping: 17},
+}
 ```
 
 ### 4.4 ✅ CORRECT: Stagger Children
+
 ```typescript
 const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.1,
-    },
-  },
-};
+	hidden: {opacity: 0},
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.05,
+			delayChildren: 0.1,
+		},
+	},
+}
 
 const staggerItem = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.2, ease: 'easeOut' },
-  },
-};
+	hidden: {opacity: 0, y: 10},
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {duration: 0.2, ease: 'easeOut'},
+	},
+}
 ```
 
 ### 4.5 ✅ CORRECT: Page Transition
+
 ```typescript
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -212,6 +232,7 @@ const staggerItem = {
 ```
 
 ### 4.6 ✅ CORRECT: AnimatePresence for Exit
+
 ```typescript
 <AnimatePresence mode="wait">
   <Routes>
@@ -226,6 +247,7 @@ const staggerItem = {
 ## 5. Component Patterns
 
 ### 5.1 ✅ CORRECT: Button Component
+
 ```typescript
 interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'ghost';
@@ -257,6 +279,7 @@ function Button({ variant = 'primary', size = 'md', children, onClick }: ButtonP
 ```
 
 ### 5.2 ✅ CORRECT: Card Component
+
 ```typescript
 interface CardProps {
   children: React.ReactNode;
@@ -281,6 +304,7 @@ function Card({ children, className }: CardProps) {
 ## 6. Typography Patterns
 
 ### 6.1 ✅ CORRECT: Typography Classes
+
 ```typescript
 // Page title
 <h1 className="text-2xl font-semibold text-text-primary">Page Title</h1>
@@ -306,6 +330,7 @@ function Card({ children, className }: CardProps) {
 ## 7. Layout Patterns
 
 ### 7.1 ✅ CORRECT: App Shell
+
 ```typescript
 function AppShell({ children }: { children: React.ReactNode }) {
   return (
@@ -318,6 +343,7 @@ function AppShell({ children }: { children: React.ReactNode }) {
 ```
 
 ### 7.2 ✅ CORRECT: Page Header
+
 ```typescript
 function PageHeader({ title, description }: { title: string; description?: string }) {
   return (
@@ -336,16 +362,18 @@ function PageHeader({ title, description }: { title: string; description?: strin
 ## 8. Focus and Accessibility Patterns
 
 ### 8.1 ✅ CORRECT: Focus Visible
+
 ```css
 *:focus-visible {
-  @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-neutral-bg1;
+	@apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-neutral-bg1;
 }
 ```
 
 ### 8.2 ✅ CORRECT: Dark Color Scheme
+
 ```css
 html {
-  color-scheme: dark;
+	color-scheme: dark;
 }
 ```
 
@@ -354,27 +382,28 @@ html {
 ## 9. Tailwind Configuration Patterns
 
 ### 9.1 ✅ CORRECT: Custom Colors in Config
+
 ```javascript
 module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          DEFAULT: '#8251EE',
-          hover: '#9366F5',
-        },
-        neutral: {
-          bg1: 'hsl(240, 6%, 10%)',
-          bg2: 'hsl(240, 5%, 12%)',
-        },
-        text: {
-          primary: '#FFFFFF',
-          secondary: '#A1A1AA',
-        },
-      },
-    },
-  },
-};
+	theme: {
+		extend: {
+			colors: {
+				brand: {
+					DEFAULT: '#8251EE',
+					hover: '#9366F5',
+				},
+				neutral: {
+					bg1: 'hsl(240, 6%, 10%)',
+					bg2: 'hsl(240, 5%, 12%)',
+				},
+				text: {
+					primary: '#FFFFFF',
+					secondary: '#A1A1AA',
+				},
+			},
+		},
+	},
+}
 ```
 
 ---
@@ -382,6 +411,7 @@ module.exports = {
 ## 10. Anti-Patterns (ERRORS)
 
 ### 10.1 ❌ INCORRECT: Light Theme Usage
+
 ```typescript
 // WRONG - light backgrounds
 <div className="bg-white">...</div>
@@ -389,6 +419,7 @@ module.exports = {
 ```
 
 ### 10.2 ❌ INCORRECT: Missing Motion Components
+
 ```typescript
 // WRONG - static hover without motion
 <button className="hover:scale-105">...</button>
@@ -398,6 +429,7 @@ module.exports = {
 ```
 
 ### 10.3 ❌ INCORRECT: Missing AnimatePresence
+
 ```typescript
 // WRONG - no exit animations
 {isOpen && <Modal />}

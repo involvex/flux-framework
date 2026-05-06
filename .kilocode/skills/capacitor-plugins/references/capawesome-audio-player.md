@@ -37,50 +37,50 @@ To play audio in the background, enable `Background Modes` capability with `Audi
 ### Play audio from a web asset
 
 ```typescript
-import { AudioPlayer } from '@capawesome-team/capacitor-audio-player';
+import {AudioPlayer} from '@capawesome-team/capacitor-audio-player'
 
 await AudioPlayer.play({
-  src: '/assets/audio.mp3',
-  loop: false,
-  volume: 100,
-  position: 0
-});
+	src: '/assets/audio.mp3',
+	loop: false,
+	volume: 100,
+	position: 0,
+})
 ```
 
 ### Play audio from a native file
 
 ```typescript
-import { AudioPlayer } from '@capawesome-team/capacitor-audio-player';
-import { Filesystem, Directory } from '@capacitor/filesystem';
+import {AudioPlayer} from '@capawesome-team/capacitor-audio-player'
+import {Filesystem, Directory} from '@capacitor/filesystem'
 
-const { uri } = await Filesystem.getUri({
-  directory: Directory.Documents,
-  path: 'audio.mp3',
-});
-await AudioPlayer.play({ uri, loop: false, volume: 100, position: 0 });
+const {uri} = await Filesystem.getUri({
+	directory: Directory.Documents,
+	path: 'audio.mp3',
+})
+await AudioPlayer.play({uri, loop: false, volume: 100, position: 0})
 ```
 
 ### Playback controls
 
 ```typescript
-await AudioPlayer.pause();
-await AudioPlayer.resume();
-await AudioPlayer.stop();
-await AudioPlayer.seekTo({ position: 30_000 }); // 30 seconds
-await AudioPlayer.setVolume({ volume: 50 });
-await AudioPlayer.setRate({ rate: 1.5 }); // Android SDK 23+, iOS, Web
+await AudioPlayer.pause()
+await AudioPlayer.resume()
+await AudioPlayer.stop()
+await AudioPlayer.seekTo({position: 30_000}) // 30 seconds
+await AudioPlayer.setVolume({volume: 50})
+await AudioPlayer.setRate({rate: 1.5}) // Android SDK 23+, iOS, Web
 
-const { position } = await AudioPlayer.getCurrentPosition();
-const { duration } = await AudioPlayer.getDuration();
-const { isPlaying } = await AudioPlayer.isPlaying();
+const {position} = await AudioPlayer.getCurrentPosition()
+const {duration} = await AudioPlayer.getDuration()
+const {isPlaying} = await AudioPlayer.isPlaying()
 ```
 
 ### Listen for stop event
 
 ```typescript
 await AudioPlayer.addListener('stop', () => {
-  console.log('Audio stopped');
-});
+	console.log('Audio stopped')
+})
 ```
 
 ## Notes

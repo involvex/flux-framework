@@ -46,56 +46,56 @@ Defined in `android/variables.gradle`:
 ### Print HTML content
 
 ```typescript
-import { Printer } from '@capawesome-team/capacitor-printer';
+import {Printer} from '@capawesome-team/capacitor-printer'
 
 await Printer.printHtml({
-  name: 'My Document',
-  html: '<h1>Hello World</h1>',
-});
+	name: 'My Document',
+	html: '<h1>Hello World</h1>',
+})
 ```
 
 ### Print a PDF file
 
 ```typescript
-import { Printer } from '@capawesome-team/capacitor-printer';
+import {Printer} from '@capawesome-team/capacitor-printer'
 
 await Printer.printPdf({
-  name: 'My Document',
-  path: '/path/to/document.pdf',
-});
+	name: 'My Document',
+	path: '/path/to/document.pdf',
+})
 ```
 
 ### Print base64 data
 
 ```typescript
-import { Printer } from '@capawesome-team/capacitor-printer';
+import {Printer} from '@capawesome-team/capacitor-printer'
 
 await Printer.printBase64({
-  name: 'My Document',
-  data: 'JVBERi0...',
-  mimeType: 'application/pdf',
-});
+	name: 'My Document',
+	data: 'JVBERi0...',
+	mimeType: 'application/pdf',
+})
 ```
 
 ### Print the current web view
 
 ```typescript
-import { Printer } from '@capawesome-team/capacitor-printer';
+import {Printer} from '@capawesome-team/capacitor-printer'
 
 await Printer.printWebView({
-  name: 'My Document',
-});
+	name: 'My Document',
+})
 ```
 
 ### Print a file by path
 
 ```typescript
-import { Printer } from '@capawesome-team/capacitor-printer';
+import {Printer} from '@capawesome-team/capacitor-printer'
 
 await Printer.printFile({
-  mimeType: 'application/pdf',
-  path: 'content://com.android.providers.downloads.documents/document/msf%3A1000000485',
-});
+	mimeType: 'application/pdf',
+	path: 'content://com.android.providers.downloads.documents/document/msf%3A1000000485',
+})
 ```
 
 ## Notes

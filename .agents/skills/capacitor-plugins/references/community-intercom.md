@@ -19,12 +19,12 @@ Add Intercom keys to the Capacitor configuration file (`capacitor.config.ts` or 
 
 ```json
 {
-  "plugins": {
-    "Intercom": {
-      "iosApiKey": "ios_sdk-xxx",
-      "iosAppId": "yyy"
-    }
-  }
+	"plugins": {
+		"Intercom": {
+			"iosApiKey": "ios_sdk-xxx",
+			"iosAppId": "yyy"
+		}
+	}
 }
 ```
 
@@ -32,64 +32,64 @@ Add Intercom keys to the Capacitor configuration file (`capacitor.config.ts` or 
 
 ```json
 {
-  "plugins": {
-    "Intercom": {
-      "androidApiKey": "android_sdk-xxx",
-      "androidAppId": "yyy"
-    }
-  }
+	"plugins": {
+		"Intercom": {
+			"androidApiKey": "android_sdk-xxx",
+			"androidAppId": "yyy"
+		}
+	}
 }
 ```
 
 ## Usage
 
 ```typescript
-import { Intercom } from '@capacitor-community/intercom';
-import { PushNotifications } from '@capacitor/push-notifications';
+import {PushNotifications} from '@capacitor/push-notifications'
+import {Intercom} from '@capacitor-community/intercom'
 
 // Register for push notifications from Intercom
-PushNotifications.register();
+PushNotifications.register()
 
 // Register an identified user
-Intercom.registerIdentifiedUser({ userId: '123456' });
-Intercom.registerIdentifiedUser({ email: 'test@example.com' });
-Intercom.registerIdentifiedUser({ userId: '123456', email: 'test@example.com' });
+Intercom.registerIdentifiedUser({userId: '123456'})
+Intercom.registerIdentifiedUser({email: 'test@example.com'})
+Intercom.registerIdentifiedUser({userId: '123456', email: 'test@example.com'})
 
 // Register an unidentified user
-Intercom.registerUnidentifiedUser();
+Intercom.registerUnidentifiedUser()
 
 // Update user attributes
-Intercom.updateUser({ name: 'John', email: 'john@example.com' });
+Intercom.updateUser({name: 'John', email: 'john@example.com'})
 
 // Log an event
-Intercom.logEvent({ name: 'my-event', data: { pi: 3.14 } });
+Intercom.logEvent({name: 'my-event', data: {pi: 3.14}})
 
 // Display the messenger / message composer
-Intercom.displayMessenger();
-Intercom.displayMessageComposer({ message: 'Hello there!' });
+Intercom.displayMessenger()
+Intercom.displayMessageComposer({message: 'Hello there!'})
 
 // Display help center
-Intercom.displayHelpCenter();
+Intercom.displayHelpCenter()
 
 // Display a specific article
-Intercom.displayArticle({ articleId: '123' });
+Intercom.displayArticle({articleId: '123'})
 
 // Identity Verification
-Intercom.setUserHash({ hmac: 'xyz' });
+Intercom.setUserHash({hmac: 'xyz'})
 
 // Secure Messenger with JWT
-Intercom.setUserJwt({ jwt: 'xyz' });
+Intercom.setUserJwt({jwt: 'xyz'})
 
 // Logout
-Intercom.logout();
+Intercom.logout()
 
 // Listen for messenger events
 Intercom.addListener('windowDidShow', () => {
-  console.log('Intercom messenger shown');
-});
+	console.log('Intercom messenger shown')
+})
 Intercom.addListener('windowDidHide', () => {
-  console.log('Intercom messenger hidden');
-});
+	console.log('Intercom messenger hidden')
+})
 ```
 
 ## Notes

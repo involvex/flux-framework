@@ -22,24 +22,24 @@ No additional iOS configuration required.
 ## Usage
 
 ```typescript
-import { ManagedConfigurations } from '@capawesome/capacitor-managed-configurations';
+import {ManagedConfigurations} from '@capawesome/capacitor-managed-configurations'
 
 const getString = async () => {
-  const result = await ManagedConfigurations.getString({ key: 'server_url' });
-  return result.value;
-};
+	const result = await ManagedConfigurations.getString({key: 'server_url'})
+	return result.value
+}
 
 const getNumber = async () => {
-  const result = await ManagedConfigurations.getNumber({ key: 'server_port' });
-  return result.value;
-};
+	const result = await ManagedConfigurations.getNumber({key: 'server_port'})
+	return result.value
+}
 
 const getBoolean = async () => {
-  const result = await ManagedConfigurations.getBoolean({
-    key: 'download_on_cellular',
-  });
-  return result.value;
-};
+	const result = await ManagedConfigurations.getBoolean({
+		key: 'download_on_cellular',
+	})
+	return result.value
+}
 ```
 
 ## Key Methods

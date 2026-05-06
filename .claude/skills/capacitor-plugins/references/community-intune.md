@@ -62,7 +62,7 @@ dependencies {
 4. In `android/gradle.properties`, add:
 
 ```properties
-android.enableResourceOptimizations=false
+android.enableResourceOptimizations = false
 ```
 
 #### AndroidManifest.xml
@@ -207,48 +207,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ## Usage
 
 ```typescript
-import { IntuneMAM } from '@capacitor-community/intune';
+import {IntuneMAM} from '@capacitor-community/intune'
 
 // Acquire token interactively
 const authInfo = await IntuneMAM.acquireToken({
-  scopes: ['https://graph.microsoft.com/.default'],
-});
+	scopes: ['https://graph.microsoft.com/.default'],
+})
 
 // Register and enroll in Intune
 await IntuneMAM.registerAndEnrollAccount({
-  accountId: authInfo.accountId,
-});
+	accountId: authInfo.accountId,
+})
 
 // Acquire token silently on subsequent loads
 const tokenInfo = await IntuneMAM.acquireTokenSilent({
-  scopes: ['https://graph.microsoft.com/.default'],
-  accountId: authInfo.accountId,
-});
+	scopes: ['https://graph.microsoft.com/.default'],
+	accountId: authInfo.accountId,
+})
 
 // Simple login without token (no MSAL token needed)
-await IntuneMAM.loginAndEnrollAccount();
+await IntuneMAM.loginAndEnrollAccount()
 
 // Get enrolled account
-const user = await IntuneMAM.enrolledAccount();
+const user = await IntuneMAM.enrolledAccount()
 
 // Get app config and policy
-const config = await IntuneMAM.appConfig(user);
-const policy = await IntuneMAM.getPolicy(user);
+const config = await IntuneMAM.appConfig(user)
+const policy = await IntuneMAM.getPolicy(user)
 
 // Listen for changes
 IntuneMAM.addListener('appConfigChange', () => {
-  console.log('App config changed');
-});
+	console.log('App config changed')
+})
 IntuneMAM.addListener('policyChange', () => {
-  console.log('Policy changed');
-});
+	console.log('Policy changed')
+})
 
 // Sign out
-await IntuneMAM.deRegisterAndUnenrollAccount(user);
+await IntuneMAM.deRegisterAndUnenrollAccount(user)
 
 // Diagnostics
-const { version } = await IntuneMAM.sdkVersion();
-await IntuneMAM.displayDiagnosticConsole();
+const {version} = await IntuneMAM.sdkVersion()
+await IntuneMAM.displayDiagnosticConsole()
 ```
 
 ## Notes

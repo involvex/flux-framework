@@ -1,9 +1,9 @@
 ---
 name: react-flow-architect
-description: "Expert ReactFlow architect for building interactive graph applications with hierarchical node-edge systems, performance optimization, and auto-layout integration. Use when Claude needs to create or..."
+description: Expert ReactFlow architect for building interactive graph applications with hierarchical node-edge systems, performance optimization, and auto-layout integration. Use when Claude needs to create or...
 risk: unknown
 source: community
-date_added: "2026-02-27"
+date_added: 2026-02-27
 ---
 
 # ReactFlow Architect
@@ -15,17 +15,22 @@ Build production-ready ReactFlow applications with hierarchical navigation, perf
 Create basic interactive graph:
 
 ```tsx
-import ReactFlow, { Node, Edge } from "reactflow";
+import ReactFlow, {Node, Edge} from 'reactflow'
 
 const nodes: Node[] = [
-  { id: "1", position: { x: 0, y: 0 }, data: { label: "Node 1" } },
-  { id: "2", position: { x: 100, y: 100 }, data: { label: "Node 2" } },
-];
+	{id: '1', position: {x: 0, y: 0}, data: {label: 'Node 1'}},
+	{id: '2', position: {x: 100, y: 100}, data: {label: 'Node 2'}},
+]
 
-const edges: Edge[] = [{ id: "e1-2", source: "1", target: "2" }];
+const edges: Edge[] = [{id: 'e1-2', source: '1', target: '2'}]
 
 export default function Graph() {
-  return <ReactFlow nodes={nodes} edges={edges} />;
+	return (
+		<ReactFlow
+			nodes={nodes}
+			edges={edges}
+		/>
+	)
 }
 ```
 
@@ -39,14 +44,14 @@ Build expandable/collapsible tree structures with parent-child relationships.
 
 ```typescript
 interface TreeNode extends Node {
-  data: {
-    label: string;
-    level: number;
-    hasChildren: boolean;
-    isExpanded: boolean;
-    childCount: number;
-    category: "root" | "category" | "process" | "detail";
-  };
+	data: {
+		label: string
+		level: number
+		hasChildren: boolean
+		isExpanded: boolean
+		childCount: number
+		category: 'root' | 'category' | 'process' | 'detail'
+	}
 }
 ```
 
@@ -54,32 +59,32 @@ interface TreeNode extends Node {
 
 ```typescript
 const buildVisibleNodes = useCallback(
-  (allNodes: TreeNode[], expandedIds: Set<string>, otherDeps: any[]) => {
-    const visibleNodes = new Map<string, TreeNode>();
-    const visibleEdges = new Map<string, TreeEdge>();
+	(allNodes: TreeNode[], expandedIds: Set<string>, otherDeps: any[]) => {
+		const visibleNodes = new Map<string, TreeNode>()
+		const visibleEdges = new Map<string, TreeEdge>()
 
-    // Start with root nodes
-    const rootNodes = allNodes.filter((n) => n.data.level === 0);
+		// Start with root nodes
+		const rootNodes = allNodes.filter(n => n.data.level === 0)
 
-    // Recursively add visible nodes
-    const addVisibleChildren = (node: TreeNode) => {
-      visibleNodes.set(node.id, node);
+		// Recursively add visible nodes
+		const addVisibleChildren = (node: TreeNode) => {
+			visibleNodes.set(node.id, node)
 
-      if (expandedIds.has(node.id)) {
-        const children = allNodes.filter((n) => n.parentNode === node.id);
-        children.forEach((child) => addVisibleChildren(child));
-      }
-    };
+			if (expandedIds.has(node.id)) {
+				const children = allNodes.filter(n => n.parentNode === node.id)
+				children.forEach(child => addVisibleChildren(child))
+			}
+		}
 
-    rootNodes.forEach((root) => addVisibleChildren(root));
+		rootNodes.forEach(root => addVisibleChildren(root))
 
-    return {
-      nodes: Array.from(visibleNodes.values()),
-      edges: Array.from(visibleEdges.values()),
-    };
-  },
-  [],
-);
+		return {
+			nodes: Array.from(visibleNodes.values()),
+			edges: Array.from(visibleEdges.values()),
+		}
+	},
+	[],
+)
 ```
 
 ### Performance Optimization
@@ -90,41 +95,41 @@ Handle large datasets with incremental rendering and memoization.
 
 ```typescript
 const useIncrementalGraph = (
-  allNodes: Node[],
-  allEdges: Edge[],
-  expandedList: string[],
+	allNodes: Node[],
+	allEdges: Edge[],
+	expandedList: string[],
 ) => {
-  const prevExpandedListRef = useRef<Set<string>>(new Set());
-  const prevOtherDepsRef = useRef<any[]>([]);
+	const prevExpandedListRef = useRef<Set<string>>(new Set())
+	const prevOtherDepsRef = useRef<any[]>([])
 
-  const { visibleNodes, visibleEdges } = useMemo(() => {
-    const currentExpandedSet = new Set(expandedList);
-    const prevExpandedSet = prevExpandedListRef.current;
+	const {visibleNodes, visibleEdges} = useMemo(() => {
+		const currentExpandedSet = new Set(expandedList)
+		const prevExpandedSet = prevExpandedListRef.current
 
-    // Check if expanded list changed
-    const expandedChanged = !areSetsEqual(currentExpandedSet, prevExpandedSet);
+		// Check if expanded list changed
+		const expandedChanged = !areSetsEqual(currentExpandedSet, prevExpandedSet)
 
-    // Check if other dependencies changed
-    const otherDepsChanged = !arraysEqual(otherDeps, prevOtherDepsRef.current);
+		// Check if other dependencies changed
+		const otherDepsChanged = !arraysEqual(otherDeps, prevOtherDepsRef.current)
 
-    if (expandedChanged && !otherDepsChanged) {
-      // Only expanded list changed - incremental update
-      return buildIncrementalUpdate(
-        cachedVisibleNodesRef.current,
-        cachedVisibleEdgesRef.current,
-        allNodes,
-        allEdges,
-        currentExpandedSet,
-        prevExpandedSet,
-      );
-    } else {
-      // Full rebuild needed
-      return buildFullGraph(allNodes, allEdges, currentExpandedSet);
-    }
-  }, [allNodes, allEdges, expandedList, ...otherDeps]);
+		if (expandedChanged && !otherDepsChanged) {
+			// Only expanded list changed - incremental update
+			return buildIncrementalUpdate(
+				cachedVisibleNodesRef.current,
+				cachedVisibleEdgesRef.current,
+				allNodes,
+				allEdges,
+				currentExpandedSet,
+				prevExpandedSet,
+			)
+		} else {
+			// Full rebuild needed
+			return buildFullGraph(allNodes, allEdges, currentExpandedSet)
+		}
+	}, [allNodes, allEdges, expandedList, ...otherDeps])
 
-  return { visibleNodes, visibleEdges };
-};
+	return {visibleNodes, visibleEdges}
+}
 ```
 
 #### Memoization Patterns
@@ -168,73 +173,73 @@ Complex node/edge state patterns with undo/redo and persistence.
 
 ```typescript
 type GraphAction =
-  | { type: "SELECT_NODE"; payload: string }
-  | { type: "SELECT_EDGE"; payload: string }
-  | { type: "TOGGLE_EXPAND"; payload: string }
-  | { type: "UPDATE_NODES"; payload: Node[] }
-  | { type: "UPDATE_EDGES"; payload: Edge[] }
-  | { type: "UNDO" }
-  | { type: "REDO" };
+	| {type: 'SELECT_NODE'; payload: string}
+	| {type: 'SELECT_EDGE'; payload: string}
+	| {type: 'TOGGLE_EXPAND'; payload: string}
+	| {type: 'UPDATE_NODES'; payload: Node[]}
+	| {type: 'UPDATE_EDGES'; payload: Edge[]}
+	| {type: 'UNDO'}
+	| {type: 'REDO'}
 
 const graphReducer = (state: GraphState, action: GraphAction): GraphState => {
-  switch (action.type) {
-    case "SELECT_NODE":
-      return {
-        ...state,
-        selectedNodeId: action.payload,
-        selectedEdgeId: null,
-      };
+	switch (action.type) {
+		case 'SELECT_NODE':
+			return {
+				...state,
+				selectedNodeId: action.payload,
+				selectedEdgeId: null,
+			}
 
-    case "TOGGLE_EXPAND":
-      const newExpanded = new Set(state.expandedNodeIds);
-      if (newExpanded.has(action.payload)) {
-        newExpanded.delete(action.payload);
-      } else {
-        newExpanded.add(action.payload);
-      }
-      return {
-        ...state,
-        expandedNodeIds: newExpanded,
-        isDirty: true,
-      };
+		case 'TOGGLE_EXPAND':
+			const newExpanded = new Set(state.expandedNodeIds)
+			if (newExpanded.has(action.payload)) {
+				newExpanded.delete(action.payload)
+			} else {
+				newExpanded.add(action.payload)
+			}
+			return {
+				...state,
+				expandedNodeIds: newExpanded,
+				isDirty: true,
+			}
 
-    default:
-      return state;
-  }
-};
+		default:
+			return state
+	}
+}
 ```
 
 #### History Management
 
 ```typescript
 const useHistoryManager = (
-  state: GraphState,
-  dispatch: Dispatch<GraphAction>,
+	state: GraphState,
+	dispatch: Dispatch<GraphAction>,
 ) => {
-  const canUndo = state.historyIndex > 0;
-  const canRedo = state.historyIndex < state.history.length - 1;
+	const canUndo = state.historyIndex > 0
+	const canRedo = state.historyIndex < state.history.length - 1
 
-  const undo = useCallback(() => {
-    if (canUndo) {
-      const newIndex = state.historyIndex - 1;
-      const historyEntry = state.history[newIndex];
+	const undo = useCallback(() => {
+		if (canUndo) {
+			const newIndex = state.historyIndex - 1
+			const historyEntry = state.history[newIndex]
 
-      dispatch({
-        type: "RESTORE_FROM_HISTORY",
-        payload: {
-          ...historyEntry,
-          historyIndex: newIndex,
-        },
-      });
-    }
-  }, [canUndo, state.historyIndex, state.history]);
+			dispatch({
+				type: 'RESTORE_FROM_HISTORY',
+				payload: {
+					...historyEntry,
+					historyIndex: newIndex,
+				},
+			})
+		}
+	}, [canUndo, state.historyIndex, state.history])
 
-  const saveToHistory = useCallback(() => {
-    dispatch({ type: "SAVE_TO_HISTORY" });
-  }, [dispatch]);
+	const saveToHistory = useCallback(() => {
+		dispatch({type: 'SAVE_TO_HISTORY'})
+	}, [dispatch])
 
-  return { canUndo, canRedo, undo, redo, saveToHistory };
-};
+	return {canUndo, canRedo, undo, redo, saveToHistory}
+}
 ```
 
 ## Advanced Features
@@ -244,47 +249,47 @@ const useHistoryManager = (
 Integrate Dagre for automatic graph layout:
 
 ```typescript
-import dagre from "dagre";
+import dagre from 'dagre'
 
 const layoutOptions = {
-  rankdir: "TB", // Top to Bottom
-  nodesep: 100, // Node separation
-  ranksep: 150, // Rank separation
-  marginx: 50,
-  marginy: 50,
-  edgesep: 10,
-};
+	rankdir: 'TB', // Top to Bottom
+	nodesep: 100, // Node separation
+	ranksep: 150, // Rank separation
+	marginx: 50,
+	marginy: 50,
+	edgesep: 10,
+}
 
 const applyLayout = (nodes: Node[], edges: Edge[]) => {
-  const g = new dagre.graphlib.Graph();
-  g.setGraph(layoutOptions);
-  g.setDefaultEdgeLabel(() => ({}));
+	const g = new dagre.graphlib.Graph()
+	g.setGraph(layoutOptions)
+	g.setDefaultEdgeLabel(() => ({}))
 
-  // Add nodes to graph
-  nodes.forEach((node) => {
-    g.setNode(node.id, { width: 200, height: 100 });
-  });
+	// Add nodes to graph
+	nodes.forEach(node => {
+		g.setNode(node.id, {width: 200, height: 100})
+	})
 
-  // Add edges to graph
-  edges.forEach((edge) => {
-    g.setEdge(edge.source, edge.target);
-  });
+	// Add edges to graph
+	edges.forEach(edge => {
+		g.setEdge(edge.source, edge.target)
+	})
 
-  // Calculate layout
-  dagre.layout(g);
+	// Calculate layout
+	dagre.layout(g)
 
-  // Apply positions
-  return nodes.map((node) => ({
-    ...node,
-    position: {
-      x: g.node(node.id).x - 100,
-      y: g.node(node.id).y - 50,
-    },
-  }));
-};
+	// Apply positions
+	return nodes.map(node => ({
+		...node,
+		position: {
+			x: g.node(node.id).x - 100,
+			y: g.node(node.id).y - 50,
+		},
+	}))
+}
 
 // Debounce layout calculations
-const debouncedLayout = useMemo(() => debounce(applyLayout, 150), []);
+const debouncedLayout = useMemo(() => debounce(applyLayout, 150), [])
 ```
 
 ### Focus Mode
@@ -293,38 +298,38 @@ Isolate selected nodes and their direct connections:
 
 ```typescript
 const useFocusMode = (
-  selectedNodeId: string,
-  allNodes: Node[],
-  allEdges: Edge[],
+	selectedNodeId: string,
+	allNodes: Node[],
+	allEdges: Edge[],
 ) => {
-  return useMemo(() => {
-    if (!selectedNodeId) return { nodes: allNodes, edges: allEdges };
+	return useMemo(() => {
+		if (!selectedNodeId) return {nodes: allNodes, edges: allEdges}
 
-    // Get direct connections
-    const connectedNodeIds = new Set([selectedNodeId]);
-    const focusedEdges: Edge[] = [];
+		// Get direct connections
+		const connectedNodeIds = new Set([selectedNodeId])
+		const focusedEdges: Edge[] = []
 
-    allEdges.forEach((edge) => {
-      if (edge.source === selectedNodeId || edge.target === selectedNodeId) {
-        focusedEdges.push(edge);
-        connectedNodeIds.add(edge.source);
-        connectedNodeIds.add(edge.target);
-      }
-    });
+		allEdges.forEach(edge => {
+			if (edge.source === selectedNodeId || edge.target === selectedNodeId) {
+				focusedEdges.push(edge)
+				connectedNodeIds.add(edge.source)
+				connectedNodeIds.add(edge.target)
+			}
+		})
 
-    // Get connected nodes
-    const focusedNodes = allNodes.filter((n) => connectedNodeIds.has(n.id));
+		// Get connected nodes
+		const focusedNodes = allNodes.filter(n => connectedNodeIds.has(n.id))
 
-    return { nodes: focusedNodes, edges: focusedEdges };
-  }, [selectedNodeId, allNodes, allEdges]);
-};
+		return {nodes: focusedNodes, edges: focusedEdges}
+	}, [selectedNodeId, allNodes, allEdges])
+}
 
 // Smooth transitions for focus mode
 const focusModeStyles = {
-  transition: "all 0.3s ease-in-out",
-  opacity: isInFocus ? 1 : 0.3,
-  filter: isInFocus ? "none" : "blur(2px)",
-};
+	transition: 'all 0.3s ease-in-out',
+	opacity: isInFocus ? 1 : 0.3,
+	filter: isInFocus ? 'none' : 'blur(2px)',
+}
 ```
 
 ### Search Integration
@@ -333,27 +338,27 @@ Search and navigate to specific nodes:
 
 ```typescript
 const searchNodes = useCallback((nodes: Node[], query: string) => {
-  if (!query.trim()) return [];
+	if (!query.trim()) return []
 
-  const lowerQuery = query.toLowerCase();
-  return nodes.filter(
-    (node) =>
-      node.data.label.toLowerCase().includes(lowerQuery) ||
-      node.data.description?.toLowerCase().includes(lowerQuery),
-  );
-}, []);
+	const lowerQuery = query.toLowerCase()
+	return nodes.filter(
+		node =>
+			node.data.label.toLowerCase().includes(lowerQuery) ||
+			node.data.description?.toLowerCase().includes(lowerQuery),
+	)
+}, [])
 
 const navigateToSearchResult = (nodeId: string) => {
-  // Expand parent nodes
-  const nodePath = calculateBreadcrumbPath(nodeId, allNodes);
-  const parentIds = nodePath.slice(0, -1).map((n) => n.id);
+	// Expand parent nodes
+	const nodePath = calculateBreadcrumbPath(nodeId, allNodes)
+	const parentIds = nodePath.slice(0, -1).map(n => n.id)
 
-  setExpandedIds((prev) => new Set([...prev, ...parentIds]));
-  setSelectedNodeId(nodeId);
+	setExpandedIds(prev => new Set([...prev, ...parentIds]))
+	setSelectedNodeId(nodeId)
 
-  // Fit view to node
-  fitView({ nodes: [{ id: nodeId }], duration: 800 });
-};
+	// Fit view to node
+	fitView({nodes: [{id: nodeId}], duration: 800})
+}
 ```
 
 ## Performance Tools
@@ -365,84 +370,84 @@ Create a performance analysis script:
 ```javascript
 // scripts/graph-analyzer.js
 class GraphAnalyzer {
-  analyzeCode(content, filePath) {
-    const analysis = {
-      metrics: {
-        nodeCount: this.countNodes(content),
-        edgeCount: this.countEdges(content),
-        renderTime: this.estimateRenderTime(content),
-        memoryUsage: this.estimateMemoryUsage(content),
-        complexity: this.calculateComplexity(content),
-      },
-      issues: [],
-      optimizations: [],
-      patterns: this.detectPatterns(content),
-    };
+	analyzeCode(content, filePath) {
+		const analysis = {
+			metrics: {
+				nodeCount: this.countNodes(content),
+				edgeCount: this.countEdges(content),
+				renderTime: this.estimateRenderTime(content),
+				memoryUsage: this.estimateMemoryUsage(content),
+				complexity: this.calculateComplexity(content),
+			},
+			issues: [],
+			optimizations: [],
+			patterns: this.detectPatterns(content),
+		}
 
-    // Detect performance issues
-    this.detectPerformanceIssues(analysis);
+		// Detect performance issues
+		this.detectPerformanceIssues(analysis)
 
-    // Suggest optimizations
-    this.suggestOptimizations(analysis);
+		// Suggest optimizations
+		this.suggestOptimizations(analysis)
 
-    return analysis;
-  }
+		return analysis
+	}
 
-  countNodes(content) {
-    const nodePatterns = [
-      /nodes:\s*\[.*?\]/gs,
-      /const\s+\w+\s*=\s*\[.*?id:.*?position:/gs,
-    ];
+	countNodes(content) {
+		const nodePatterns = [
+			/nodes:\s*\[.*?\]/gs,
+			/const\s+\w+\s*=\s*\[.*?id:.*?position:/gs,
+		]
 
-    let totalCount = 0;
-    nodePatterns.forEach((pattern) => {
-      const matches = content.match(pattern);
-      if (matches) {
-        matches.forEach((match) => {
-          const nodeMatches = match.match(/id:\s*['"`][^'"`]+['"`]/g);
-          if (nodeMatches) {
-            totalCount += nodeMatches.length;
-          }
-        });
-      }
-    });
+		let totalCount = 0
+		nodePatterns.forEach(pattern => {
+			const matches = content.match(pattern)
+			if (matches) {
+				matches.forEach(match => {
+					const nodeMatches = match.match(/id:\s*['"`][^'"`]+['"`]/g)
+					if (nodeMatches) {
+						totalCount += nodeMatches.length
+					}
+				})
+			}
+		})
 
-    return totalCount;
-  }
+		return totalCount
+	}
 
-  estimateRenderTime(content) {
-    const nodeCount = this.countNodes(content);
-    const edgeCount = this.countEdges(content);
+	estimateRenderTime(content) {
+		const nodeCount = this.countNodes(content)
+		const edgeCount = this.countEdges(content)
 
-    // Base render time estimation (ms)
-    const baseTime = 5;
-    const nodeTime = nodeCount * 0.1;
-    const edgeTime = edgeCount * 0.05;
+		// Base render time estimation (ms)
+		const baseTime = 5
+		const nodeTime = nodeCount * 0.1
+		const edgeTime = edgeCount * 0.05
 
-    return baseTime + nodeTime + edgeTime;
-  }
+		return baseTime + nodeTime + edgeTime
+	}
 
-  detectPerformanceIssues(analysis) {
-    const { metrics } = analysis;
+	detectPerformanceIssues(analysis) {
+		const {metrics} = analysis
 
-    if (metrics.nodeCount > 500) {
-      analysis.issues.push({
-        type: "HIGH_NODE_COUNT",
-        severity: "high",
-        message: `Too many nodes (${metrics.nodeCount}). Consider virtualization.`,
-        suggestion: "Implement virtualization or reduce visible nodes",
-      });
-    }
+		if (metrics.nodeCount > 500) {
+			analysis.issues.push({
+				type: 'HIGH_NODE_COUNT',
+				severity: 'high',
+				message: `Too many nodes (${metrics.nodeCount}). Consider virtualization.`,
+				suggestion: 'Implement virtualization or reduce visible nodes',
+			})
+		}
 
-    if (metrics.renderTime > 16) {
-      analysis.issues.push({
-        type: "SLOW_RENDER",
-        severity: "high",
-        message: `Render time (${metrics.renderTime.toFixed(2)}ms) exceeds 60fps.`,
-        suggestion: "Optimize with memoization and incremental rendering",
-      });
-    }
-  }
+		if (metrics.renderTime > 16) {
+			analysis.issues.push({
+				type: 'SLOW_RENDER',
+				severity: 'high',
+				message: `Render time (${metrics.renderTime.toFixed(2)}ms) exceeds 60fps.`,
+				suggestion: 'Optimize with memoization and incremental rendering',
+			})
+		}
+	}
 }
 ```
 
@@ -461,21 +466,21 @@ class GraphAnalyzer {
 ```typescript
 // Use Map for O(1) lookups instead of array.find
 const nodesById = useMemo(
-  () => new Map(allNodes.map((n) => [n.id, n])),
-  [allNodes],
-);
+	() => new Map(allNodes.map(n => [n.id, n])),
+	[allNodes],
+)
 
 // Cache layout results
-const layoutCacheRef = useRef<Map<string, Node[]>>(new Map());
+const layoutCacheRef = useRef<Map<string, Node[]>>(new Map())
 
 // Proper cleanup in useEffect
 useEffect(() => {
-  return () => {
-    // Clean up any lingering references
-    nodesMapRef.current.clear();
-    edgesMapRef.current.clear();
-  };
-}, []);
+	return () => {
+		// Clean up any lingering references
+		nodesMapRef.current.clear()
+		edgesMapRef.current.clear()
+	}
+}, [])
 ```
 
 ### State Optimization
@@ -483,17 +488,17 @@ useEffect(() => {
 ```typescript
 // Use useRef for objects that shouldn't trigger re-renders
 const autoSaveDataRef = useRef({
-  nodes: [],
-  edges: [],
-  lastSaved: Date.now(),
-});
+	nodes: [],
+	edges: [],
+	lastSaved: Date.now(),
+})
 
 // Update properties without breaking reference
 const updateAutoSaveData = (newNodes: Node[], newEdges: Edge[]) => {
-  autoSaveDataRef.current.nodes = newNodes;
-  autoSaveDataRef.current.edges = newEdges;
-  autoSaveDataRef.current.lastSaved = Date.now();
-};
+	autoSaveDataRef.current.nodes = newNodes
+	autoSaveDataRef.current.edges = newEdges
+	autoSaveDataRef.current.lastSaved = Date.now()
+}
 ```
 
 ## Common Problems & Solutions
@@ -616,4 +621,5 @@ export default function InteractiveGraph() {
 This comprehensive skill provides everything needed to build production-ready ReactFlow applications with hierarchical navigation, performance optimization, and advanced state management patterns.
 
 ## When to Use
+
 This skill is applicable to execute the workflow or actions described in the overview.

@@ -29,31 +29,31 @@ The plugin loads the Apple JS SDK automatically. Configure your Apple Service ID
 ### Initialize (Android and Web only)
 
 ```typescript
-import { AppleSignIn } from '@capawesome/capacitor-apple-sign-in';
+import {AppleSignIn} from '@capawesome/capacitor-apple-sign-in'
 
 await AppleSignIn.initialize({
-  clientId: 'com.example.app.signin',
-});
+	clientId: 'com.example.app.signin',
+})
 ```
 
 ### Sign in
 
 ```typescript
-import { AppleSignIn, SignInScope } from '@capawesome/capacitor-apple-sign-in';
+import {AppleSignIn, SignInScope} from '@capawesome/capacitor-apple-sign-in'
 
 const result = await AppleSignIn.signIn({
-  scopes: [SignInScope.Email, SignInScope.FullName],
-  redirectUrl: 'https://example.com/callback',
-  nonce: 'random-nonce',
-  state: 'random-state',
-});
+	scopes: [SignInScope.Email, SignInScope.FullName],
+	redirectUrl: 'https://example.com/callback',
+	nonce: 'random-nonce',
+	state: 'random-state',
+})
 
-console.log('User:', result.user);
-console.log('ID Token:', result.idToken);
-console.log('Authorization Code:', result.authorizationCode);
-console.log('Email:', result.email);
-console.log('Given Name:', result.givenName);
-console.log('Family Name:', result.familyName);
+console.log('User:', result.user)
+console.log('ID Token:', result.idToken)
+console.log('Authorization Code:', result.authorizationCode)
+console.log('Email:', result.email)
+console.log('Given Name:', result.givenName)
+console.log('Family Name:', result.familyName)
 ```
 
 ## Notes

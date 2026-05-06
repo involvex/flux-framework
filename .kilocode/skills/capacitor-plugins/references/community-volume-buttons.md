@@ -14,24 +14,24 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { VolumeButtons } from '@capacitor-community/volume-buttons';
+import {VolumeButtons} from '@capacitor-community/volume-buttons'
 
 // Start watching volume button presses
 await VolumeButtons.watchVolume(
-  {
-    disableSystemVolumeHandler: true, // iOS: prevent system volume change
-    suppressVolumeIndicator: true,    // Android: hide volume indicator
-  },
-  (result, err) => {
-    console.log(result.direction); // 'up' or 'down'
-  },
-);
+	{
+		disableSystemVolumeHandler: true, // iOS: prevent system volume change
+		suppressVolumeIndicator: true, // Android: hide volume indicator
+	},
+	(result, err) => {
+		console.log(result.direction) // 'up' or 'down'
+	},
+)
 
 // Check if currently watching
-const { value } = await VolumeButtons.isWatching();
+const {value} = await VolumeButtons.isWatching()
 
 // Stop watching
-await VolumeButtons.clearWatch();
+await VolumeButtons.clearWatch()
 ```
 
 ## Notes

@@ -1,6 +1,6 @@
 ---
 name: capacitor-plugin-spm-support
-description: "Guides the agent through adding Swift Package Manager (SPM) support to an existing Capacitor plugin. Covers creating a Package.swift manifest, replacing Objective-C bridge files with the CAPBridgedPlugin Swift protocol, updating .gitignore for SPM artifacts, cleaning up the Xcode project file, and updating package.json. Do not use for Capacitor app projects, creating new plugins from scratch, or non-Capacitor plugin frameworks."
+description: Guides the agent through adding Swift Package Manager (SPM) support to an existing Capacitor plugin. Covers creating a Package.swift manifest, replacing Objective-C bridge files with the CAPBridgedPlugin Swift protocol, updating .gitignore for SPM artifacts, cleaning up the Xcode project file, and updating package.json. Do not use for Capacitor app projects, creating new plugins from scratch, or non-Capacitor plugin frameworks.
 ---
 
 # Add SPM Support to a Capacitor Plugin
@@ -9,11 +9,11 @@ Add Swift Package Manager (SPM) support to an existing Capacitor plugin by repla
 
 ## Prerequisites
 
-| Requirement       | Version |
-| ----------------- | ------- |
-| Capacitor         | 6+      |
-| Swift             | 5.9+    |
-| Xcode             | 15+     |
+| Requirement | Version |
+| ----------- | ------- |
+| Capacitor   | 6+      |
+| Swift       | 5.9+    |
+| Xcode       | 15+     |
 
 The project must be a Capacitor **plugin** (not an app project). The plugin must have an existing iOS implementation with Swift source files in `ios/Plugin/`.
 
@@ -93,6 +93,7 @@ let package = Package(
 ```
 
 Replace all placeholders:
+
 - `<SPM_IOS_VERSION>` — the SPM iOS version from Step 1 (e.g., `13`).
 - `<SPM_PACKAGE_NAME>` — the pod name from Step 1 (e.g., `CapawesomeCapacitorAppReview`).
 - `<PLUGIN_CLASS_NAME>` — the plugin class name from Step 1 (e.g., `AppReviewPlugin`).
@@ -122,6 +123,7 @@ Apply this diff pattern:
 ```
 
 Replace:
+
 - `<PluginClassName>` — the plugin class name (e.g., `AppReviewPlugin`).
 - `<JS_NAME>` — the JavaScript name from the `.m` file's `CAP_PLUGIN` macro (e.g., `AppReview`).
 - The `pluginMethods` array — list **all** methods from the `.m` file's `CAP_PLUGIN_METHOD` calls, preserving each method's name and return type exactly.
@@ -129,6 +131,7 @@ Replace:
 ### Step 5: Delete Objective-C Bridge Files
 
 Delete the following files from `ios/Plugin/`:
+
 - `<PluginClassName>.h`
 - `<PluginClassName>.m`
 
@@ -137,6 +140,7 @@ These are no longer needed because the plugin registration is now handled by the
 ### Step 6: Clean Up the Xcode Project File
 
 Open `ios/Plugin.xcodeproj/project.pbxproj` and remove **all** references to the deleted Objective-C files. Specifically, remove lines referencing:
+
 - `<PluginClassName>.h` — file references, build phase entries (`PBXBuildFile`, `PBXFileReference`, `PBXGroup` children, `PBXHeadersBuildPhase`)
 - `<PluginClassName>.m` — file references, build phase entries (`PBXBuildFile`, `PBXFileReference`, `PBXGroup` children, `PBXSourcesBuildPhase`)
 

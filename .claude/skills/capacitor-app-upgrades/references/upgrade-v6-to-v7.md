@@ -177,7 +177,7 @@ npx cap run ios
 
 ## Error Handling
 
-* If `npx cap migrate` fails partially, apply the failed steps manually.
-* If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
-* If iOS build fails, verify the deployment target is set to 14.0 in both the Xcode project and the Podfile.
-* Telemetry is now opt-out for new users. Disable with `npx cap telemetry off`.
+- If `npx cap migrate` fails partially, apply the failed steps manually.
+- If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
+- If iOS build fails, verify the deployment target is set to 14.0 in both the Xcode project and the Podfile.
+- Telemetry is now opt-out for new users. Disable with `npx cap telemetry off`.

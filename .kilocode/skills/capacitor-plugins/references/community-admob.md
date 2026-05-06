@@ -65,61 +65,70 @@ Replace `[APP_ID]` with your AdMob Application ID.
 ### Initialize
 
 ```typescript
-import { AdMob } from '@capacitor-community/admob';
+import {AdMob} from '@capacitor-community/admob'
 
-await AdMob.initialize();
+await AdMob.initialize()
 ```
 
 ### Banner Ad
 
 ```typescript
-import { AdMob, BannerAdOptions, BannerAdSize, BannerAdPosition } from '@capacitor-community/admob';
+import {
+	AdMob,
+	BannerAdOptions,
+	BannerAdSize,
+	BannerAdPosition,
+} from '@capacitor-community/admob'
 
 const options: BannerAdOptions = {
-  adId: 'YOUR_AD_UNIT_ID',
-  adSize: BannerAdSize.ADAPTIVE_BANNER,
-  position: BannerAdPosition.BOTTOM_CENTER,
-};
-await AdMob.showBanner(options);
+	adId: 'YOUR_AD_UNIT_ID',
+	adSize: BannerAdSize.ADAPTIVE_BANNER,
+	position: BannerAdPosition.BOTTOM_CENTER,
+}
+await AdMob.showBanner(options)
 
 // Hide, resume, or remove
-await AdMob.hideBanner();
-await AdMob.resumeBanner();
-await AdMob.removeBanner();
+await AdMob.hideBanner()
+await AdMob.resumeBanner()
+await AdMob.removeBanner()
 ```
 
 ### Interstitial Ad
 
 ```typescript
-import { AdMob, AdOptions } from '@capacitor-community/admob';
+import {AdMob, AdOptions} from '@capacitor-community/admob'
 
-const options: AdOptions = { adId: 'YOUR_AD_UNIT_ID' };
-await AdMob.prepareInterstitial(options);
-await AdMob.showInterstitial();
+const options: AdOptions = {adId: 'YOUR_AD_UNIT_ID'}
+await AdMob.prepareInterstitial(options)
+await AdMob.showInterstitial()
 ```
 
 ### Rewarded Video Ad
 
 ```typescript
-import { AdMob, RewardAdOptions, RewardAdPluginEvents } from '@capacitor-community/admob';
+import {
+	AdMob,
+	RewardAdOptions,
+	RewardAdPluginEvents,
+} from '@capacitor-community/admob'
 
-AdMob.addListener(RewardAdPluginEvents.Rewarded, (reward) => {
-  console.log('User earned reward:', reward.type, reward.amount);
-});
+AdMob.addListener(RewardAdPluginEvents.Rewarded, reward => {
+	console.log('User earned reward:', reward.type, reward.amount)
+})
 
-const options: RewardAdOptions = { adId: 'YOUR_AD_UNIT_ID' };
-await AdMob.prepareRewardVideoAd(options);
-await AdMob.showRewardVideoAd();
+const options: RewardAdOptions = {adId: 'YOUR_AD_UNIT_ID'}
+await AdMob.prepareRewardVideoAd(options)
+await AdMob.showRewardVideoAd()
 ```
 
 ### User Consent (UMP/GDPR)
 
 ```typescript
-import { AdMob } from '@capacitor-community/admob';
+import {AdMob} from '@capacitor-community/admob'
 
-const consentInfo = await AdMob.requestConsentInfo();
+const consentInfo = await AdMob.requestConsentInfo()
 if (consentInfo.isConsentFormAvailable && consentInfo.status === 'REQUIRED') {
-  await AdMob.showConsentForm();
+	await AdMob.showConsentForm()
 }
 ```
 

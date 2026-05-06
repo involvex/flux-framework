@@ -52,54 +52,55 @@ Add to `ios/App/App/Info.plist`:
 ### Start and stop listening
 
 ```typescript
-import { SpeechRecognition } from '@capawesome-team/capacitor-speech-recognition';
+import {SpeechRecognition} from '@capawesome-team/capacitor-speech-recognition'
 
 await SpeechRecognition.startListening({
-  language: 'en-US',
-  silenceThreshold: 2000,
-});
+	language: 'en-US',
+	silenceThreshold: 2000,
+})
 
-await SpeechRecognition.stopListening();
+await SpeechRecognition.stopListening()
 ```
 
 ### Listen for results
 
 ```typescript
-import { SpeechRecognition } from '@capawesome-team/capacitor-speech-recognition';
+import {SpeechRecognition} from '@capawesome-team/capacitor-speech-recognition'
 
-SpeechRecognition.addListener('partialResult', (event) => {
-  console.log('Partial result:', event.result);
-});
+SpeechRecognition.addListener('partialResult', event => {
+	console.log('Partial result:', event.result)
+})
 
-SpeechRecognition.addListener('result', (event) => {
-  console.log('Final result:', event.result);
-});
+SpeechRecognition.addListener('result', event => {
+	console.log('Final result:', event.result)
+})
 
-SpeechRecognition.addListener('error', (event) => {
-  console.error('Error:', event.message);
-});
+SpeechRecognition.addListener('error', event => {
+	console.error('Error:', event.message)
+})
 ```
 
 ### Check and request permissions
 
 ```typescript
-import { SpeechRecognition } from '@capawesome-team/capacitor-speech-recognition';
+import {SpeechRecognition} from '@capawesome-team/capacitor-speech-recognition'
 
-const { audioRecording, speechRecognition } = await SpeechRecognition.checkPermissions();
+const {audioRecording, speechRecognition} =
+	await SpeechRecognition.checkPermissions()
 
 await SpeechRecognition.requestPermissions({
-  permissions: ['audioRecording', 'speechRecognition'],
-});
+	permissions: ['audioRecording', 'speechRecognition'],
+})
 ```
 
 ### Check availability and get languages
 
 ```typescript
-import { SpeechRecognition } from '@capawesome-team/capacitor-speech-recognition';
+import {SpeechRecognition} from '@capawesome-team/capacitor-speech-recognition'
 
-const { isAvailable } = await SpeechRecognition.isAvailable();
-const { isListening } = await SpeechRecognition.isListening();
-const { languages } = await SpeechRecognition.getLanguages();
+const {isAvailable} = await SpeechRecognition.isAvailable()
+const {isListening} = await SpeechRecognition.isListening()
+const {languages} = await SpeechRecognition.getLanguages()
 ```
 
 ## Notes

@@ -90,51 +90,51 @@ To maintain BLE connections in the background, enable `Background Modes` capabil
 ### Initialize and scan for devices
 
 ```typescript
-import { BluetoothLowEnergy } from '@capawesome-team/capacitor-bluetooth-low-energy';
+import {BluetoothLowEnergy} from '@capawesome-team/capacitor-bluetooth-low-energy'
 
-await BluetoothLowEnergy.initialize({ mode: 'central' });
+await BluetoothLowEnergy.initialize({mode: 'central'})
 
-BluetoothLowEnergy.addListener('deviceScanned', (event) => {
-  console.log('Found device:', event.id, event.name);
-});
-await BluetoothLowEnergy.startScan();
+BluetoothLowEnergy.addListener('deviceScanned', event => {
+	console.log('Found device:', event.id, event.name)
+})
+await BluetoothLowEnergy.startScan()
 ```
 
 ### Connect and read a characteristic
 
 ```typescript
-await BluetoothLowEnergy.connect({ deviceId: '00:00:00:00:00:00' });
-await BluetoothLowEnergy.discoverServices({ deviceId: '00:00:00:00:00:00' });
+await BluetoothLowEnergy.connect({deviceId: '00:00:00:00:00:00'})
+await BluetoothLowEnergy.discoverServices({deviceId: '00:00:00:00:00:00'})
 
-const { value } = await BluetoothLowEnergy.readCharacteristic({
-  characteristicId: '00002a00-0000-1000-8000-00805f9b34fb',
-  deviceId: '00:00:00:00:00:00',
-  serviceId: '00001800-0000-1000-8000-00805f9b34fb',
-});
+const {value} = await BluetoothLowEnergy.readCharacteristic({
+	characteristicId: '00002a00-0000-1000-8000-00805f9b34fb',
+	deviceId: '00:00:00:00:00:00',
+	serviceId: '00001800-0000-1000-8000-00805f9b34fb',
+})
 ```
 
 ### Write to a characteristic
 
 ```typescript
 await BluetoothLowEnergy.writeCharacteristic({
-  characteristicId: '00002a00-0000-1000-8000-00805f9b34fb',
-  deviceId: '00:00:00:00:00:00',
-  serviceId: '00001800-0000-1000-8000-00805f9b34fb',
-  value: [1, 2, 3],
-});
+	characteristicId: '00002a00-0000-1000-8000-00805f9b34fb',
+	deviceId: '00:00:00:00:00:00',
+	serviceId: '00001800-0000-1000-8000-00805f9b34fb',
+	value: [1, 2, 3],
+})
 ```
 
 ### Listen for characteristic changes
 
 ```typescript
-BluetoothLowEnergy.addListener('characteristicChanged', (event) => {
-  console.log('Value changed:', event.value);
-});
+BluetoothLowEnergy.addListener('characteristicChanged', event => {
+	console.log('Value changed:', event.value)
+})
 await BluetoothLowEnergy.startCharacteristicNotifications({
-  characteristicId: '00002a00-0000-1000-8000-00805f9b34fb',
-  deviceId: '00:00:00:00:00:00',
-  serviceId: '00001800-0000-1000-8000-00805f9b34fb',
-});
+	characteristicId: '00002a00-0000-1000-8000-00805f9b34fb',
+	deviceId: '00:00:00:00:00:00',
+	serviceId: '00001800-0000-1000-8000-00805f9b34fb',
+})
 ```
 
 ## Notes

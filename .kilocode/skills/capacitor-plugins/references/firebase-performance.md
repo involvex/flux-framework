@@ -24,18 +24,18 @@ Add the Performance Monitoring Gradle plugin. Set `firebasePerfVersion` in `vari
 ## Usage
 
 ```typescript
-import { FirebasePerformance } from '@capacitor-firebase/performance';
+import {FirebasePerformance} from '@capacitor-firebase/performance'
 
-await FirebasePerformance.startTrace({ traceName: 'test_trace' });
+await FirebasePerformance.startTrace({traceName: 'test_trace'})
 await FirebasePerformance.incrementMetric({
-  traceName: 'test_trace',
-  metricName: 'item_cache_hit',
-  incrementBy: 1,
-});
-await FirebasePerformance.stopTrace({ traceName: 'test_trace' });
+	traceName: 'test_trace',
+	metricName: 'item_cache_hit',
+	incrementBy: 1,
+})
+await FirebasePerformance.stopTrace({traceName: 'test_trace'})
 
-await FirebasePerformance.setEnabled({ enabled: true });
-const { enabled } = await FirebasePerformance.isEnabled();
+await FirebasePerformance.setEnabled({enabled: true})
+const {enabled} = await FirebasePerformance.isEnabled()
 ```
 
 ## Notes

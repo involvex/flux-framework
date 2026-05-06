@@ -21,12 +21,12 @@ Injects `--safe-area-inset-x` CSS variables as fallback for older Android WebVie
 ## Usage
 
 ```typescript
-import { SystemBars, SystemBarsStyle, SystemBarType } from '@capacitor/core';
+import {SystemBars, SystemBarsStyle, SystemBarType} from '@capacitor/core'
 
-await SystemBars.setStyle({ style: SystemBarsStyle.Dark });
-await SystemBars.hide({ types: [SystemBarType.StatusBar] });
-await SystemBars.show({ types: [SystemBarType.NavigationBar] });
-await SystemBars.setAnimation({ animation: 'FADE' });
+await SystemBars.setStyle({style: SystemBarsStyle.Dark})
+await SystemBars.hide({types: [SystemBarType.StatusBar]})
+await SystemBars.show({types: [SystemBarType.NavigationBar]})
+await SystemBars.setAnimation({animation: 'FADE'})
 ```
 
 ## Notes

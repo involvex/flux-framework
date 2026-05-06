@@ -17,40 +17,40 @@ Options can be passed via the `present()` method or set globally in the Capacito
 
 ```json
 {
-  "plugins": {
-    "DatePickerPlugin": {
-      "mode": "date",
-      "locale": "pt_BR",
-      "format": "dd/MM/yyyy",
-      "android": {
-        "theme": "MyCustomTheme"
-      },
-      "ios": {
-        "style": "wheels"
-      }
-    }
-  }
+	"plugins": {
+		"DatePickerPlugin": {
+			"mode": "date",
+			"locale": "pt_BR",
+			"format": "dd/MM/yyyy",
+			"android": {
+				"theme": "MyCustomTheme"
+			},
+			"ios": {
+				"style": "wheels"
+			}
+		}
+	}
 }
 ```
 
 ## Usage
 
 ```typescript
-import { DatePicker } from '@capacitor-community/date-picker';
+import {DatePicker} from '@capacitor-community/date-picker'
 
 const result = await DatePicker.present({
-  mode: 'date',
-  locale: 'pt_BR',
-  date: '13/07/2019',
-  theme: 'light',
-  ios: {
-    format: 'dd/MM/yyyy',
-  },
-  android: {
-    format: 'dd/MM/yyyy',
-  },
-});
-console.log(result.value);
+	mode: 'date',
+	locale: 'pt_BR',
+	date: '13/07/2019',
+	theme: 'light',
+	ios: {
+		format: 'dd/MM/yyyy',
+	},
+	android: {
+		format: 'dd/MM/yyyy',
+	},
+})
+console.log(result.value)
 ```
 
 ## Notes

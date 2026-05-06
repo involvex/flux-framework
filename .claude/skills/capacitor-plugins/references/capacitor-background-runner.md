@@ -17,16 +17,16 @@ npx cap sync
 
 ```json
 {
-  "plugins": {
-    "BackgroundRunner": {
-      "label": "com.example.background.task",
-      "src": "runners/background.js",
-      "event": "myCustomEvent",
-      "repeat": true,
-      "interval": 15,
-      "autoStart": true
-    }
-  }
+	"plugins": {
+		"BackgroundRunner": {
+			"label": "com.example.background.task",
+			"src": "runners/background.js",
+			"event": "myCustomEvent",
+			"repeat": true,
+			"interval": 15,
+			"autoStart": true
+		}
+	}
 }
 ```
 
@@ -45,13 +45,13 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { BackgroundRunner } from '@capacitor/background-runner';
+import {BackgroundRunner} from '@capacitor/background-runner'
 
 await BackgroundRunner.dispatchEvent({
-  label: 'com.example.background.task',
-  event: 'myEvent',
-  details: {},
-});
+	label: 'com.example.background.task',
+	event: 'myEvent',
+	details: {},
+})
 ```
 
 ## Notes

@@ -22,9 +22,9 @@ This plugin uses the following project variable (defined in `android/variables.g
 ## Usage
 
 ```typescript
-import { InAppReview } from '@capacitor-community/in-app-review';
+import {InAppReview} from '@capacitor-community/in-app-review'
 
-await InAppReview.requestReview();
+await InAppReview.requestReview()
 ```
 
 ## Notes

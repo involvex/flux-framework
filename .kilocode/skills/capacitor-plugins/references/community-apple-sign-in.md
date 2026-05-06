@@ -17,27 +17,27 @@ npx cap sync
 
 ```typescript
 import {
-  SignInWithApple,
-  SignInWithAppleResponse,
-  SignInWithAppleOptions,
-} from '@capacitor-community/apple-sign-in';
+	SignInWithApple,
+	SignInWithAppleResponse,
+	SignInWithAppleOptions,
+} from '@capacitor-community/apple-sign-in'
 
 const options: SignInWithAppleOptions = {
-  clientId: 'com.your.webservice',
-  redirectURI: 'https://www.yourfrontend.com/login',
-  scopes: 'email name',
-  state: '12345',
-  nonce: 'nonce',
-};
+	clientId: 'com.your.webservice',
+	redirectURI: 'https://www.yourfrontend.com/login',
+	scopes: 'email name',
+	state: '12345',
+	nonce: 'nonce',
+}
 
 SignInWithApple.authorize(options)
-  .then((result: SignInWithAppleResponse) => {
-    // Handle user information
-    // Validate token with server and create new session
-  })
-  .catch((error) => {
-    // Handle error
-  });
+	.then((result: SignInWithAppleResponse) => {
+		// Handle user information
+		// Validate token with server and create new session
+	})
+	.catch(error => {
+		// Handle error
+	})
 ```
 
 ## Notes

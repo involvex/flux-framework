@@ -20,14 +20,14 @@ Set `UIViewControllerBasedStatusBarAppearance` to `YES` in `ios/App/App/Info.pli
 ## Usage
 
 ```typescript
-import { StatusBar, Style } from '@capacitor/status-bar';
+import {StatusBar, Style} from '@capacitor/status-bar'
 
-await StatusBar.setStyle({ style: Style.Dark });
-await StatusBar.setBackgroundColor({ color: '#ffffff' });
-await StatusBar.hide({ animation: Animation.Fade });
-await StatusBar.show();
-await StatusBar.setOverlaysWebView({ overlay: true });
-const info = await StatusBar.getInfo();
+await StatusBar.setStyle({style: Style.Dark})
+await StatusBar.setBackgroundColor({color: '#ffffff'})
+await StatusBar.hide({animation: Animation.Fade})
+await StatusBar.show()
+await StatusBar.setOverlaysWebView({overlay: true})
+const info = await StatusBar.getInfo()
 ```
 
 ## Notes

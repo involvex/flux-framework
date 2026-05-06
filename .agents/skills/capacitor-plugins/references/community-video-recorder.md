@@ -31,38 +31,38 @@ repositories {
 
 ```typescript
 import {
-  VideoRecorder,
-  VideoRecorderCamera,
-  VideoRecorderPreviewFrame,
-} from '@capacitor-community/video-recorder';
+	VideoRecorder,
+	VideoRecorderCamera,
+	VideoRecorderPreviewFrame,
+} from '@capacitor-community/video-recorder'
 
 // Initialize camera preview
 const config: VideoRecorderPreviewFrame = {
-  id: 'video-record',
-  stackPosition: 'back',
-  width: 'fill',
-  height: 'fill',
-  x: 0,
-  y: 0,
-  borderRadius: 0,
-};
+	id: 'video-record',
+	stackPosition: 'back',
+	width: 'fill',
+	height: 'fill',
+	x: 0,
+	y: 0,
+	borderRadius: 0,
+}
 await VideoRecorder.initialize({
-  camera: VideoRecorderCamera.FRONT,
-  previewFrames: [config],
-});
+	camera: VideoRecorderCamera.FRONT,
+	previewFrames: [config],
+})
 
 // Start recording
-await VideoRecorder.startRecording();
+await VideoRecorder.startRecording()
 
 // Stop recording and get the file path
-const res = await VideoRecorder.stopRecording();
-console.log(res.videoUrl);
+const res = await VideoRecorder.stopRecording()
+console.log(res.videoUrl)
 
 // Flip camera
-await VideoRecorder.flipCamera();
+await VideoRecorder.flipCamera()
 
 // Destroy camera session
-await VideoRecorder.destroy();
+await VideoRecorder.destroy()
 ```
 
 ## Notes

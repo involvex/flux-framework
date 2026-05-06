@@ -31,44 +31,44 @@ No additional configuration required.
 ## Usage
 
 ```typescript
-import { SpeechRecognition } from '@capacitor-community/speech-recognition';
+import {SpeechRecognition} from '@capacitor-community/speech-recognition'
 
 // Check availability
-const { available } = await SpeechRecognition.available();
+const {available} = await SpeechRecognition.available()
 
 // Request permissions
-await SpeechRecognition.requestPermissions();
+await SpeechRecognition.requestPermissions()
 
 // Start listening
 SpeechRecognition.start({
-  language: 'en-US',
-  maxResults: 5,
-  prompt: 'Say something',
-  partialResults: true,
-  popup: true,
-});
+	language: 'en-US',
+	maxResults: 5,
+	prompt: 'Say something',
+	partialResults: true,
+	popup: true,
+})
 
 // Listen for partial results
-SpeechRecognition.addListener('partialResults', (data) => {
-  console.log('Partial results:', data.matches);
-});
+SpeechRecognition.addListener('partialResults', data => {
+	console.log('Partial results:', data.matches)
+})
 
 // Listen for state changes
-SpeechRecognition.addListener('listeningState', (data) => {
-  console.log('Listening state:', data.status); // 'started' or 'stopped'
-});
+SpeechRecognition.addListener('listeningState', data => {
+	console.log('Listening state:', data.status) // 'started' or 'stopped'
+})
 
 // Stop listening
-await SpeechRecognition.stop();
+await SpeechRecognition.stop()
 
 // Check if currently listening
-const { listening } = await SpeechRecognition.isListening();
+const {listening} = await SpeechRecognition.isListening()
 
 // Get supported languages
-const { languages } = await SpeechRecognition.getSupportedLanguages();
+const {languages} = await SpeechRecognition.getSupportedLanguages()
 
 // Remove all listeners
-await SpeechRecognition.removeAllListeners();
+await SpeechRecognition.removeAllListeners()
 ```
 
 ## Notes

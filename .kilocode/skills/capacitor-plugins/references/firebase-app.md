@@ -24,10 +24,10 @@ Set `firebaseCommonVersion` in `variables.gradle` (default: `22.0.1`).
 ## Usage
 
 ```typescript
-import { FirebaseApp } from '@capacitor-firebase/app';
+import {FirebaseApp} from '@capacitor-firebase/app'
 
-const { name } = await FirebaseApp.getName();
-const options = await FirebaseApp.getOptions();
+const {name} = await FirebaseApp.getName()
+const options = await FirebaseApp.getOptions()
 ```
 
 ## Notes

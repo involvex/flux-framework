@@ -37,9 +37,9 @@ The Cordova SDK uses a granular check-download-extract-reload workflow. The Capa
 To track download progress with the Capawesome SDK, use the `downloadBundleProgress` event listener:
 
 ```typescript
-LiveUpdate.addListener('downloadBundleProgress', (event) => {
-  console.log(`${Math.round(event.progress * 100)}%`);
-});
+LiveUpdate.addListener('downloadBundleProgress', event => {
+	console.log(`${Math.round(event.progress * 100)}%`)
+})
 ```
 
 The Cordova `Deploy.sync()` method (automatic variant) maps directly:
@@ -54,40 +54,40 @@ The Cordova `Deploy.sync()` method (automatic variant) maps directly:
 
 ### Bundle Management
 
-| Cordova SDK (`Deploy`) | Capawesome SDK (`LiveUpdate`) |
-|---|---|
-| `getCurrentVersion()` | `getCurrentBundle()` |
-| `getAvailableVersions()` | `getBundles()` |
-| `getVersionById(versionId)` | `getCurrentBundle()` or `getNextBundle()` |
-| `deleteVersionById(versionId)` | `deleteBundle({ bundleId })` |
-| `reloadApp()` | `reload()` |
+| Cordova SDK (`Deploy`)         | Capawesome SDK (`LiveUpdate`)             |
+| ------------------------------ | ----------------------------------------- |
+| `getCurrentVersion()`          | `getCurrentBundle()`                      |
+| `getAvailableVersions()`       | `getBundles()`                            |
+| `getVersionById(versionId)`    | `getCurrentBundle()` or `getNextBundle()` |
+| `deleteVersionById(versionId)` | `deleteBundle({ bundleId })`              |
+| `reloadApp()`                  | `reload()`                                |
 
 ### Configuration
 
-| Cordova SDK (`Deploy`) | Capawesome SDK (`LiveUpdate`) |
-|---|---|
-| `configure({ appId, channel })` | `setConfig({ appId })` + `setChannel({ channel })` |
-| `configure({ maxVersions })` | No runtime equivalent. Use `autoDeleteBundles: true` in static config |
-| `configure({ minBackgroundDuration })` | No equivalent. Removed in Capacitor SDK |
-| `configure({ updateMethod })` | No runtime equivalent. Use `autoUpdateStrategy` in static config |
-| `getConfiguration()` | `getConfig()` + `getChannel()` |
+| Cordova SDK (`Deploy`)                 | Capawesome SDK (`LiveUpdate`)                                         |
+| -------------------------------------- | --------------------------------------------------------------------- |
+| `configure({ appId, channel })`        | `setConfig({ appId })` + `setChannel({ channel })`                    |
+| `configure({ maxVersions })`           | No runtime equivalent. Use `autoDeleteBundles: true` in static config |
+| `configure({ minBackgroundDuration })` | No equivalent. Removed in Capacitor SDK                               |
+| `configure({ updateMethod })`          | No runtime equivalent. Use `autoUpdateStrategy` in static config      |
+| `getConfiguration()`                   | `getConfig()` + `getChannel()`                                        |
 
 ### Return Type Differences
 
 **`CheckForUpdateResponse`** has no equivalent. Use `fetchLatestBundle()` to check for available updates without downloading:
 
 ```typescript
-const result = await LiveUpdate.fetchLatestBundle();
+const result = await LiveUpdate.fetchLatestBundle()
 if (result.bundleId) {
-  console.log(`Update available: ${result.bundleId}`);
+	console.log(`Update available: ${result.bundleId}`)
 }
 ```
 
 **`ISnapshotInfo`** fields like `binaryVersion`, `binaryVersionCode`, `binaryVersionName` are available via separate methods:
 
 ```typescript
-const { versionCode } = await LiveUpdate.getVersionCode();
-const { versionName } = await LiveUpdate.getVersionName();
+const {versionCode} = await LiveUpdate.getVersionCode()
+const {versionName} = await LiveUpdate.getVersionName()
 ```
 
 ## Native Configuration Cleanup
@@ -97,6 +97,7 @@ Remove leftover Cordova configuration from native projects:
 ### iOS (`ios/App/App/Info.plist`)
 
 Delete these keys if present:
+
 - `IonAppId`
 - `IonChannelName`
 - `IonUpdateMethod`
@@ -107,6 +108,7 @@ Delete these keys if present:
 ### Android (`android/app/src/main/res/values/strings.xml`)
 
 Delete these entries if present:
+
 - `ionic_app_id`
 - `ionic_channel_name`
 - `ionic_update_method`

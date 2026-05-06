@@ -50,53 +50,54 @@ Add to `ios/App/App/Info.plist`:
 ### Get a measurement
 
 ```typescript
-import { Pedometer } from '@capawesome-team/capacitor-pedometer';
+import {Pedometer} from '@capawesome-team/capacitor-pedometer'
 
-const { measurement } = await Pedometer.getMeasurement();
-console.log('Steps:', measurement.numberOfSteps);
+const {measurement} = await Pedometer.getMeasurement()
+console.log('Steps:', measurement.numberOfSteps)
 ```
 
 On iOS, you must provide `start` and `end` timestamps:
 
 ```typescript
 const result = await Pedometer.getMeasurement({
-  start: Date.now() - 86400000, // 24 hours ago
-  end: Date.now(),
-});
+	start: Date.now() - 86400000, // 24 hours ago
+	end: Date.now(),
+})
 ```
 
 ### Real-time measurement updates
 
 ```typescript
-import { Pedometer } from '@capawesome-team/capacitor-pedometer';
+import {Pedometer} from '@capawesome-team/capacitor-pedometer'
 
-await Pedometer.addListener('measurement', (event) => {
-  console.log('Steps:', event.numberOfSteps);
-});
+await Pedometer.addListener('measurement', event => {
+	console.log('Steps:', event.numberOfSteps)
+})
 
-await Pedometer.startMeasurementUpdates();
+await Pedometer.startMeasurementUpdates()
 
 // Later, stop updates:
-await Pedometer.stopMeasurementUpdates();
-await Pedometer.removeAllListeners();
+await Pedometer.stopMeasurementUpdates()
+await Pedometer.removeAllListeners()
 ```
 
 ### Check feature availability
 
 ```typescript
-import { Pedometer } from '@capawesome-team/capacitor-pedometer';
+import {Pedometer} from '@capawesome-team/capacitor-pedometer'
 
-const { cadence, distance, floorCounting, pace, stepCounting } = await Pedometer.isAvailable();
+const {cadence, distance, floorCounting, pace, stepCounting} =
+	await Pedometer.isAvailable()
 ```
 
 ### Check and request permissions
 
 ```typescript
-import { Pedometer } from '@capawesome-team/capacitor-pedometer';
+import {Pedometer} from '@capawesome-team/capacitor-pedometer'
 
-const status = await Pedometer.checkPermissions();
+const status = await Pedometer.checkPermissions()
 if (status.activityRecognition !== 'granted') {
-  await Pedometer.requestPermissions();
+	await Pedometer.requestPermissions()
 }
 ```
 

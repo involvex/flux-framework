@@ -20,12 +20,12 @@ Optional `variables.gradle` variable: `mlkitFaceMeshDetectionVersion` (default: 
 ## Usage
 
 ```typescript
-import { FaceMeshDetection, UseCase } from '@capacitor-mlkit/face-mesh-detection';
+import {FaceMeshDetection, UseCase} from '@capacitor-mlkit/face-mesh-detection'
 
-const { faceMeshs } = await FaceMeshDetection.processImage({
-  path: 'path/to/image.jpg',
-  useCase: UseCase.FaceMesh,
-});
+const {faceMeshs} = await FaceMeshDetection.processImage({
+	path: 'path/to/image.jpg',
+	useCase: UseCase.FaceMesh,
+})
 ```
 
 ## Notes

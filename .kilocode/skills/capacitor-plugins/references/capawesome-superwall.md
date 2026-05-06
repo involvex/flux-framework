@@ -44,60 +44,60 @@ Set your app's theme in the `android:theme` attribute of `SuperwallPaywallActivi
 ### Configure the SDK
 
 ```typescript
-import { Superwall } from '@capawesome/capacitor-superwall';
+import {Superwall} from '@capawesome/capacitor-superwall'
 
 await Superwall.configure({
-  apiKey: 'pk_your_api_key_here',
-  options: {
-    paywalls: { shouldPreload: true, automaticallyDismiss: true },
-    logging: { level: 'WARN', scopes: ['ALL'] },
-  },
-});
+	apiKey: 'pk_your_api_key_here',
+	options: {
+		paywalls: {shouldPreload: true, automaticallyDismiss: true},
+		logging: {level: 'WARN', scopes: ['ALL']},
+	},
+})
 ```
 
 ### Show a paywall
 
 ```typescript
-import { Superwall } from '@capawesome/capacitor-superwall';
+import {Superwall} from '@capawesome/capacitor-superwall'
 
 const result = await Superwall.register({
-  placement: 'premium_feature',
-  params: { user_level: 5, source: 'settings' },
-});
-console.log('Result:', result.result); // 'PURCHASED', 'CANCELLED', or 'RESTORED'
+	placement: 'premium_feature',
+	params: {user_level: 5, source: 'settings'},
+})
+console.log('Result:', result.result) // 'PURCHASED', 'CANCELLED', or 'RESTORED'
 ```
 
 ### Identify users and set attributes
 
 ```typescript
-import { Superwall } from '@capawesome/capacitor-superwall';
+import {Superwall} from '@capawesome/capacitor-superwall'
 
-await Superwall.identify({ userId: 'user_123' });
+await Superwall.identify({userId: 'user_123'})
 
 await Superwall.setUserAttributes({
-  attributes: { username: 'john_doe', subscription_tier: 'free' },
-});
+	attributes: {username: 'john_doe', subscription_tier: 'free'},
+})
 
-const { status } = await Superwall.getSubscriptionStatus();
-console.log('Status:', status); // 'ACTIVE', 'INACTIVE', or 'UNKNOWN'
+const {status} = await Superwall.getSubscriptionStatus()
+console.log('Status:', status) // 'ACTIVE', 'INACTIVE', or 'UNKNOWN'
 ```
 
 ### Listen for events
 
 ```typescript
-import { Superwall } from '@capawesome/capacitor-superwall';
+import {Superwall} from '@capawesome/capacitor-superwall'
 
-await Superwall.addListener('superwallEvent', (event) => {
-  console.log('Event:', event.type, event.data);
-});
+await Superwall.addListener('superwallEvent', event => {
+	console.log('Event:', event.type, event.data)
+})
 
-await Superwall.addListener('subscriptionStatusDidChange', (event) => {
-  console.log('Status changed:', event.status);
-});
+await Superwall.addListener('subscriptionStatusDidChange', event => {
+	console.log('Status changed:', event.status)
+})
 
-await Superwall.addListener('paywallPresented', (event) => {
-  console.log('Paywall shown:', event.paywallInfo.placement);
-});
+await Superwall.addListener('paywallPresented', event => {
+	console.log('Paywall shown:', event.paywallInfo.placement)
+})
 ```
 
 ## Notes

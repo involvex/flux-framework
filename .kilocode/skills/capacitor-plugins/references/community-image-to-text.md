@@ -24,27 +24,29 @@ No additional configuration required.
 ## Usage
 
 ```typescript
-import { Ocr, TextDetections } from '@capacitor-community/image-to-text';
+import {Ocr, TextDetections} from '@capacitor-community/image-to-text'
 
 // Detect text from an image file
-const data: TextDetections = await Ocr.detectText({ filename: '/path/to/image.jpg' });
+const data: TextDetections = await Ocr.detectText({
+	filename: '/path/to/image.jpg',
+})
 for (const detection of data.textDetections) {
-  console.log(detection.text);
+	console.log(detection.text)
 }
 
 // Detect text from base64 data
-const result = await Ocr.detectText({ base64: 'base64EncodedImageData' });
+const result = await Ocr.detectText({base64: 'base64EncodedImageData'})
 
 // Example with @capacitor/camera
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import {Camera, CameraResultType, CameraSource} from '@capacitor/camera'
 
 const photo = await Camera.getPhoto({
-  quality: 90,
-  allowEditing: true,
-  resultType: CameraResultType.Uri,
-  source: CameraSource.Camera,
-});
-const ocrResult = await Ocr.detectText({ filename: photo.path });
+	quality: 90,
+	allowEditing: true,
+	resultType: CameraResultType.Uri,
+	source: CameraSource.Camera,
+})
+const ocrResult = await Ocr.detectText({filename: photo.path})
 ```
 
 ## Notes

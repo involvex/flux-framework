@@ -23,22 +23,25 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { LocalNotifications } from '@capacitor/local-notifications';
+import {LocalNotifications} from '@capacitor/local-notifications'
 
 await LocalNotifications.schedule({
-  notifications: [
-    {
-      title: 'Reminder',
-      body: 'Time to check in!',
-      id: 1,
-      schedule: { at: new Date(Date.now() + 1000 * 60) },
-    },
-  ],
-});
+	notifications: [
+		{
+			title: 'Reminder',
+			body: 'Time to check in!',
+			id: 1,
+			schedule: {at: new Date(Date.now() + 1000 * 60)},
+		},
+	],
+})
 
-LocalNotifications.addListener('localNotificationActionPerformed', (notification) => {
-  console.log('Action:', notification.actionId);
-});
+LocalNotifications.addListener(
+	'localNotificationActionPerformed',
+	notification => {
+		console.log('Action:', notification.actionId)
+	},
+)
 ```
 
 ## Notes

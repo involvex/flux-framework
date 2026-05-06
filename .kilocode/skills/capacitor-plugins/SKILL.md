@@ -1,6 +1,6 @@
 ---
 name: capacitor-plugins
-description: "Guides the agent through installing, configuring, and using Capacitor plugins from five sources — official Capacitor plugins, Capawesome plugins, Capacitor Community plugins, Capacitor Firebase plugins, and Capacitor MLKit plugins. Covers installation, platform-specific configuration (Android and iOS), and basic usage examples. Do not use for migrating Capacitor apps or plugins to a newer version, setting up Capacitor Live Updates, or non-Capacitor mobile frameworks."
+description: Guides the agent through installing, configuring, and using Capacitor plugins from five sources — official Capacitor plugins, Capawesome plugins, Capacitor Community plugins, Capacitor Firebase plugins, and Capacitor MLKit plugins. Covers installation, platform-specific configuration (Android and iOS), and basic usage examples. Do not use for migrating Capacitor apps or plugins to a newer version, setting up Capacitor Live Updates, or non-Capacitor mobile frameworks.
 ---
 
 # Capacitor Plugins
@@ -108,172 +108,172 @@ npx cap sync
 
 ### Official Capacitor Plugins
 
-| Plugin | Package | Reference |
-| ------ | ------- | --------- |
-| Action Sheet | `@capacitor/action-sheet` | `references/capacitor-action-sheet.md` |
-| App | `@capacitor/app` | `references/capacitor-app.md` |
-| App Launcher | `@capacitor/app-launcher` | `references/capacitor-app-launcher.md` |
-| Background Runner | `@capacitor/background-runner` | `references/capacitor-background-runner.md` |
-| Barcode Scanner | `@capacitor/barcode-scanner` | `references/capacitor-barcode-scanner.md` |
-| Browser | `@capacitor/browser` | `references/capacitor-browser.md` |
-| Camera | `@capacitor/camera` | `references/capacitor-camera.md` |
-| Clipboard | `@capacitor/clipboard` | `references/capacitor-clipboard.md` |
-| Cookies | `@capacitor/core` (bundled) | `references/capacitor-cookies.md` |
-| Device | `@capacitor/device` | `references/capacitor-device.md` |
-| Dialog | `@capacitor/dialog` | `references/capacitor-dialog.md` |
-| File Transfer | `@capacitor/file-transfer` | `references/capacitor-file-transfer.md` |
-| File Viewer | `@capacitor/file-viewer` | `references/capacitor-file-viewer.md` |
-| Filesystem | `@capacitor/filesystem` | `references/capacitor-filesystem.md` |
-| Geolocation | `@capacitor/geolocation` | `references/capacitor-geolocation.md` |
-| Google Maps | `@capacitor/google-maps` | `references/capacitor-google-maps.md` |
-| Haptics | `@capacitor/haptics` | `references/capacitor-haptics.md` |
-| Http | `@capacitor/core` (bundled) | `references/capacitor-http.md` |
-| InAppBrowser | `@capacitor/inappbrowser` | `references/capacitor-inappbrowser.md` |
-| Keyboard | `@capacitor/keyboard` | `references/capacitor-keyboard.md` |
+| Plugin              | Package                          | Reference                                     |
+| ------------------- | -------------------------------- | --------------------------------------------- |
+| Action Sheet        | `@capacitor/action-sheet`        | `references/capacitor-action-sheet.md`        |
+| App                 | `@capacitor/app`                 | `references/capacitor-app.md`                 |
+| App Launcher        | `@capacitor/app-launcher`        | `references/capacitor-app-launcher.md`        |
+| Background Runner   | `@capacitor/background-runner`   | `references/capacitor-background-runner.md`   |
+| Barcode Scanner     | `@capacitor/barcode-scanner`     | `references/capacitor-barcode-scanner.md`     |
+| Browser             | `@capacitor/browser`             | `references/capacitor-browser.md`             |
+| Camera              | `@capacitor/camera`              | `references/capacitor-camera.md`              |
+| Clipboard           | `@capacitor/clipboard`           | `references/capacitor-clipboard.md`           |
+| Cookies             | `@capacitor/core` (bundled)      | `references/capacitor-cookies.md`             |
+| Device              | `@capacitor/device`              | `references/capacitor-device.md`              |
+| Dialog              | `@capacitor/dialog`              | `references/capacitor-dialog.md`              |
+| File Transfer       | `@capacitor/file-transfer`       | `references/capacitor-file-transfer.md`       |
+| File Viewer         | `@capacitor/file-viewer`         | `references/capacitor-file-viewer.md`         |
+| Filesystem          | `@capacitor/filesystem`          | `references/capacitor-filesystem.md`          |
+| Geolocation         | `@capacitor/geolocation`         | `references/capacitor-geolocation.md`         |
+| Google Maps         | `@capacitor/google-maps`         | `references/capacitor-google-maps.md`         |
+| Haptics             | `@capacitor/haptics`             | `references/capacitor-haptics.md`             |
+| Http                | `@capacitor/core` (bundled)      | `references/capacitor-http.md`                |
+| InAppBrowser        | `@capacitor/inappbrowser`        | `references/capacitor-inappbrowser.md`        |
+| Keyboard            | `@capacitor/keyboard`            | `references/capacitor-keyboard.md`            |
 | Local Notifications | `@capacitor/local-notifications` | `references/capacitor-local-notifications.md` |
-| Motion | `@capacitor/motion` | `references/capacitor-motion.md` |
-| Network | `@capacitor/network` | `references/capacitor-network.md` |
-| Preferences | `@capacitor/preferences` | `references/capacitor-preferences.md` |
-| Privacy Screen | `@capacitor/privacy-screen` | `references/capacitor-privacy-screen.md` |
-| Push Notifications | `@capacitor/push-notifications` | `references/capacitor-push-notifications.md` |
-| Screen Orientation | `@capacitor/screen-orientation` | `references/capacitor-screen-orientation.md` |
-| Screen Reader | `@capacitor/screen-reader` | `references/capacitor-screen-reader.md` |
-| Share | `@capacitor/share` | `references/capacitor-share.md` |
-| Splash Screen | `@capacitor/splash-screen` | `references/capacitor-splash-screen.md` |
-| Status Bar | `@capacitor/status-bar` | `references/capacitor-status-bar.md` |
-| System Bars | `@capacitor/core` (bundled) | `references/capacitor-system-bars.md` |
-| Text Zoom | `@capacitor/text-zoom` | `references/capacitor-text-zoom.md` |
-| Toast | `@capacitor/toast` | `references/capacitor-toast.md` |
-| Watch | `@capacitor/watch` | `references/capacitor-watch.md` |
+| Motion              | `@capacitor/motion`              | `references/capacitor-motion.md`              |
+| Network             | `@capacitor/network`             | `references/capacitor-network.md`             |
+| Preferences         | `@capacitor/preferences`         | `references/capacitor-preferences.md`         |
+| Privacy Screen      | `@capacitor/privacy-screen`      | `references/capacitor-privacy-screen.md`      |
+| Push Notifications  | `@capacitor/push-notifications`  | `references/capacitor-push-notifications.md`  |
+| Screen Orientation  | `@capacitor/screen-orientation`  | `references/capacitor-screen-orientation.md`  |
+| Screen Reader       | `@capacitor/screen-reader`       | `references/capacitor-screen-reader.md`       |
+| Share               | `@capacitor/share`               | `references/capacitor-share.md`               |
+| Splash Screen       | `@capacitor/splash-screen`       | `references/capacitor-splash-screen.md`       |
+| Status Bar          | `@capacitor/status-bar`          | `references/capacitor-status-bar.md`          |
+| System Bars         | `@capacitor/core` (bundled)      | `references/capacitor-system-bars.md`         |
+| Text Zoom           | `@capacitor/text-zoom`           | `references/capacitor-text-zoom.md`           |
+| Toast               | `@capacitor/toast`               | `references/capacitor-toast.md`               |
+| Watch               | `@capacitor/watch`               | `references/capacitor-watch.md`               |
 
 ### Capawesome Plugins
 
-| Plugin | Package | Reference |
-| ------ | ------- | --------- |
-| Accelerometer | `@capawesome-team/capacitor-accelerometer` | `references/capawesome-accelerometer.md` |
-| Age Signals | `@capawesome/capacitor-age-signals` | `references/capawesome-age-signals.md` |
+| Plugin                       | Package                                                   | Reference                                               |
+| ---------------------------- | --------------------------------------------------------- | ------------------------------------------------------- |
+| Accelerometer                | `@capawesome-team/capacitor-accelerometer`                | `references/capawesome-accelerometer.md`                |
+| Age Signals                  | `@capawesome/capacitor-age-signals`                       | `references/capawesome-age-signals.md`                  |
 | Android Battery Optimization | `@capawesome-team/capacitor-android-battery-optimization` | `references/capawesome-android-battery-optimization.md` |
-| Android Dark Mode Support | `@capawesome/capacitor-android-dark-mode-support` | `references/capawesome-android-dark-mode-support.md` |
-| Android Edge-to-Edge Support | `@capawesome/capacitor-android-edge-to-edge-support` | `references/capawesome-android-edge-to-edge-support.md` |
-| Android Foreground Service | `@capawesome-team/capacitor-android-foreground-service` | `references/capawesome-android-foreground-service.md` |
-| App Review | `@capawesome/capacitor-app-review` | `references/capawesome-app-review.md` |
-| App Shortcuts | `@capawesome/capacitor-app-shortcuts` | `references/capawesome-app-shortcuts.md` |
-| App Update | `@capawesome/capacitor-app-update` | `references/capawesome-app-update.md` |
-| Apple Sign In | `@capawesome/capacitor-apple-sign-in` | `references/capawesome-apple-sign-in.md` |
-| Asset Manager | `@capawesome/capacitor-asset-manager` | `references/capawesome-asset-manager.md` |
-| Audio Player | `@capawesome-team/capacitor-audio-player` | `references/capawesome-audio-player.md` |
-| Audio Recorder | `@capawesome-team/capacitor-audio-recorder` | `references/capawesome-audio-recorder.md` |
-| Background Task | `@capawesome/capacitor-background-task` | `references/capawesome-background-task.md` |
-| Badge | `@capawesome/capacitor-badge` | `references/capawesome-badge.md` |
-| Barometer | `@capawesome-team/capacitor-barometer` | `references/capawesome-barometer.md` |
-| Biometrics | `@capawesome-team/capacitor-biometrics` | `references/capawesome-biometrics.md` |
-| Bluetooth Low Energy | `@capawesome-team/capacitor-bluetooth-low-energy` | `references/capawesome-bluetooth-low-energy.md` |
-| Cloudinary | `@capawesome/capacitor-cloudinary` | `references/capawesome-cloudinary.md` |
-| Contacts | `@capawesome-team/capacitor-contacts` | `references/capawesome-contacts.md` |
-| Datetime Picker | `@capawesome-team/capacitor-datetime-picker` | `references/capawesome-datetime-picker.md` |
-| File Compressor | `@capawesome-team/capacitor-file-compressor` | `references/capawesome-file-compressor.md` |
-| File Opener | `@capawesome-team/capacitor-file-opener` | `references/capawesome-file-opener.md` |
-| File Picker | `@capawesome/capacitor-file-picker` | `references/capawesome-file-picker.md` |
-| Geocoder | `@capawesome-team/capacitor-geocoder` | `references/capawesome-geocoder.md` |
-| Google Sign In | `@capawesome/capacitor-google-sign-in` | `references/capawesome-google-sign-in.md` |
-| libSQL | `@capawesome/capacitor-libsql` | `references/capawesome-libsql.md` |
-| Live Update | `@capawesome/capacitor-live-update` | `references/capawesome-live-update.md` |
-| Managed Configurations | `@capawesome/capacitor-managed-configurations` | `references/capawesome-managed-configurations.md` |
-| Media Session | `@capawesome-team/capacitor-media-session` | `references/capawesome-media-session.md` |
-| NFC | `@capawesome-team/capacitor-nfc` | `references/capawesome-nfc.md` |
-| OAuth | `@capawesome-team/capacitor-oauth` | `references/capawesome-oauth.md` |
-| Pedometer | `@capawesome-team/capacitor-pedometer` | `references/capawesome-pedometer.md` |
-| Photo Editor | `@capawesome/capacitor-photo-editor` | `references/capawesome-photo-editor.md` |
-| PostHog | `@capawesome/capacitor-posthog` | `references/capawesome-posthog.md` |
-| Printer | `@capawesome-team/capacitor-printer` | `references/capawesome-printer.md` |
-| Purchases | `@capawesome-team/capacitor-purchases` | `references/capawesome-purchases.md` |
-| RealtimeKit | `@capawesome/capacitor-realtimekit` | `references/capawesome-realtimekit.md` |
-| Screen Orientation | `@capawesome/capacitor-screen-orientation` | `references/capawesome-screen-orientation.md` |
-| Screenshot | `@capawesome/capacitor-screenshot` | `references/capawesome-screenshot.md` |
-| Secure Preferences | `@capawesome-team/capacitor-secure-preferences` | `references/capawesome-secure-preferences.md` |
-| Share Target | `@capawesome-team/capacitor-share-target` | `references/capawesome-share-target.md` |
-| Speech Recognition | `@capawesome-team/capacitor-speech-recognition` | `references/capawesome-speech-recognition.md` |
-| Speech Synthesis | `@capawesome-team/capacitor-speech-synthesis` | `references/capawesome-speech-synthesis.md` |
-| SQLite | `@capawesome-team/capacitor-sqlite` | `references/capawesome-sqlite.md` |
-| Square Mobile Payments | `@capawesome/capacitor-square-mobile-payments` | `references/capawesome-square-mobile-payments.md` |
-| Superwall | `@capawesome/capacitor-superwall` | `references/capawesome-superwall.md` |
-| Torch | `@capawesome/capacitor-torch` | `references/capawesome-torch.md` |
-| Wi-Fi | `@capawesome-team/capacitor-wifi` | `references/capawesome-wifi.md` |
-| Zip | `@capawesome-team/capacitor-zip` | `references/capawesome-zip.md` |
+| Android Dark Mode Support    | `@capawesome/capacitor-android-dark-mode-support`         | `references/capawesome-android-dark-mode-support.md`    |
+| Android Edge-to-Edge Support | `@capawesome/capacitor-android-edge-to-edge-support`      | `references/capawesome-android-edge-to-edge-support.md` |
+| Android Foreground Service   | `@capawesome-team/capacitor-android-foreground-service`   | `references/capawesome-android-foreground-service.md`   |
+| App Review                   | `@capawesome/capacitor-app-review`                        | `references/capawesome-app-review.md`                   |
+| App Shortcuts                | `@capawesome/capacitor-app-shortcuts`                     | `references/capawesome-app-shortcuts.md`                |
+| App Update                   | `@capawesome/capacitor-app-update`                        | `references/capawesome-app-update.md`                   |
+| Apple Sign In                | `@capawesome/capacitor-apple-sign-in`                     | `references/capawesome-apple-sign-in.md`                |
+| Asset Manager                | `@capawesome/capacitor-asset-manager`                     | `references/capawesome-asset-manager.md`                |
+| Audio Player                 | `@capawesome-team/capacitor-audio-player`                 | `references/capawesome-audio-player.md`                 |
+| Audio Recorder               | `@capawesome-team/capacitor-audio-recorder`               | `references/capawesome-audio-recorder.md`               |
+| Background Task              | `@capawesome/capacitor-background-task`                   | `references/capawesome-background-task.md`              |
+| Badge                        | `@capawesome/capacitor-badge`                             | `references/capawesome-badge.md`                        |
+| Barometer                    | `@capawesome-team/capacitor-barometer`                    | `references/capawesome-barometer.md`                    |
+| Biometrics                   | `@capawesome-team/capacitor-biometrics`                   | `references/capawesome-biometrics.md`                   |
+| Bluetooth Low Energy         | `@capawesome-team/capacitor-bluetooth-low-energy`         | `references/capawesome-bluetooth-low-energy.md`         |
+| Cloudinary                   | `@capawesome/capacitor-cloudinary`                        | `references/capawesome-cloudinary.md`                   |
+| Contacts                     | `@capawesome-team/capacitor-contacts`                     | `references/capawesome-contacts.md`                     |
+| Datetime Picker              | `@capawesome-team/capacitor-datetime-picker`              | `references/capawesome-datetime-picker.md`              |
+| File Compressor              | `@capawesome-team/capacitor-file-compressor`              | `references/capawesome-file-compressor.md`              |
+| File Opener                  | `@capawesome-team/capacitor-file-opener`                  | `references/capawesome-file-opener.md`                  |
+| File Picker                  | `@capawesome/capacitor-file-picker`                       | `references/capawesome-file-picker.md`                  |
+| Geocoder                     | `@capawesome-team/capacitor-geocoder`                     | `references/capawesome-geocoder.md`                     |
+| Google Sign In               | `@capawesome/capacitor-google-sign-in`                    | `references/capawesome-google-sign-in.md`               |
+| libSQL                       | `@capawesome/capacitor-libsql`                            | `references/capawesome-libsql.md`                       |
+| Live Update                  | `@capawesome/capacitor-live-update`                       | `references/capawesome-live-update.md`                  |
+| Managed Configurations       | `@capawesome/capacitor-managed-configurations`            | `references/capawesome-managed-configurations.md`       |
+| Media Session                | `@capawesome-team/capacitor-media-session`                | `references/capawesome-media-session.md`                |
+| NFC                          | `@capawesome-team/capacitor-nfc`                          | `references/capawesome-nfc.md`                          |
+| OAuth                        | `@capawesome-team/capacitor-oauth`                        | `references/capawesome-oauth.md`                        |
+| Pedometer                    | `@capawesome-team/capacitor-pedometer`                    | `references/capawesome-pedometer.md`                    |
+| Photo Editor                 | `@capawesome/capacitor-photo-editor`                      | `references/capawesome-photo-editor.md`                 |
+| PostHog                      | `@capawesome/capacitor-posthog`                           | `references/capawesome-posthog.md`                      |
+| Printer                      | `@capawesome-team/capacitor-printer`                      | `references/capawesome-printer.md`                      |
+| Purchases                    | `@capawesome-team/capacitor-purchases`                    | `references/capawesome-purchases.md`                    |
+| RealtimeKit                  | `@capawesome/capacitor-realtimekit`                       | `references/capawesome-realtimekit.md`                  |
+| Screen Orientation           | `@capawesome/capacitor-screen-orientation`                | `references/capawesome-screen-orientation.md`           |
+| Screenshot                   | `@capawesome/capacitor-screenshot`                        | `references/capawesome-screenshot.md`                   |
+| Secure Preferences           | `@capawesome-team/capacitor-secure-preferences`           | `references/capawesome-secure-preferences.md`           |
+| Share Target                 | `@capawesome-team/capacitor-share-target`                 | `references/capawesome-share-target.md`                 |
+| Speech Recognition           | `@capawesome-team/capacitor-speech-recognition`           | `references/capawesome-speech-recognition.md`           |
+| Speech Synthesis             | `@capawesome-team/capacitor-speech-synthesis`             | `references/capawesome-speech-synthesis.md`             |
+| SQLite                       | `@capawesome-team/capacitor-sqlite`                       | `references/capawesome-sqlite.md`                       |
+| Square Mobile Payments       | `@capawesome/capacitor-square-mobile-payments`            | `references/capawesome-square-mobile-payments.md`       |
+| Superwall                    | `@capawesome/capacitor-superwall`                         | `references/capawesome-superwall.md`                    |
+| Torch                        | `@capawesome/capacitor-torch`                             | `references/capawesome-torch.md`                        |
+| Wi-Fi                        | `@capawesome-team/capacitor-wifi`                         | `references/capawesome-wifi.md`                         |
+| Zip                          | `@capawesome-team/capacitor-zip`                          | `references/capawesome-zip.md`                          |
 
 ### Capacitor Community Plugins
 
-| Plugin | Package | Reference |
-| ------ | ------- | --------- |
-| AdMob | `@capacitor-community/admob` | `references/community-admob.md` |
-| Advertising ID | `@capacitor-community/advertising-id` | `references/community-advertising-id.md` |
-| Android Security Provider | `@capacitor-community/security-provider` | `references/community-android-security-provider.md` |
-| Apple Sign In | `@capacitor-community/apple-sign-in` | `references/community-apple-sign-in.md` |
-| App Icon | `@capacitor-community/app-icon` | `references/community-app-icon.md` |
-| Background Geolocation | `@capacitor-community/background-geolocation` | `references/community-background-geolocation.md` |
-| Bluetooth LE | `@capacitor-community/bluetooth-le` | `references/community-bluetooth-le.md` |
-| Camera Preview | `@capacitor-community/camera-preview` | `references/community-camera-preview.md` |
-| Date Picker | `@capacitor-community/date-picker` | `references/community-date-picker.md` |
-| Device | `@capacitor-community/device` | `references/community-device.md` |
-| Device Check | `@capacitor-community/device-check` | `references/community-device-check.md` |
-| Device Security Detect | `@capacitor-community/device-security-detect` | `references/community-device-security-detect.md` |
-| Exif | `@capacitor-community/exif` | `references/community-exif.md` |
-| Facebook Login | `@capacitor-community/facebook-login` | `references/community-facebook-login.md` |
-| FCM | `@capacitor-community/fcm` | `references/community-fcm.md` |
-| File Opener | `@capacitor-community/file-opener` | `references/community-file-opener.md` |
-| Firebase Analytics | `@capacitor-community/firebase-analytics` | `references/community-firebase-analytics.md` |
-| Generic OAuth2 | `@capacitor-community/generic-oauth2` | `references/community-generic-oauth2.md` |
-| Image Manipulator | `@capacitor-community/image-manipulator` | `references/community-image-manipulator.md` |
-| Image to Text | `@capacitor-community/image-to-text` | `references/community-image-to-text.md` |
-| In App Review | `@capacitor-community/in-app-review` | `references/community-in-app-review.md` |
-| Intercom | `@capacitor-community/intercom` | `references/community-intercom.md` |
-| Intune | `@capacitor-community/intune` | `references/community-intune.md` |
-| Keep Awake | `@capacitor-community/keep-awake` | `references/community-keep-awake.md` |
-| MDM AppConfig | `@capacitor-community/mdm-appconfig` | `references/community-mdm-appconfig.md` |
-| Media | `@capacitor-community/media` | `references/community-media.md` |
-| Native Audio | `@capacitor-community/native-audio` | `references/community-native-audio.md` |
-| Native Market | `@capacitor-community/native-market` | `references/community-native-market.md` |
-| Photo Viewer | `@capacitor-community/photoviewer` | `references/community-photoviewer.md` |
-| Play Integrity | `@capacitor-community/play-integrity` | `references/community-play-integrity.md` |
-| Privacy Screen | `@capacitor-community/privacy-screen` | `references/community-privacy-screen.md` |
-| Safe Area | `@capacitor-community/safe-area` | `references/community-safe-area.md` |
-| Screen Brightness | `@capacitor-community/screen-brightness` | `references/community-screen-brightness.md` |
-| Speech Recognition | `@capacitor-community/speech-recognition` | `references/community-speech-recognition.md` |
-| SQLite | `@capacitor-community/sqlite` | `references/community-sqlite.md` |
-| Stripe | `@capacitor-community/stripe` | `references/community-stripe.md` |
-| Stripe Identity | `@capacitor-community/stripe-identity` | `references/community-stripe-identity.md` |
-| Stripe Terminal | `@capacitor-community/stripe-terminal` | `references/community-stripe-terminal.md` |
-| Tap Jacking | `@capacitor-community/tap-jacking` | `references/community-tap-jacking.md` |
-| Text to Speech | `@capacitor-community/text-to-speech` | `references/community-text-to-speech.md` |
-| Video Recorder | `@capacitor-community/video-recorder` | `references/community-video-recorder.md` |
-| Volume Buttons | `@capacitor-community/volume-buttons` | `references/community-volume-buttons.md` |
+| Plugin                    | Package                                       | Reference                                           |
+| ------------------------- | --------------------------------------------- | --------------------------------------------------- |
+| AdMob                     | `@capacitor-community/admob`                  | `references/community-admob.md`                     |
+| Advertising ID            | `@capacitor-community/advertising-id`         | `references/community-advertising-id.md`            |
+| Android Security Provider | `@capacitor-community/security-provider`      | `references/community-android-security-provider.md` |
+| Apple Sign In             | `@capacitor-community/apple-sign-in`          | `references/community-apple-sign-in.md`             |
+| App Icon                  | `@capacitor-community/app-icon`               | `references/community-app-icon.md`                  |
+| Background Geolocation    | `@capacitor-community/background-geolocation` | `references/community-background-geolocation.md`    |
+| Bluetooth LE              | `@capacitor-community/bluetooth-le`           | `references/community-bluetooth-le.md`              |
+| Camera Preview            | `@capacitor-community/camera-preview`         | `references/community-camera-preview.md`            |
+| Date Picker               | `@capacitor-community/date-picker`            | `references/community-date-picker.md`               |
+| Device                    | `@capacitor-community/device`                 | `references/community-device.md`                    |
+| Device Check              | `@capacitor-community/device-check`           | `references/community-device-check.md`              |
+| Device Security Detect    | `@capacitor-community/device-security-detect` | `references/community-device-security-detect.md`    |
+| Exif                      | `@capacitor-community/exif`                   | `references/community-exif.md`                      |
+| Facebook Login            | `@capacitor-community/facebook-login`         | `references/community-facebook-login.md`            |
+| FCM                       | `@capacitor-community/fcm`                    | `references/community-fcm.md`                       |
+| File Opener               | `@capacitor-community/file-opener`            | `references/community-file-opener.md`               |
+| Firebase Analytics        | `@capacitor-community/firebase-analytics`     | `references/community-firebase-analytics.md`        |
+| Generic OAuth2            | `@capacitor-community/generic-oauth2`         | `references/community-generic-oauth2.md`            |
+| Image Manipulator         | `@capacitor-community/image-manipulator`      | `references/community-image-manipulator.md`         |
+| Image to Text             | `@capacitor-community/image-to-text`          | `references/community-image-to-text.md`             |
+| In App Review             | `@capacitor-community/in-app-review`          | `references/community-in-app-review.md`             |
+| Intercom                  | `@capacitor-community/intercom`               | `references/community-intercom.md`                  |
+| Intune                    | `@capacitor-community/intune`                 | `references/community-intune.md`                    |
+| Keep Awake                | `@capacitor-community/keep-awake`             | `references/community-keep-awake.md`                |
+| MDM AppConfig             | `@capacitor-community/mdm-appconfig`          | `references/community-mdm-appconfig.md`             |
+| Media                     | `@capacitor-community/media`                  | `references/community-media.md`                     |
+| Native Audio              | `@capacitor-community/native-audio`           | `references/community-native-audio.md`              |
+| Native Market             | `@capacitor-community/native-market`          | `references/community-native-market.md`             |
+| Photo Viewer              | `@capacitor-community/photoviewer`            | `references/community-photoviewer.md`               |
+| Play Integrity            | `@capacitor-community/play-integrity`         | `references/community-play-integrity.md`            |
+| Privacy Screen            | `@capacitor-community/privacy-screen`         | `references/community-privacy-screen.md`            |
+| Safe Area                 | `@capacitor-community/safe-area`              | `references/community-safe-area.md`                 |
+| Screen Brightness         | `@capacitor-community/screen-brightness`      | `references/community-screen-brightness.md`         |
+| Speech Recognition        | `@capacitor-community/speech-recognition`     | `references/community-speech-recognition.md`        |
+| SQLite                    | `@capacitor-community/sqlite`                 | `references/community-sqlite.md`                    |
+| Stripe                    | `@capacitor-community/stripe`                 | `references/community-stripe.md`                    |
+| Stripe Identity           | `@capacitor-community/stripe-identity`        | `references/community-stripe-identity.md`           |
+| Stripe Terminal           | `@capacitor-community/stripe-terminal`        | `references/community-stripe-terminal.md`           |
+| Tap Jacking               | `@capacitor-community/tap-jacking`            | `references/community-tap-jacking.md`               |
+| Text to Speech            | `@capacitor-community/text-to-speech`         | `references/community-text-to-speech.md`            |
+| Video Recorder            | `@capacitor-community/video-recorder`         | `references/community-video-recorder.md`            |
+| Volume Buttons            | `@capacitor-community/volume-buttons`         | `references/community-volume-buttons.md`            |
 
 ### Capacitor Firebase Plugins
 
-| Plugin | Package | Reference |
-| ------ | ------- | --------- |
-| Analytics | `@capacitor-firebase/analytics` | `references/firebase-analytics.md` |
-| App | `@capacitor-firebase/app` | `references/firebase-app.md` |
-| App Check | `@capacitor-firebase/app-check` | `references/firebase-app-check.md` |
+| Plugin         | Package                              | Reference                               |
+| -------------- | ------------------------------------ | --------------------------------------- |
+| Analytics      | `@capacitor-firebase/analytics`      | `references/firebase-analytics.md`      |
+| App            | `@capacitor-firebase/app`            | `references/firebase-app.md`            |
+| App Check      | `@capacitor-firebase/app-check`      | `references/firebase-app-check.md`      |
 | Authentication | `@capacitor-firebase/authentication` | `references/firebase-authentication.md` |
-| Crashlytics | `@capacitor-firebase/crashlytics` | `references/firebase-crashlytics.md` |
-| Firestore | `@capacitor-firebase/firestore` | `references/firebase-firestore.md` |
-| Functions | `@capacitor-firebase/functions` | `references/firebase-functions.md` |
-| Messaging | `@capacitor-firebase/messaging` | `references/firebase-messaging.md` |
-| Performance | `@capacitor-firebase/performance` | `references/firebase-performance.md` |
-| Remote Config | `@capacitor-firebase/remote-config` | `references/firebase-remote-config.md` |
-| Storage | `@capacitor-firebase/storage` | `references/firebase-storage.md` |
+| Crashlytics    | `@capacitor-firebase/crashlytics`    | `references/firebase-crashlytics.md`    |
+| Firestore      | `@capacitor-firebase/firestore`      | `references/firebase-firestore.md`      |
+| Functions      | `@capacitor-firebase/functions`      | `references/firebase-functions.md`      |
+| Messaging      | `@capacitor-firebase/messaging`      | `references/firebase-messaging.md`      |
+| Performance    | `@capacitor-firebase/performance`    | `references/firebase-performance.md`    |
+| Remote Config  | `@capacitor-firebase/remote-config`  | `references/firebase-remote-config.md`  |
+| Storage        | `@capacitor-firebase/storage`        | `references/firebase-storage.md`        |
 
 ### Capacitor MLKit Plugins
 
-| Plugin | Package | Reference |
-| ------ | ------- | --------- |
-| Barcode Scanning | `@capacitor-mlkit/barcode-scanning` | `references/mlkit-barcode-scanning.md` |
-| Face Detection | `@capacitor-mlkit/face-detection` | `references/mlkit-face-detection.md` |
-| Face Mesh Detection | `@capacitor-mlkit/face-mesh-detection` | `references/mlkit-face-mesh-detection.md` |
-| Selfie Segmentation | `@capacitor-mlkit/selfie-segmentation` | `references/mlkit-selfie-segmentation.md` |
+| Plugin               | Package                                 | Reference                                  |
+| -------------------- | --------------------------------------- | ------------------------------------------ |
+| Barcode Scanning     | `@capacitor-mlkit/barcode-scanning`     | `references/mlkit-barcode-scanning.md`     |
+| Face Detection       | `@capacitor-mlkit/face-detection`       | `references/mlkit-face-detection.md`       |
+| Face Mesh Detection  | `@capacitor-mlkit/face-mesh-detection`  | `references/mlkit-face-mesh-detection.md`  |
+| Selfie Segmentation  | `@capacitor-mlkit/selfie-segmentation`  | `references/mlkit-selfie-segmentation.md`  |
 | Subject Segmentation | `@capacitor-mlkit/subject-segmentation` | `references/mlkit-subject-segmentation.md` |
-| Translation | `@capacitor-mlkit/translation` | `references/mlkit-translation.md` |
+| Translation          | `@capacitor-mlkit/translation`          | `references/mlkit-translation.md`          |
 
 ## Error Handling
 

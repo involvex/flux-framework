@@ -37,17 +37,17 @@ Add to `android/app/src/main/AndroidManifest.xml`:
 ## Usage
 
 ```typescript
-import { Geolocation } from '@capacitor/geolocation';
+import {Geolocation} from '@capacitor/geolocation'
 
-const position = await Geolocation.getCurrentPosition();
-console.log(position.coords.latitude, position.coords.longitude);
+const position = await Geolocation.getCurrentPosition()
+console.log(position.coords.latitude, position.coords.longitude)
 
 const watchId = await Geolocation.watchPosition(
-  { enableHighAccuracy: true },
-  (position) => {
-    console.log(position.coords);
-  },
-);
+	{enableHighAccuracy: true},
+	position => {
+		console.log(position.coords)
+	},
+)
 
-Geolocation.clearWatch({ id: watchId });
+Geolocation.clearWatch({id: watchId})
 ```

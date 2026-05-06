@@ -29,20 +29,20 @@ Add to `android/app/src/main/AndroidManifest.xml` before the `<application>` tag
 ### Enable, disable, and toggle
 
 ```typescript
-import { Torch } from '@capawesome/capacitor-torch';
+import {Torch} from '@capawesome/capacitor-torch'
 
-await Torch.enable();
-await Torch.disable();
-await Torch.toggle();
+await Torch.enable()
+await Torch.disable()
+await Torch.toggle()
 ```
 
 ### Check availability and status
 
 ```typescript
-import { Torch } from '@capawesome/capacitor-torch';
+import {Torch} from '@capawesome/capacitor-torch'
 
-const { available } = await Torch.isAvailable();
-const { enabled } = await Torch.isEnabled();
+const {available} = await Torch.isAvailable()
+const {enabled} = await Torch.isEnabled()
 ```
 
 ## Notes

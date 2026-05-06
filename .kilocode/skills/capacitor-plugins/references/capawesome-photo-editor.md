@@ -35,9 +35,9 @@ Create the file `android/app/src/main/res/xml/file_paths.xml` to specify directo
 ### Edit a photo
 
 ```typescript
-import { PhotoEditor } from '@capawesome/capacitor-photo-editor';
+import {PhotoEditor} from '@capawesome/capacitor-photo-editor'
 
-await PhotoEditor.editPhoto({ path: 'data/image.png' });
+await PhotoEditor.editPhoto({path: 'data/image.png'})
 ```
 
 ## Notes

@@ -52,43 +52,50 @@ No additional steps are necessary. Note: the Stripe Web Terminal SDK is in beta.
 ## Usage
 
 ```typescript
-import { StripeTerminal, TerminalConnectTypes, TerminalEventsEnum } from '@capacitor-community/stripe-terminal';
+import {
+	StripeTerminal,
+	TerminalConnectTypes,
+	TerminalEventsEnum,
+} from '@capacitor-community/stripe-terminal'
 
 // Initialize with a token provider endpoint
 await StripeTerminal.initialize({
-  tokenProviderEndpoint: 'https://example.com/token',
-  isTest: true,
-});
+	tokenProviderEndpoint: 'https://example.com/token',
+	isTest: true,
+})
 
 // Discover readers
-const { readers } = await StripeTerminal.discoverReaders({
-  type: TerminalConnectTypes.TapToPay,
-  locationId: 'tml_xxx',
-});
+const {readers} = await StripeTerminal.discoverReaders({
+	type: TerminalConnectTypes.TapToPay,
+	locationId: 'tml_xxx',
+})
 
 // Connect to a reader
-await StripeTerminal.connectReader({ reader: readers[0] });
+await StripeTerminal.connectReader({reader: readers[0]})
 
 // Collect payment
-await StripeTerminal.collectPaymentMethod({ paymentIntent: 'pi_xxx' });
+await StripeTerminal.collectPaymentMethod({paymentIntent: 'pi_xxx'})
 
 // Confirm payment
-await StripeTerminal.confirmPaymentIntent();
+await StripeTerminal.confirmPaymentIntent()
 
 // Disconnect reader
-await StripeTerminal.disconnectReader();
+await StripeTerminal.disconnectReader()
 ```
 
 ### Manual Token Provider
 
 ```typescript
 // Set up a listener before initialize()
-StripeTerminal.addListener(TerminalEventsEnum.RequestedConnectionToken, async () => {
-  const { token } = await (await fetch('https://example.com/token')).json();
-  StripeTerminal.setConnectionToken({ token });
-});
+StripeTerminal.addListener(
+	TerminalEventsEnum.RequestedConnectionToken,
+	async () => {
+		const {token} = await (await fetch('https://example.com/token')).json()
+		StripeTerminal.setConnectionToken({token})
+	},
+)
 
-await StripeTerminal.initialize({ isTest: true });
+await StripeTerminal.initialize({isTest: true})
 ```
 
 ## Notes

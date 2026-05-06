@@ -45,6 +45,7 @@ Two capabilities must be enabled in `ios/App/App.xcodeproj/project.pbxproj`. The
 2. **Background Modes** capability with **Remote notifications** checked.
 
 To add via Xcode: Open `ios/App/App.xcworkspace`, select the **App** target, go to **Signing & Capabilities**, click **+ Capability**, and add:
+
 - "Push Notifications"
 - "Background Modes" (then check "Remote notifications")
 

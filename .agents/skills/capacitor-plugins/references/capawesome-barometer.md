@@ -52,37 +52,37 @@ Add to `ios/App/App/Info.plist`:
 ### Get a single measurement
 
 ```typescript
-import { Barometer } from '@capawesome-team/capacitor-barometer';
+import {Barometer} from '@capawesome-team/capacitor-barometer'
 
-const { pressure, relativeAltitude, timestamp } = await Barometer.getMeasurement();
-console.log('Pressure:', pressure, 'hPa');
+const {pressure, relativeAltitude, timestamp} = await Barometer.getMeasurement()
+console.log('Pressure:', pressure, 'hPa')
 ```
 
 ### Check availability
 
 ```typescript
-const { isAvailable } = await Barometer.isAvailable();
+const {isAvailable} = await Barometer.isAvailable()
 ```
 
 ### Continuous measurement updates
 
 ```typescript
-Barometer.addListener('measurement', (event) => {
-  console.log('Pressure:', event.pressure, 'hPa');
-  console.log('Timestamp:', new Date(event.timestamp));
-});
-await Barometer.startMeasurementUpdates();
+Barometer.addListener('measurement', event => {
+	console.log('Pressure:', event.pressure, 'hPa')
+	console.log('Timestamp:', new Date(event.timestamp))
+})
+await Barometer.startMeasurementUpdates()
 
 // To stop:
-await Barometer.stopMeasurementUpdates();
-Barometer.removeAllListeners();
+await Barometer.stopMeasurementUpdates()
+Barometer.removeAllListeners()
 ```
 
 ### Permissions
 
 ```typescript
-const { barometer } = await Barometer.checkPermissions();
-const { barometer } = await Barometer.requestPermissions();
+const {barometer} = await Barometer.checkPermissions()
+const {barometer} = await Barometer.requestPermissions()
 ```
 
 ## Notes

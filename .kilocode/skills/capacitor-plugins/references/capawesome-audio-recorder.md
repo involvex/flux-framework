@@ -56,54 +56,54 @@ Add to `ios/App/App/Info.plist`:
 ### Start and stop recording
 
 ```typescript
-import { AudioRecorder } from '@capawesome-team/capacitor-audio-recorder';
+import {AudioRecorder} from '@capawesome-team/capacitor-audio-recorder'
 
 await AudioRecorder.startRecording({
-  bitRate: 192000,
-  sampleRate: 44100
-});
+	bitRate: 192000,
+	sampleRate: 44100,
+})
 
-const { blob, uri, duration } = await AudioRecorder.stopRecording();
+const {blob, uri, duration} = await AudioRecorder.stopRecording()
 // blob is available on Web, uri on Android/iOS
 ```
 
 ### Pause and resume recording
 
 ```typescript
-await AudioRecorder.pauseRecording();  // Android SDK 24+, iOS, Web
-await AudioRecorder.resumeRecording(); // Android SDK 24+, iOS, Web
+await AudioRecorder.pauseRecording() // Android SDK 24+, iOS, Web
+await AudioRecorder.resumeRecording() // Android SDK 24+, iOS, Web
 ```
 
 ### Cancel recording
 
 ```typescript
-await AudioRecorder.cancelRecording();
+await AudioRecorder.cancelRecording()
 ```
 
 ### Check recording status
 
 ```typescript
-const { status } = await AudioRecorder.getRecordingStatus();
+const {status} = await AudioRecorder.getRecordingStatus()
 // status: 'INACTIVE' | 'RECORDING' | 'PAUSED'
 ```
 
 ### Permissions
 
 ```typescript
-const { recordAudio } = await AudioRecorder.checkPermissions();
-const { recordAudio } = await AudioRecorder.requestPermissions();
+const {recordAudio} = await AudioRecorder.checkPermissions()
+const {recordAudio} = await AudioRecorder.requestPermissions()
 ```
 
 ### Event listeners
 
 ```typescript
-await AudioRecorder.addListener('recordingError', (event) => {
-  console.error('Recording error:', event.message);
-});
+await AudioRecorder.addListener('recordingError', event => {
+	console.error('Recording error:', event.message)
+})
 
-await AudioRecorder.addListener('recordingStopped', (event) => {
-  console.log('Recording stopped:', event.uri);
-});
+await AudioRecorder.addListener('recordingStopped', event => {
+	console.log('Recording stopped:', event.uri)
+})
 ```
 
 ## Notes

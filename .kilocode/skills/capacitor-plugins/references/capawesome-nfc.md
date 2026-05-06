@@ -101,46 +101,46 @@ Add to `ios/App/App/Info.plist`:
 ### Read an NFC tag
 
 ```typescript
-import { Nfc } from '@capawesome-team/capacitor-nfc';
+import {Nfc} from '@capawesome-team/capacitor-nfc'
 
 const read = async () => {
-  return new Promise((resolve) => {
-    Nfc.addListener('nfcTagScanned', async (event) => {
-      await Nfc.stopScanSession();
-      resolve(event.nfcTag);
-    });
-    Nfc.startScanSession();
-  });
-};
+	return new Promise(resolve => {
+		Nfc.addListener('nfcTagScanned', async event => {
+			await Nfc.stopScanSession()
+			resolve(event.nfcTag)
+		})
+		Nfc.startScanSession()
+	})
+}
 ```
 
 ### Write to an NFC tag
 
 ```typescript
-import { Nfc, NfcUtils } from '@capawesome-team/capacitor-nfc';
+import {Nfc, NfcUtils} from '@capawesome-team/capacitor-nfc'
 
 const write = async () => {
-  return new Promise((resolve) => {
-    const utils = new NfcUtils();
-    const { record } = utils.createNdefTextRecord({ text: 'Hello NFC' });
+	return new Promise(resolve => {
+		const utils = new NfcUtils()
+		const {record} = utils.createNdefTextRecord({text: 'Hello NFC'})
 
-    Nfc.addListener('nfcTagScanned', async (event) => {
-      await Nfc.write({ message: { records: [record] } });
-      await Nfc.stopScanSession();
-      resolve();
-    });
-    Nfc.startScanSession();
-  });
-};
+		Nfc.addListener('nfcTagScanned', async event => {
+			await Nfc.write({message: {records: [record]}})
+			await Nfc.stopScanSession()
+			resolve()
+		})
+		Nfc.startScanSession()
+	})
+}
 ```
 
 ### Check NFC support and status
 
 ```typescript
-import { Nfc } from '@capawesome-team/capacitor-nfc';
+import {Nfc} from '@capawesome-team/capacitor-nfc'
 
-const { nfc } = await Nfc.isSupported();
-const { isEnabled } = await Nfc.isEnabled(); // Android only
+const {nfc} = await Nfc.isSupported()
+const {isEnabled} = await Nfc.isEnabled() // Android only
 ```
 
 ## Notes

@@ -24,18 +24,18 @@ Requires PWA Elements (`@ionic/pwa-elements`).
 ## Usage
 
 ```typescript
-import { ActionSheet, ActionSheetButtonStyle } from '@capacitor/action-sheet';
+import {ActionSheet, ActionSheetButtonStyle} from '@capacitor/action-sheet'
 
 const result = await ActionSheet.showActions({
-  title: 'Photo Options',
-  message: 'Select an option to perform',
-  options: [
-    { title: 'Upload' },
-    { title: 'Share' },
-    { title: 'Remove', style: ActionSheetButtonStyle.Destructive },
-  ],
-});
-console.log('Action index:', result.index);
+	title: 'Photo Options',
+	message: 'Select an option to perform',
+	options: [
+		{title: 'Upload'},
+		{title: 'Share'},
+		{title: 'Remove', style: ActionSheetButtonStyle.Destructive},
+	],
+})
+console.log('Action index:', result.index)
 ```
 
 ## Notes

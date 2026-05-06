@@ -53,12 +53,14 @@ Set `firebaseCrashlyticsVersion` in `variables.gradle` (default: `20.0.3`).
 ## Usage
 
 ```typescript
-import { FirebaseCrashlytics } from '@capacitor-firebase/crashlytics';
+import {FirebaseCrashlytics} from '@capacitor-firebase/crashlytics'
 
-await FirebaseCrashlytics.recordException({ message: 'This is a non-fatal message.' });
-await FirebaseCrashlytics.setUserId({ userId: '123' });
-await FirebaseCrashlytics.log({ message: 'User clicked checkout' });
-await FirebaseCrashlytics.crash({ message: 'Test' });
+await FirebaseCrashlytics.recordException({
+	message: 'This is a non-fatal message.',
+})
+await FirebaseCrashlytics.setUserId({userId: '123'})
+await FirebaseCrashlytics.log({message: 'User clicked checkout'})
+await FirebaseCrashlytics.crash({message: 'Test'})
 ```
 
 ## Notes

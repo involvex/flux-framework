@@ -33,13 +33,13 @@ This `<dict>` entry goes inside the `NSPrivacyAccessedAPITypes` array.
 ## Usage
 
 ```typescript
-import { CommunityDevice } from '@capacitor-community/device';
+import {CommunityDevice} from '@capacitor-community/device'
 
-const info = await CommunityDevice.getInfo();
-console.log(info.diskFree);      // Free disk space (OS partition), bytes
-console.log(info.diskTotal);     // Total disk space (OS partition), bytes
-console.log(info.realDiskFree);  // Free disk space (data partition), bytes
-console.log(info.realDiskTotal); // Total disk space (data partition), bytes
+const info = await CommunityDevice.getInfo()
+console.log(info.diskFree) // Free disk space (OS partition), bytes
+console.log(info.diskTotal) // Total disk space (OS partition), bytes
+console.log(info.realDiskFree) // Free disk space (data partition), bytes
+console.log(info.realDiskTotal) // Total disk space (data partition), bytes
 ```
 
 ## Notes

@@ -14,15 +14,15 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { ScreenOrientation } from '@capacitor/screen-orientation';
+import {ScreenOrientation} from '@capacitor/screen-orientation'
 
-const { type } = await ScreenOrientation.orientation();
-await ScreenOrientation.lock({ orientation: 'portrait' });
-await ScreenOrientation.unlock();
+const {type} = await ScreenOrientation.orientation()
+await ScreenOrientation.lock({orientation: 'portrait'})
+await ScreenOrientation.unlock()
 
-ScreenOrientation.addListener('screenOrientationChange', (result) => {
-  console.log('Orientation:', result.type);
-});
+ScreenOrientation.addListener('screenOrientationChange', result => {
+	console.log('Orientation:', result.type)
+})
 ```
 
 ## Notes

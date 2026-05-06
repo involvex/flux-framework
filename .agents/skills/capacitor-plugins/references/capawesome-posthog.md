@@ -27,41 +27,41 @@ Configure via `capacitor.config.ts`:
 ```typescript
 /// <reference types="@capawesome/capacitor-posthog" />
 
-import { CapacitorConfig } from '@capacitor/cli';
+import {CapacitorConfig} from '@capacitor/cli'
 
 const config: CapacitorConfig = {
-  plugins: {
-    Posthog: {
-      apiKey: 'YOUR_API_KEY',
-      apiHost: 'https://eu.i.posthog.com',
-    },
-  },
-};
+	plugins: {
+		Posthog: {
+			apiKey: 'YOUR_API_KEY',
+			apiHost: 'https://eu.i.posthog.com',
+		},
+	},
+}
 
-export default config;
+export default config
 ```
 
 Or via `capacitor.config.json`:
 
 ```json
 {
-  "plugins": {
-    "Posthog": {
-      "apiKey": "YOUR_API_KEY",
-      "apiHost": "https://eu.i.posthog.com"
-    }
-  }
+	"plugins": {
+		"Posthog": {
+			"apiKey": "YOUR_API_KEY",
+			"apiHost": "https://eu.i.posthog.com"
+		}
+	}
 }
 ```
 
 Key configuration options:
 
-| Property | Default | Description |
-|---|---|---|
-| `apiKey` | - | PostHog project API key |
-| `apiHost` | `https://us.i.posthog.com` | API host or reverse proxy URL |
-| `uiHost` | - | PostHog UI host (Web only, for reverse proxy setups) |
-| `enableSessionReplay` | `false` | Enable session recording |
+| Property              | Default                    | Description                                          |
+| --------------------- | -------------------------- | ---------------------------------------------------- |
+| `apiKey`              | -                          | PostHog project API key                              |
+| `apiHost`             | `https://us.i.posthog.com` | API host or reverse proxy URL                        |
+| `uiHost`              | -                          | PostHog UI host (Web only, for reverse proxy setups) |
+| `enableSessionReplay` | `false`                    | Enable session recording                             |
 
 Alternatively, call `Posthog.setup()` at runtime instead of using Capacitor config.
 
@@ -70,52 +70,52 @@ Alternatively, call `Posthog.setup()` at runtime instead of using Capacitor conf
 ### Setup (runtime)
 
 ```typescript
-import { Posthog } from '@capawesome/capacitor-posthog';
+import {Posthog} from '@capawesome/capacitor-posthog'
 
 await Posthog.setup({
-  apiKey: 'YOUR_API_KEY',
-  apiHost: 'https://eu.i.posthog.com',
-});
+	apiKey: 'YOUR_API_KEY',
+	apiHost: 'https://eu.i.posthog.com',
+})
 ```
 
 ### Capture an event
 
 ```typescript
-import { Posthog } from '@capawesome/capacitor-posthog';
+import {Posthog} from '@capawesome/capacitor-posthog'
 
 await Posthog.capture({
-  event: 'button_clicked',
-  properties: { page: 'home' },
-});
+	event: 'button_clicked',
+	properties: {page: 'home'},
+})
 ```
 
 ### Identify a user
 
 ```typescript
-import { Posthog } from '@capawesome/capacitor-posthog';
+import {Posthog} from '@capawesome/capacitor-posthog'
 
 await Posthog.identify({
-  distinctId: 'user-123',
-  userProperties: { plan: 'premium' },
-});
+	distinctId: 'user-123',
+	userProperties: {plan: 'premium'},
+})
 ```
 
 ### Feature flags
 
 ```typescript
-import { Posthog } from '@capawesome/capacitor-posthog';
+import {Posthog} from '@capawesome/capacitor-posthog'
 
-const { enabled } = await Posthog.isFeatureEnabled({ key: 'new-feature' });
-const { value } = await Posthog.getFeatureFlag({ key: 'new-feature' });
-await Posthog.reloadFeatureFlags();
+const {enabled} = await Posthog.isFeatureEnabled({key: 'new-feature'})
+const {value} = await Posthog.getFeatureFlag({key: 'new-feature'})
+await Posthog.reloadFeatureFlags()
 ```
 
 ### Reset user
 
 ```typescript
-import { Posthog } from '@capawesome/capacitor-posthog';
+import {Posthog} from '@capawesome/capacitor-posthog'
 
-await Posthog.reset();
+await Posthog.reset()
 ```
 
 ## Notes

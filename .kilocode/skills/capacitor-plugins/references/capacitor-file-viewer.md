@@ -14,11 +14,13 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { FileViewer } from '@capacitor/file-viewer';
+import {FileViewer} from '@capacitor/file-viewer'
 
-await FileViewer.openDocumentFromLocalPath({ path: 'path/to/file.pdf' });
-await FileViewer.openDocumentFromUrl({ url: 'https://example.com/document.pdf' });
-await FileViewer.previewMediaContentFromUrl({ url: 'https://example.com/video.mp4' });
+await FileViewer.openDocumentFromLocalPath({path: 'path/to/file.pdf'})
+await FileViewer.openDocumentFromUrl({url: 'https://example.com/document.pdf'})
+await FileViewer.previewMediaContentFromUrl({
+	url: 'https://example.com/video.mp4',
+})
 ```
 
 ## Notes

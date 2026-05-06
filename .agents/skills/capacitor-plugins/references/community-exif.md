@@ -24,21 +24,21 @@ androidxExifInterfaceVersion = '1.3.6'
 ## Usage
 
 ```typescript
-import { Exif } from '@capacitor-community/exif';
+import {Exif} from '@capacitor-community/exif'
 
 // Set coordinates
 await Exif.setCoordinates({
-  pathToImage: '/path/to/image.jpg',
-  lat: 48.8566,
-  lng: 2.3522,
-});
+	pathToImage: '/path/to/image.jpg',
+	lat: 48.8566,
+	lng: 2.3522,
+})
 
 // Get coordinates
 const coords = await Exif.getCoordinates({
-  pathToImage: '/path/to/image.jpg',
-});
+	pathToImage: '/path/to/image.jpg',
+})
 if (coords) {
-  console.log(coords.lat, coords.lng);
+	console.log(coords.lat, coords.lng)
 }
 ```
 

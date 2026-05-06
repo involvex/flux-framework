@@ -76,21 +76,21 @@ In `capacitor.config.ts`:
 ```typescript
 /// <reference types="@capawesome/capacitor-live-update" />
 
-import { CapacitorConfig } from '@capacitor/cli';
+import {CapacitorConfig} from '@capacitor/cli'
 
 const config: CapacitorConfig = {
-  plugins: {
-    LiveUpdate: {
-      appId: '6e351b4f-69a7-415e-a057-4567df7ffe94',
-      autoDeleteBundles: true,
-      autoUpdateStrategy: 'background',
-      defaultChannel: 'production',
-      readyTimeout: 10000,
-    },
-  },
-};
+	plugins: {
+		LiveUpdate: {
+			appId: '6e351b4f-69a7-415e-a057-4567df7ffe94',
+			autoDeleteBundles: true,
+			autoUpdateStrategy: 'background',
+			defaultChannel: 'production',
+			readyTimeout: 10000,
+		},
+	},
+}
 
-export default config;
+export default config
 ```
 
 Key config options:
@@ -109,14 +109,14 @@ Key config options:
 ### Sync with Capawesome Cloud
 
 ```typescript
-import { LiveUpdate } from '@capawesome/capacitor-live-update';
+import {LiveUpdate} from '@capawesome/capacitor-live-update'
 
 const sync = async () => {
-  const result = await LiveUpdate.sync({ channel: 'production-5' });
-  if (result.nextBundleId) {
-    await LiveUpdate.reload();
-  }
-};
+	const result = await LiveUpdate.sync({channel: 'production-5'})
+	if (result.nextBundleId) {
+		await LiveUpdate.reload()
+	}
+}
 ```
 
 ### Manual Bundle Management
@@ -124,29 +124,29 @@ const sync = async () => {
 ```typescript
 // Download a self-hosted bundle
 await LiveUpdate.downloadBundle({
-  url: 'https://example.com/1.0.0.zip',
-  bundleId: '1.0.0',
-});
+	url: 'https://example.com/1.0.0.zip',
+	bundleId: '1.0.0',
+})
 
 // Set the next bundle
-await LiveUpdate.setNextBundle({ bundleId: '1.0.0' });
+await LiveUpdate.setNextBundle({bundleId: '1.0.0'})
 
 // Reload to apply
-await LiveUpdate.reload();
+await LiveUpdate.reload()
 
 // Reset to default bundle
-await LiveUpdate.reset();
+await LiveUpdate.reset()
 ```
 
 ### Ready Signal
 
 ```typescript
 const ready = async () => {
-  const result = await LiveUpdate.ready();
-  if (result.rollback) {
-    console.log('App was reset to default bundle.');
-  }
-};
+	const result = await LiveUpdate.ready()
+	if (result.rollback) {
+		console.log('App was reset to default bundle.')
+	}
+}
 ```
 
 ## Notes

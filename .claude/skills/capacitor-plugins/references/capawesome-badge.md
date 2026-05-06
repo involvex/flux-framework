@@ -55,12 +55,12 @@ In `capacitor.config.json`:
 
 ```json
 {
-  "plugins": {
-    "Badge": {
-      "persist": true,
-      "autoClear": false
-    }
-  }
+	"plugins": {
+		"Badge": {
+			"persist": true,
+			"autoClear": false
+		}
+	}
 }
 ```
 
@@ -70,17 +70,17 @@ In `capacitor.config.json`:
 ## Usage
 
 ```typescript
-import { Badge } from '@capawesome/capacitor-badge';
+import {Badge} from '@capawesome/capacitor-badge'
 
-const { count } = await Badge.get();
-await Badge.set({ count: 5 });
-await Badge.increase();
-await Badge.decrease();
-await Badge.clear();
+const {count} = await Badge.get()
+await Badge.set({count: 5})
+await Badge.increase()
+await Badge.decrease()
+await Badge.clear()
 
-const { isSupported } = await Badge.isSupported();
-await Badge.checkPermissions();
-await Badge.requestPermissions();
+const {isSupported} = await Badge.isSupported()
+await Badge.checkPermissions()
+await Badge.requestPermissions()
 ```
 
 ## Notes

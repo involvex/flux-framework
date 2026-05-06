@@ -98,45 +98,45 @@ Add to `ios/App/App/Info.plist`:
 ### Initialize and authorize
 
 ```typescript
-import { SquareMobilePayments } from '@capawesome/capacitor-square-mobile-payments';
+import {SquareMobilePayments} from '@capawesome/capacitor-square-mobile-payments'
 
-await SquareMobilePayments.initialize({ locationId: 'YOUR_LOCATION_ID' });
-await SquareMobilePayments.authorize({ accessToken: 'YOUR_ACCESS_TOKEN' });
+await SquareMobilePayments.initialize({locationId: 'YOUR_LOCATION_ID'})
+await SquareMobilePayments.authorize({accessToken: 'YOUR_ACCESS_TOKEN'})
 ```
 
 ### Process a payment
 
 ```typescript
-import { SquareMobilePayments } from '@capawesome/capacitor-square-mobile-payments';
+import {SquareMobilePayments} from '@capawesome/capacitor-square-mobile-payments'
 
 await SquareMobilePayments.startPayment({
-  paymentParameters: {
-    amountMoney: { amount: 100, currency: 'USD' },
-    paymentAttemptId: crypto.randomUUID(),
-  },
-  promptParameters: {
-    mode: 'DEFAULT',
-    additionalMethods: ['KEYED'],
-  },
-});
+	paymentParameters: {
+		amountMoney: {amount: 100, currency: 'USD'},
+		paymentAttemptId: crypto.randomUUID(),
+	},
+	promptParameters: {
+		mode: 'DEFAULT',
+		additionalMethods: ['KEYED'],
+	},
+})
 ```
 
 ### Listen for payment events
 
 ```typescript
-import { SquareMobilePayments } from '@capawesome/capacitor-square-mobile-payments';
+import {SquareMobilePayments} from '@capawesome/capacitor-square-mobile-payments'
 
-SquareMobilePayments.addListener('paymentDidFinish', (event) => {
-  console.log('Payment completed:', event.payment.id);
-});
+SquareMobilePayments.addListener('paymentDidFinish', event => {
+	console.log('Payment completed:', event.payment.id)
+})
 
-SquareMobilePayments.addListener('paymentDidFail', (event) => {
-  console.error('Payment failed:', event.message);
-});
+SquareMobilePayments.addListener('paymentDidFail', event => {
+	console.error('Payment failed:', event.message)
+})
 
-SquareMobilePayments.addListener('paymentDidCancel', (event) => {
-  console.log('Payment cancelled');
-});
+SquareMobilePayments.addListener('paymentDidCancel', event => {
+	console.log('Payment cancelled')
+})
 ```
 
 ## Notes

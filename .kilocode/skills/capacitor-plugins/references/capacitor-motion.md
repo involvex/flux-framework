@@ -14,16 +14,16 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { Motion } from '@capacitor/motion';
+import {Motion} from '@capacitor/motion'
 
-Motion.addListener('accel', (event) => {
-  console.log('Acceleration:', event.acceleration);
-  console.log('Rotation:', event.rotationRate);
-});
+Motion.addListener('accel', event => {
+	console.log('Acceleration:', event.acceleration)
+	console.log('Rotation:', event.rotationRate)
+})
 
-Motion.addListener('orientation', (event) => {
-  console.log('Orientation:', event.alpha, event.beta, event.gamma);
-});
+Motion.addListener('orientation', event => {
+	console.log('Orientation:', event.alpha, event.beta, event.gamma)
+})
 ```
 
 ## Notes

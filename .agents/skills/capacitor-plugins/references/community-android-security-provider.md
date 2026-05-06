@@ -15,16 +15,16 @@ npx cap sync
 
 ```typescript
 import {
-  CapacitorSecurityProvider,
-  SecurityProviderStatus,
-} from '@capacitor-community/security-provider';
+	CapacitorSecurityProvider,
+	SecurityProviderStatus,
+} from '@capacitor-community/security-provider'
 
-const result = await CapacitorSecurityProvider.installIfNeeded();
+const result = await CapacitorSecurityProvider.installIfNeeded()
 if (
-  result.status !== SecurityProviderStatus.Success &&
-  result.status !== SecurityProviderStatus.NotImplemented
+	result.status !== SecurityProviderStatus.Success &&
+	result.status !== SecurityProviderStatus.NotImplemented
 ) {
-  // The security provider failed to verify/install - do not proceed
+	// The security provider failed to verify/install - do not proceed
 }
 ```
 

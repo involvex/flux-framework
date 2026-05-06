@@ -27,12 +27,12 @@ If combined with `@capacitor-firebase/messaging`, add `import FirebaseAuth` and 
 
 ```json
 {
-  "plugins": {
-    "FirebaseAuthentication": {
-      "skipNativeAuth": false,
-      "providers": ["apple.com", "google.com"]
-    }
-  }
+	"plugins": {
+		"FirebaseAuthentication": {
+			"skipNativeAuth": false,
+			"providers": ["apple.com", "google.com"]
+		}
+	}
 }
 ```
 
@@ -42,17 +42,17 @@ If combined with `@capacitor-firebase/messaging`, add `import FirebaseAuth` and 
 ## Usage
 
 ```typescript
-import { FirebaseAuthentication } from '@capacitor-firebase/authentication';
+import {FirebaseAuthentication} from '@capacitor-firebase/authentication'
 
-const result = await FirebaseAuthentication.signInWithGoogle();
+const result = await FirebaseAuthentication.signInWithGoogle()
 
 const result2 = await FirebaseAuthentication.signInWithEmailAndPassword({
-  email: 'mail@example.com',
-  password: '1234',
-});
+	email: 'mail@example.com',
+	password: '1234',
+})
 
-const { user } = await FirebaseAuthentication.getCurrentUser();
-await FirebaseAuthentication.signOut();
+const {user} = await FirebaseAuthentication.getCurrentUser()
+await FirebaseAuthentication.signOut()
 ```
 
 ## Notes

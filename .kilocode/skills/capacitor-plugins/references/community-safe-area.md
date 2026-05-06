@@ -37,11 +37,11 @@ For Capacitor v8, add the following to `capacitor.config.json`:
 
 ```json
 {
-  "plugins": {
-    "SystemBars": {
-      "insetsHandling": "disable"
-    }
-  }
+	"plugins": {
+		"SystemBars": {
+			"insetsHandling": "disable"
+		}
+	}
 }
 ```
 
@@ -51,14 +51,14 @@ Optional configuration in `capacitor.config.json`:
 
 ```json
 {
-  "plugins": {
-    "SafeArea": {
-      "statusBarStyle": "DEFAULT",
-      "navigationBarStyle": "DEFAULT",
-      "detectViewportFitCoverChanges": true,
-      "initialViewportFitCover": true
-    }
-  }
+	"plugins": {
+		"SafeArea": {
+			"statusBarStyle": "DEFAULT",
+			"navigationBarStyle": "DEFAULT",
+			"detectViewportFitCoverChanges": true,
+			"initialViewportFitCover": true
+		}
+	}
 }
 ```
 
@@ -72,23 +72,27 @@ Optional configuration in `capacitor.config.json`:
 The plugin activates automatically once installed. It also provides a System Bars API for styling:
 
 ```typescript
-import { SafeArea, SystemBarsStyle, SystemBarsType } from '@capacitor-community/safe-area';
+import {
+	SafeArea,
+	SystemBarsStyle,
+	SystemBarsType,
+} from '@capacitor-community/safe-area'
 
 // Set system bars style
 await SafeArea.setSystemBarsStyle({
-  style: SystemBarsStyle.Dark,
-  type: SystemBarsType.StatusBar,
-});
+	style: SystemBarsStyle.Dark,
+	type: SystemBarsType.StatusBar,
+})
 
 // Hide system bars
 await SafeArea.hideSystemBars({
-  type: SystemBarsType.NavigationBar,
-});
+	type: SystemBarsType.NavigationBar,
+})
 
 // Show system bars
 await SafeArea.showSystemBars({
-  type: null, // both bars
-});
+	type: null, // both bars
+})
 ```
 
 ## Notes

@@ -14,18 +14,18 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { DeviceSecurityDetect } from '@capacitor-community/device-security-detect';
+import {DeviceSecurityDetect} from '@capacitor-community/device-security-detect'
 
 // Check if device is rooted (Android) or jailbroken (iOS)
-const { value: isCompromised } = await DeviceSecurityDetect.isJailBreakOrRooted();
+const {value: isCompromised} = await DeviceSecurityDetect.isJailBreakOrRooted()
 if (isCompromised) {
-  console.warn('Device is rooted or jailbroken.');
+	console.warn('Device is rooted or jailbroken.')
 }
 
 // Check if PIN, password, or biometric lock is enabled
-const { value: hasLock } = await DeviceSecurityDetect.pinCheck();
+const {value: hasLock} = await DeviceSecurityDetect.pinCheck()
 if (!hasLock) {
-  console.warn('No secure lock mechanism detected.');
+	console.warn('No secure lock mechanism detected.')
 }
 ```
 

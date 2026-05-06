@@ -25,16 +25,16 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { Watch } from '@capacitor/watch';
+import {Watch} from '@capacitor/watch'
 
 await Watch.updateWatchUI({
-  watchUI: 'Text("Hello $name")\nButton("Tap Me", "tapCommand")',
-});
-await Watch.updateWatchData({ data: { name: 'World' } });
+	watchUI: 'Text("Hello $name")\nButton("Tap Me", "tapCommand")',
+})
+await Watch.updateWatchData({data: {name: 'World'}})
 
-Watch.addListener('runCommand', (command) => {
-  console.log('Watch command:', command);
-});
+Watch.addListener('runCommand', command => {
+	console.log('Watch command:', command)
+})
 ```
 
 ## Notes

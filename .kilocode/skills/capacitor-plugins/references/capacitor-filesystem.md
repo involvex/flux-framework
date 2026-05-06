@@ -44,31 +44,31 @@ Add to `ios/App/App/Info.plist`:
 ## Usage
 
 ```typescript
-import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+import {Filesystem, Directory, Encoding} from '@capacitor/filesystem'
 
 await Filesystem.writeFile({
-  path: 'secrets/text.txt',
-  data: 'Hello',
-  directory: Directory.Documents,
-  encoding: Encoding.UTF8,
-});
+	path: 'secrets/text.txt',
+	data: 'Hello',
+	directory: Directory.Documents,
+	encoding: Encoding.UTF8,
+})
 
 const contents = await Filesystem.readFile({
-  path: 'secrets/text.txt',
-  directory: Directory.Documents,
-  encoding: Encoding.UTF8,
-});
+	path: 'secrets/text.txt',
+	directory: Directory.Documents,
+	encoding: Encoding.UTF8,
+})
 
 await Filesystem.mkdir({
-  path: 'secrets',
-  directory: Directory.Documents,
-  recursive: true,
-});
+	path: 'secrets',
+	directory: Directory.Documents,
+	recursive: true,
+})
 
 const files = await Filesystem.readdir({
-  path: '',
-  directory: Directory.Documents,
-});
+	path: '',
+	directory: Directory.Documents,
+})
 ```
 
 ## Notes

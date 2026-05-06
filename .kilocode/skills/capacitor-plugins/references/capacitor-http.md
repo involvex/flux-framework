@@ -14,28 +14,28 @@ Enable in `capacitor.config.ts` (or `.json`):
 
 ```json
 {
-  "plugins": {
-    "CapacitorHttp": {
-      "enabled": true
-    }
-  }
+	"plugins": {
+		"CapacitorHttp": {
+			"enabled": true
+		}
+	}
 }
 ```
 
 ## Usage
 
 ```typescript
-import { CapacitorHttp } from '@capacitor/core';
+import {CapacitorHttp} from '@capacitor/core'
 
 const response = await CapacitorHttp.get({
-  url: 'https://api.example.com/data',
-  headers: { Authorization: 'Bearer token' },
-});
+	url: 'https://api.example.com/data',
+	headers: {Authorization: 'Bearer token'},
+})
 
 const postResponse = await CapacitorHttp.post({
-  url: 'https://api.example.com/data',
-  data: { key: 'value' },
-});
+	url: 'https://api.example.com/data',
+	data: {key: 'value'},
+})
 ```
 
 ## Notes

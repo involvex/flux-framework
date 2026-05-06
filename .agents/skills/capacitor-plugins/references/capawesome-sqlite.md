@@ -90,16 +90,16 @@ For Vite, add to `vite.config.ts`:
 
 ```typescript
 export default defineConfig({
-  optimizeDeps: {
-    exclude: ['@sqlite.org/sqlite-wasm'],
-  },
-  server: {
-    headers: {
-      'Cross-Origin-Embedder-Policy': 'require-corp',
-      'Cross-Origin-Opener-Policy': 'same-origin',
-    },
-  },
-});
+	optimizeDeps: {
+		exclude: ['@sqlite.org/sqlite-wasm'],
+	},
+	server: {
+		headers: {
+			'Cross-Origin-Embedder-Policy': 'require-corp',
+			'Cross-Origin-Opener-Policy': 'same-origin',
+		},
+	},
+})
 ```
 
 The web platform requires COOP/COEP headers for OPFS support.
@@ -109,56 +109,64 @@ The web platform requires COOP/COEP headers for OPFS support.
 ### Open a database with migrations
 
 ```typescript
-import { Sqlite } from '@capawesome-team/capacitor-sqlite';
+import {Sqlite} from '@capawesome-team/capacitor-sqlite'
 
-const { databaseId } = await Sqlite.open({
-  path: 'mydb.sqlite3',
-  encryptionKey: 'secret',
-  upgradeStatements: [
-    {
-      version: 1,
-      statements: [
-        'CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER)',
-      ],
-    },
-    {
-      version: 2,
-      statements: ['ALTER TABLE users ADD COLUMN email TEXT'],
-    },
-  ],
-  version: 2,
-});
+const {databaseId} = await Sqlite.open({
+	path: 'mydb.sqlite3',
+	encryptionKey: 'secret',
+	upgradeStatements: [
+		{
+			version: 1,
+			statements: [
+				'CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER)',
+			],
+		},
+		{
+			version: 2,
+			statements: ['ALTER TABLE users ADD COLUMN email TEXT'],
+		},
+	],
+	version: 2,
+})
 ```
 
 ### Execute and query
 
 ```typescript
-import { Sqlite } from '@capawesome-team/capacitor-sqlite';
+import {Sqlite} from '@capawesome-team/capacitor-sqlite'
 
 await Sqlite.execute({
-  databaseId,
-  statement: 'INSERT INTO users (name, age) VALUES (?, ?)',
-  values: ['Alice', 30],
-});
+	databaseId,
+	statement: 'INSERT INTO users (name, age) VALUES (?, ?)',
+	values: ['Alice', 30],
+})
 
 const result = await Sqlite.query({
-  databaseId,
-  statement: 'SELECT * FROM users WHERE age > ?',
-  values: [25],
-});
-console.log(result.columns);
-console.log(result.rows);
+	databaseId,
+	statement: 'SELECT * FROM users WHERE age > ?',
+	values: [25],
+})
+console.log(result.columns)
+console.log(result.rows)
 ```
 
 ### Transactions
 
 ```typescript
-import { Sqlite } from '@capawesome-team/capacitor-sqlite';
+import {Sqlite} from '@capawesome-team/capacitor-sqlite'
 
-await Sqlite.beginTransaction({ databaseId });
-await Sqlite.execute({ databaseId, statement: 'INSERT INTO users (name, age) VALUES (?, ?)', values: ['Alice', 30] });
-await Sqlite.execute({ databaseId, statement: 'INSERT INTO users (name, age) VALUES (?, ?)', values: ['Bob', 25] });
-await Sqlite.commitTransaction({ databaseId });
+await Sqlite.beginTransaction({databaseId})
+await Sqlite.execute({
+	databaseId,
+	statement: 'INSERT INTO users (name, age) VALUES (?, ?)',
+	values: ['Alice', 30],
+})
+await Sqlite.execute({
+	databaseId,
+	statement: 'INSERT INTO users (name, age) VALUES (?, ?)',
+	values: ['Bob', 25],
+})
+await Sqlite.commitTransaction({databaseId})
 ```
 
 ## Notes

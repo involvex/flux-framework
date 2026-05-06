@@ -20,11 +20,11 @@ Disable the built-in insets handling of the Capacitor SystemBars plugin in `capa
 
 ```json
 {
-  "plugins": {
-    "SystemBars": {
-      "insetsHandling": "disable"
-    }
-  }
+	"plugins": {
+		"SystemBars": {
+			"insetsHandling": "disable"
+		}
+	}
 }
 ```
 
@@ -36,11 +36,11 @@ If using the Capacitor Keyboard plugin, set `resizeOnFullScreen` to `false` in `
 
 ```json
 {
-  "plugins": {
-    "Keyboard": {
-      "resizeOnFullScreen": false
-    }
-  }
+	"plugins": {
+		"Keyboard": {
+			"resizeOnFullScreen": false
+		}
+	}
 }
 ```
 
@@ -50,60 +50,60 @@ In `capacitor.config.json`:
 
 ```json
 {
-  "plugins": {
-    "EdgeToEdge": {
-      "backgroundColor": "#ffffff",
-      "navigationBarColor": "#000000",
-      "statusBarColor": "#ffffff"
-    }
-  }
+	"plugins": {
+		"EdgeToEdge": {
+			"backgroundColor": "#ffffff",
+			"navigationBarColor": "#000000",
+			"statusBarColor": "#ffffff"
+		}
+	}
 }
 ```
 
-| Property             | Description                                                |
-| -------------------- | ---------------------------------------------------------- |
-| `backgroundColor`    | Hex color for both status bar and navigation bar           |
-| `navigationBarColor` | Hex color for navigation bar area only                     |
-| `statusBarColor`     | Hex color for status bar area only                         |
+| Property             | Description                                      |
+| -------------------- | ------------------------------------------------ |
+| `backgroundColor`    | Hex color for both status bar and navigation bar |
+| `navigationBarColor` | Hex color for navigation bar area only           |
+| `statusBarColor`     | Hex color for status bar area only               |
 
 ## Usage
 
 ### Enable/disable edge-to-edge
 
 ```typescript
-import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
+import {EdgeToEdge} from '@capawesome/capacitor-android-edge-to-edge-support'
 
-await EdgeToEdge.enable();
-await EdgeToEdge.disable();
+await EdgeToEdge.enable()
+await EdgeToEdge.disable()
 ```
 
 ### Get current insets
 
 ```typescript
-import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
+import {EdgeToEdge} from '@capawesome/capacitor-android-edge-to-edge-support'
 
-const insets = await EdgeToEdge.getInsets();
-console.log('Top:', insets.top, 'Bottom:', insets.bottom);
+const insets = await EdgeToEdge.getInsets()
+console.log('Top:', insets.top, 'Bottom:', insets.bottom)
 ```
 
 ### Set background colors
 
 ```typescript
-import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
+import {EdgeToEdge} from '@capawesome/capacitor-android-edge-to-edge-support'
 
-await EdgeToEdge.setBackgroundColor({ color: '#000000' });
-await EdgeToEdge.setNavigationBarColor({ color: '#000000' });
-await EdgeToEdge.setStatusBarColor({ color: '#ffffff' });
+await EdgeToEdge.setBackgroundColor({color: '#000000'})
+await EdgeToEdge.setNavigationBarColor({color: '#000000'})
+await EdgeToEdge.setStatusBarColor({color: '#ffffff'})
 ```
 
 ### Use with SystemBars plugin
 
 ```typescript
-import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
-import { SystemBars, SystemBarsStyle } from '@capacitor/core';
+import {EdgeToEdge} from '@capawesome/capacitor-android-edge-to-edge-support'
+import {SystemBars, SystemBarsStyle} from '@capacitor/core'
 
-await SystemBars.setStyle({ style: SystemBarsStyle.Dark });
-await EdgeToEdge.setBackgroundColor({ color: '#000000' });
+await SystemBars.setStyle({style: SystemBarsStyle.Dark})
+await EdgeToEdge.setBackgroundColor({color: '#000000'})
 ```
 
 ## Notes

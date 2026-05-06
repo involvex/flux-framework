@@ -26,18 +26,18 @@ Optional variable in `android/app/variables.gradle`:
 ### Connect to a Database
 
 ```typescript
-import { Libsql } from '@capawesome/capacitor-libsql';
+import {Libsql} from '@capawesome/capacitor-libsql'
 
 // Local database
-const { connectionId } = await Libsql.connect({
-  path: 'database.db',
-});
+const {connectionId} = await Libsql.connect({
+	path: 'database.db',
+})
 
 // Remote database
-const { connectionId } = await Libsql.connect({
-  url: 'libsql://your-database-url.turso.io',
-  authToken: 'your-auth-token',
-});
+const {connectionId} = await Libsql.connect({
+	url: 'libsql://your-database-url.turso.io',
+	authToken: 'your-auth-token',
+})
 ```
 
 ### Query and Execute
@@ -45,41 +45,41 @@ const { connectionId } = await Libsql.connect({
 ```typescript
 // SELECT query
 const result = await Libsql.query({
-  connectionId: 'my-connection-id',
-  statement: 'SELECT * FROM my_table',
-});
-console.log(result.rows);
+	connectionId: 'my-connection-id',
+	statement: 'SELECT * FROM my_table',
+})
+console.log(result.rows)
 
 // INSERT/UPDATE/DELETE
 await Libsql.execute({
-  connectionId: 'my-connection-id',
-  statement: 'INSERT INTO my_table (column1, column2) VALUES (?, ?)',
-  values: ['value1', 'value2'],
-});
+	connectionId: 'my-connection-id',
+	statement: 'INSERT INTO my_table (column1, column2) VALUES (?, ?)',
+	values: ['value1', 'value2'],
+})
 ```
 
 ### Transactions (Android only)
 
 ```typescript
-const { transactionId } = await Libsql.beginTransaction({
-  connectionId: 'my-connection-id',
-});
+const {transactionId} = await Libsql.beginTransaction({
+	connectionId: 'my-connection-id',
+})
 try {
-  await Libsql.execute({
-    connectionId: 'my-connection-id',
-    statement: 'UPDATE my_table SET column1 = ? WHERE column2 = ?',
-    values: ['new_value', 'value2'],
-    transactionId,
-  });
-  await Libsql.commitTransaction({
-    connectionId: 'my-connection-id',
-    transactionId,
-  });
+	await Libsql.execute({
+		connectionId: 'my-connection-id',
+		statement: 'UPDATE my_table SET column1 = ? WHERE column2 = ?',
+		values: ['new_value', 'value2'],
+		transactionId,
+	})
+	await Libsql.commitTransaction({
+		connectionId: 'my-connection-id',
+		transactionId,
+	})
 } catch (error) {
-  await Libsql.rollbackTransaction({
-    connectionId: 'my-connection-id',
-    transactionId,
-  });
+	await Libsql.rollbackTransaction({
+		connectionId: 'my-connection-id',
+		transactionId,
+	})
 }
 ```
 
@@ -87,8 +87,8 @@ try {
 
 ```typescript
 await Libsql.sync({
-  connectionId: 'my-connection-id',
-});
+	connectionId: 'my-connection-id',
+})
 ```
 
 ## Key Methods

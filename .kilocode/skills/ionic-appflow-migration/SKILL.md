@@ -1,6 +1,6 @@
 ---
 name: ionic-appflow-migration
-description: "Guides the agent through migrating an existing Ionic/Capacitor project from Ionic Appflow to Capawesome Cloud. Detects which Appflow features are in use (Live Updates, Native Builds, App Store Publishing) and provides step-by-step migration for each feature to its Capawesome Cloud equivalent. Covers SDK replacement, configuration mapping, API migration, CI/CD pipeline updates, and verification. References the capawesome-cloud skill for detailed Capawesome Cloud setup procedures. Do not use for setting up Capawesome Cloud from scratch without an existing Appflow project, for non-Capacitor mobile frameworks, or for migrating Ionic Enterprise plugins."
+description: Guides the agent through migrating an existing Ionic/Capacitor project from Ionic Appflow to Capawesome Cloud. Detects which Appflow features are in use (Live Updates, Native Builds, App Store Publishing) and provides step-by-step migration for each feature to its Capawesome Cloud equivalent. Covers SDK replacement, configuration mapping, API migration, CI/CD pipeline updates, and verification. References the capawesome-cloud skill for detailed Capawesome Cloud setup procedures. Do not use for setting up Capawesome Cloud from scratch without an existing Appflow project, for non-Capacitor mobile frameworks, or for migrating Ionic Enterprise plugins.
 ---
 
 # Ionic Appflow Migration
@@ -118,15 +118,15 @@ Install the version matching the project's Capacitor version:
 
 Replace the `LiveUpdates` plugin config with `LiveUpdate` in `capacitor.config.ts` (or `.json`). Map the configuration options as follows:
 
-| Ionic Appflow (`LiveUpdates`) | Capawesome Cloud (`LiveUpdate`) | Notes |
-|---|---|---|
-| `appId` | `appId` | Replace with the Capawesome Cloud app ID from Step 2 |
-| `autoUpdateMethod: 'background'` | `autoUpdateStrategy: 'background'` | Capacitor 7/8 only. Omit for Capacitor 6 |
-| `autoUpdateMethod: 'always'` | `autoUpdateStrategy: 'background'` | Capacitor 7/8 only. Also add `nextBundleSet` listener (see Step 3.5) |
-| `autoUpdateMethod: 'none'` | *(omit `autoUpdateStrategy`)* | Use manual sync code instead (see Step 3.6) |
-| `channel` | `defaultChannel` | Same value |
-| `enabled` | *(remove)* | Not needed — controlled in code |
-| `maxVersions` | `autoDeleteBundles: true` | Boolean instead of number |
+| Ionic Appflow (`LiveUpdates`)    | Capawesome Cloud (`LiveUpdate`)    | Notes                                                                |
+| -------------------------------- | ---------------------------------- | -------------------------------------------------------------------- |
+| `appId`                          | `appId`                            | Replace with the Capawesome Cloud app ID from Step 2                 |
+| `autoUpdateMethod: 'background'` | `autoUpdateStrategy: 'background'` | Capacitor 7/8 only. Omit for Capacitor 6                             |
+| `autoUpdateMethod: 'always'`     | `autoUpdateStrategy: 'background'` | Capacitor 7/8 only. Also add `nextBundleSet` listener (see Step 3.5) |
+| `autoUpdateMethod: 'none'`       | _(omit `autoUpdateStrategy`)_      | Use manual sync code instead (see Step 3.6)                          |
+| `channel`                        | `defaultChannel`                   | Same value                                                           |
+| `enabled`                        | _(remove)_                         | Not needed — controlled in code                                      |
+| `maxVersions`                    | `autoDeleteBundles: true`          | Boolean instead of number                                            |
 
 **Example — Capacitor 7/8 with background strategy:**
 
@@ -230,16 +230,16 @@ Replace **all** references to the `LiveUpdates` class (or `Deploy` class) with `
 If the previous Ionic Appflow `autoUpdateMethod` was `always`, add a `nextBundleSet` listener to prompt the user when an update is ready. Add this code early in the app's initialization:
 
 ```typescript
-import { LiveUpdate } from '@capawesome/capacitor-live-update';
+import {LiveUpdate} from '@capawesome/capacitor-live-update'
 
-LiveUpdate.addListener('nextBundleSet', async (event) => {
-  if (event.bundleId) {
-    const shouldReload = confirm('A new update is available. Install now?');
-    if (shouldReload) {
-      await LiveUpdate.reload();
-    }
-  }
-});
+LiveUpdate.addListener('nextBundleSet', async event => {
+	if (event.bundleId) {
+		const shouldReload = confirm('A new update is available. Install now?')
+		if (shouldReload) {
+			await LiveUpdate.reload()
+		}
+	}
+})
 ```
 
 Copy this snippet exactly. Do not simplify or omit the `confirm()` dialog.
@@ -273,20 +273,20 @@ This pattern may impact user experience on slow connections. Consider migrating 
 Capacitor 6 does not support `autoUpdateStrategy`. If the project uses Capacitor 6, add manual sync logic:
 
 ```typescript
-import { App } from '@capacitor/app';
-import { LiveUpdate } from '@capawesome/capacitor-live-update';
+import {LiveUpdate} from '@capawesome/capacitor-live-update'
+import {App} from '@capacitor/app'
 
-void LiveUpdate.ready();
+void LiveUpdate.ready()
 
 App.addListener('resume', async () => {
-  const { nextBundleId } = await LiveUpdate.sync();
-  if (nextBundleId) {
-    const shouldReload = confirm('A new update is available. Install now?');
-    if (shouldReload) {
-      await LiveUpdate.reload();
-    }
-  }
-});
+	const {nextBundleId} = await LiveUpdate.sync()
+	if (nextBundleId) {
+		const shouldReload = confirm('A new update is available. Install now?')
+		if (shouldReload) {
+			await LiveUpdate.reload()
+		}
+	}
+})
 ```
 
 #### 3.8 Add Rollback Protection (Recommended)
@@ -305,9 +305,9 @@ LiveUpdate: {
 Call `ready()` as early as possible in app startup:
 
 ```typescript
-import { LiveUpdate } from '@capawesome/capacitor-live-update';
+import {LiveUpdate} from '@capawesome/capacitor-live-update'
 
-void LiveUpdate.ready();
+void LiveUpdate.ready()
 ```
 
 #### 3.9 Configure iOS Privacy Manifest
@@ -353,16 +353,16 @@ Skip this step if the project has no CI/CD pipeline or uses Ionic Appflow's buil
 
 Use the following CLI command mapping as a reference when replacing Appflow commands:
 
-| Appflow CLI Command | Capawesome CLI Equivalent |
-|---|---|
-| `appflow live-update upload-artifact` | `npx @capawesome/cli apps:liveupdates:upload` |
-| `appflow live-update create-channel` | `npx @capawesome/cli apps:channels:create` |
-| `appflow live-update delete-channel` | `npx @capawesome/cli apps:channels:delete` |
-| `appflow live-update list-channels` | `npx @capawesome/cli apps:channels:list` |
-| `appflow live-update download-artifact` | `npx @capawesome/cli apps:liveupdates:download` |
+| Appflow CLI Command                       | Capawesome CLI Equivalent                                             |
+| ----------------------------------------- | --------------------------------------------------------------------- |
+| `appflow live-update upload-artifact`     | `npx @capawesome/cli apps:liveupdates:upload`                         |
+| `appflow live-update create-channel`      | `npx @capawesome/cli apps:channels:create`                            |
+| `appflow live-update delete-channel`      | `npx @capawesome/cli apps:channels:delete`                            |
+| `appflow live-update list-channels`       | `npx @capawesome/cli apps:channels:list`                              |
+| `appflow live-update download-artifact`   | `npx @capawesome/cli apps:liveupdates:download`                       |
 | `appflow live-update set-native-versions` | Use versioned channels or `--android-min`/`--ios-min` flags on upload |
-| `appflow build` | `npx @capawesome/cli apps:builds:create` |
-| `appflow deploy` | `npx @capawesome/cli apps:deployments:create` |
+| `appflow build`                           | `npx @capawesome/cli apps:builds:create`                              |
+| `appflow deploy`                          | `npx @capawesome/cli apps:deployments:create`                         |
 
 #### 6.1 Replace Authentication
 

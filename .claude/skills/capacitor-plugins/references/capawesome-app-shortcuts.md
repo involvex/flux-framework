@@ -20,11 +20,11 @@ In `capacitor.config.json`:
 
 ```json
 {
-  "plugins": {
-    "AppShortcuts": {
-      "shortcuts": [{ "id": "feedback", "title": "Feedback" }]
-    }
-  }
+	"plugins": {
+		"AppShortcuts": {
+			"shortcuts": [{"id": "feedback", "title": "Feedback"}]
+		}
+	}
 }
 ```
 
@@ -57,40 +57,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ### Set shortcuts
 
 ```typescript
-import { AppShortcuts } from '@capawesome/capacitor-app-shortcuts';
+import {AppShortcuts} from '@capawesome/capacitor-app-shortcuts'
 
 await AppShortcuts.set({
-  shortcuts: [
-    { id: 'feedback', title: 'Feedback', description: 'Send us your feedback' },
-    { id: 'rate', title: 'Rate', description: 'Rate our app' },
-  ],
-});
+	shortcuts: [
+		{id: 'feedback', title: 'Feedback', description: 'Send us your feedback'},
+		{id: 'rate', title: 'Rate', description: 'Rate our app'},
+	],
+})
 ```
 
 ### Get shortcuts
 
 ```typescript
-import { AppShortcuts } from '@capawesome/capacitor-app-shortcuts';
+import {AppShortcuts} from '@capawesome/capacitor-app-shortcuts'
 
-const { shortcuts } = await AppShortcuts.get();
+const {shortcuts} = await AppShortcuts.get()
 ```
 
 ### Clear all shortcuts
 
 ```typescript
-import { AppShortcuts } from '@capawesome/capacitor-app-shortcuts';
+import {AppShortcuts} from '@capawesome/capacitor-app-shortcuts'
 
-await AppShortcuts.clear();
+await AppShortcuts.clear()
 ```
 
 ### Listen for shortcut clicks
 
 ```typescript
-import { AppShortcuts } from '@capawesome/capacitor-app-shortcuts';
+import {AppShortcuts} from '@capawesome/capacitor-app-shortcuts'
 
-await AppShortcuts.addListener('click', (event) => {
-  console.log('Shortcut clicked:', event.shortcutId);
-});
+await AppShortcuts.addListener('click', event => {
+	console.log('Shortcut clicked:', event.shortcutId)
+})
 ```
 
 ## Notes

@@ -39,57 +39,63 @@ If using Proguard, add to `android/app/proguard-rules.pro`:
 ### Speak text
 
 ```typescript
-import { SpeechSynthesis, QueueStrategy } from '@capawesome-team/capacitor-speech-synthesis';
+import {
+	SpeechSynthesis,
+	QueueStrategy,
+} from '@capawesome-team/capacitor-speech-synthesis'
 
-const { utteranceId } = await SpeechSynthesis.speak({
-  language: 'en-US',
-  pitch: 1.0,
-  queueStrategy: QueueStrategy.Add,
-  rate: 1.0,
-  text: 'Hello, World!',
-  volume: 1.0,
-});
+const {utteranceId} = await SpeechSynthesis.speak({
+	language: 'en-US',
+	pitch: 1.0,
+	queueStrategy: QueueStrategy.Add,
+	rate: 1.0,
+	text: 'Hello, World!',
+	volume: 1.0,
+})
 
 // Wait for the utterance to finish
 await new Promise(resolve => {
-  void SpeechSynthesis.addListener('end', event => {
-    if (event.utteranceId === utteranceId) {
-      resolve();
-    }
-  });
-});
+	void SpeechSynthesis.addListener('end', event => {
+		if (event.utteranceId === utteranceId) {
+			resolve()
+		}
+	})
+})
 ```
 
 ### Synthesize to file
 
 ```typescript
-import { SpeechSynthesis, QueueStrategy } from '@capawesome-team/capacitor-speech-synthesis';
+import {
+	SpeechSynthesis,
+	QueueStrategy,
+} from '@capawesome-team/capacitor-speech-synthesis'
 
-const { path, utteranceId } = await SpeechSynthesis.synthesizeToFile({
-  language: 'en-US',
-  text: 'Hello, World!',
-  queueStrategy: QueueStrategy.Add,
-});
+const {path, utteranceId} = await SpeechSynthesis.synthesizeToFile({
+	language: 'en-US',
+	text: 'Hello, World!',
+	queueStrategy: QueueStrategy.Add,
+})
 // The file at `path` is available after the 'end' event fires.
 ```
 
 ### Pause, resume, and cancel
 
 ```typescript
-import { SpeechSynthesis } from '@capawesome-team/capacitor-speech-synthesis';
+import {SpeechSynthesis} from '@capawesome-team/capacitor-speech-synthesis'
 
-await SpeechSynthesis.pause();
-await SpeechSynthesis.resume();
-await SpeechSynthesis.cancel();
+await SpeechSynthesis.pause()
+await SpeechSynthesis.resume()
+await SpeechSynthesis.cancel()
 ```
 
 ### Get available voices and languages
 
 ```typescript
-import { SpeechSynthesis } from '@capawesome-team/capacitor-speech-synthesis';
+import {SpeechSynthesis} from '@capawesome-team/capacitor-speech-synthesis'
 
-const { languages } = await SpeechSynthesis.getLanguages();
-const { voices } = await SpeechSynthesis.getVoices();
+const {languages} = await SpeechSynthesis.getLanguages()
+const {voices} = await SpeechSynthesis.getVoices()
 // Each voice has: id, name, language, gender (iOS), isNetworkConnectionRequired
 ```
 

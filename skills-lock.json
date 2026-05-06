@@ -1,197 +1,197 @@
 {
-  "version": 1,
-  "skills": {
-    "brainstorming": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/brainstorming/SKILL.md",
-      "computedHash": "87aae46a89fc9c517ce95c9314483177c88fba5ddfefd89b1538e999103056d4"
-    },
-    "bun-dev-server": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/bun-dev-server/SKILL.md",
-      "computedHash": "27060b614cc925e0c70e73ea077e497bad008568f6305247ab97c098a6ee3edb"
-    },
-    "bun-development": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/bun-development/SKILL.md",
-      "computedHash": "2495ba6f5ade951aea79cd76303c29173edb5512fb4b4e896b2cf763b86af466"
-    },
-    "bun-init": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/bun-init/SKILL.md",
-      "computedHash": "6894e23b1bde50cd5ab17a5af078fdb2ee77251816975f5e6c1d594e060daf8e"
-    },
-    "bun-test": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/bun-test/SKILL.md",
-      "computedHash": "1b2368cad9b61944aec3781f81d012ba7e6ab31f09fb8f927c6f9d60c979ad0a"
-    },
-    "canvas-design": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/canvas-design/SKILL.md",
-      "computedHash": "a2fe47d24b3fd8e52faef731fff099c557e698083cd644b2e5695cc4dd8c7715"
-    },
-    "capacitor-app-upgrades": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/capacitor-app-upgrades/SKILL.md",
-      "computedHash": "0c6c392ecec020db8cbf892ce8d678fa9b289fcac67e3cd47d46648a6a3e2778"
-    },
-    "capacitor-plugin-spm-support": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/capacitor-plugin-spm-support/SKILL.md",
-      "computedHash": "7952513aa3d41693f7ab86410527176073e2472d6bc2afdc8b68c2f2e0d1067b"
-    },
-    "capacitor-plugin-upgrades": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/capacitor-plugin-upgrades/SKILL.md",
-      "computedHash": "0fb32a3813426cd066347baa657e7901459a1e3454aae4c45d19053d59f17747"
-    },
-    "capacitor-plugins": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/capacitor-plugins/SKILL.md",
-      "computedHash": "0ef6f24864f7cac80a134fee6bd0604e005d640f29c0f185688f26a91fee552e"
-    },
-    "capacitor-push-notifications": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/capacitor-push-notifications/SKILL.md",
-      "computedHash": "807134bb4fd4e7ca9e10514637a22fef929bb4bf8d227b43c3fe45b860e3bfa3"
-    },
-    "expo-api-routes": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/expo-api-routes/SKILL.md",
-      "computedHash": "015c6b849507fda73fcc32d2448f033aaaaa21f5229085342b8421727a90cafb"
-    },
-    "expo-cicd-workflows": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/expo-cicd-workflows/SKILL.md",
-      "computedHash": "700b20b575fcbe75ad238b41a0bd57938abe495e62dc53e05400712ab01ee7c0"
-    },
-    "expo-deployment": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/expo-deployment/SKILL.md",
-      "computedHash": "9ea9f16374765c1b16764a51bd43a64098921b33f48e94d9c5c1cce24b335c10"
-    },
-    "expo-dev-client": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/expo-dev-client/SKILL.md",
-      "computedHash": "234e2633b7fbcef2d479f8fe8ab20d53d08ed3e4beec7c965da4aff5b43affe7"
-    },
-    "expo-tailwind-setup": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/expo-tailwind-setup/SKILL.md",
-      "computedHash": "d39e806942fe880347f161056729b588a3cb0f1796270eebf52633fe11cfdce1"
-    },
-    "frontend-mobile-development-component-scaffold": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/frontend-mobile-development-component-scaffold/SKILL.md",
-      "computedHash": "f7b442ed2cec78b3865d00c826a3a11c01274b44d43ee873107eebc32f0e87c5"
-    },
-    "frontend-ui-dark-ts": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/frontend-ui-dark-ts/SKILL.md",
-      "computedHash": "1b892ece7247b97fa6faa35754b30eedec11eb9dde83b8b39783f7fdb6afc38d"
-    },
-    "ionic-appflow-migration": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/ionic-appflow-migration/SKILL.md",
-      "computedHash": "5f777ead245cb9b5978d086ea557f11de0d07bb9f9a35810ff5a5f6a0c03545c"
-    },
-    "node-to-bun": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/node-to-bun/SKILL.md",
-      "computedHash": "336ecb6d7aac355932517f2eee992eb4f97627e13f1eb09f13fe007f48d19e8c"
-    },
-    "planning-with-files": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/planning-with-files/SKILL.md",
-      "computedHash": "512a8e6c9e4a90c5cbd784c1c0b9d133a101db85bae4cba244f8057f9c3aa590"
-    },
-    "react-best-practices": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/react-best-practices/SKILL.md",
-      "computedHash": "c95f0733edbac15652f2675063effc03d2b913ddb71700324dc9608e4b37565c"
-    },
-    "react-flow-architect": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/react-flow-architect/SKILL.md",
-      "computedHash": "ef8b6036da4f4f64f1a9beab3f6ab578e36fb3832a4e9d8c1367741d8e880acc"
-    },
-    "react-flow-node-ts": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/react-flow-node-ts/SKILL.md",
-      "computedHash": "d9dac2d52375603acf5fc144d15d0f7264037bcf1cd4b6725422d1866eec2b17"
-    },
-    "react-native-architecture": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/react-native-architecture/SKILL.md",
-      "computedHash": "1fc885d67348ba21dfca50b0bca5849ba51458f5154271ac55e9258abd2f4519"
-    },
-    "react-patterns": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/react-patterns/SKILL.md",
-      "computedHash": "adf4d735002b35fc8688d041ca3a44b7365cfb5a5646ce23dfed0fa07efa641f"
-    },
-    "react-state-management": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/react-state-management/SKILL.md",
-      "computedHash": "73db499ebe9a8da68919dbc0891129aea2150b0b535eac4ac9cba53b0d6e65af"
-    },
-    "react-ui-patterns": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/react-ui-patterns/SKILL.md",
-      "computedHash": "6d4eb6b0bda3479324f508314a737ed7cac0c4ed60538bd7bf892b1977a3e09e"
-    },
-    "react:components": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/react-components/SKILL.md",
-      "computedHash": "01a94f035a1c3a1a405f611c0df212433d8973f18bf16e94540875ec58ee7b9b"
-    },
-    "shadcn-ui": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/shadcn-ui/SKILL.md",
-      "computedHash": "dadbca54d35a33fe73e40018611af2179689305bf6da812ab2643987fefd9da3"
-    },
-    "web-design-guidelines": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/web-design-guidelines/SKILL.md",
-      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
-    },
-    "web-design-reviewer": {
-      "source": "involvex/skills",
-      "sourceType": "github",
-      "skillPath": "skills/web-design-reviewer/SKILL.md",
-      "computedHash": "10c6fad8b4f01dbeae969009d81d6c306c8a96d56077cad9bfe2a73a38f5dcbe"
-    }
-  }
+	"version": 1,
+	"skills": {
+		"brainstorming": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/brainstorming/SKILL.md",
+			"computedHash": "87aae46a89fc9c517ce95c9314483177c88fba5ddfefd89b1538e999103056d4"
+		},
+		"bun-dev-server": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/bun-dev-server/SKILL.md",
+			"computedHash": "27060b614cc925e0c70e73ea077e497bad008568f6305247ab97c098a6ee3edb"
+		},
+		"bun-development": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/bun-development/SKILL.md",
+			"computedHash": "2495ba6f5ade951aea79cd76303c29173edb5512fb4b4e896b2cf763b86af466"
+		},
+		"bun-init": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/bun-init/SKILL.md",
+			"computedHash": "6894e23b1bde50cd5ab17a5af078fdb2ee77251816975f5e6c1d594e060daf8e"
+		},
+		"bun-test": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/bun-test/SKILL.md",
+			"computedHash": "1b2368cad9b61944aec3781f81d012ba7e6ab31f09fb8f927c6f9d60c979ad0a"
+		},
+		"canvas-design": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/canvas-design/SKILL.md",
+			"computedHash": "a2fe47d24b3fd8e52faef731fff099c557e698083cd644b2e5695cc4dd8c7715"
+		},
+		"capacitor-app-upgrades": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/capacitor-app-upgrades/SKILL.md",
+			"computedHash": "0c6c392ecec020db8cbf892ce8d678fa9b289fcac67e3cd47d46648a6a3e2778"
+		},
+		"capacitor-plugin-spm-support": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/capacitor-plugin-spm-support/SKILL.md",
+			"computedHash": "7952513aa3d41693f7ab86410527176073e2472d6bc2afdc8b68c2f2e0d1067b"
+		},
+		"capacitor-plugin-upgrades": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/capacitor-plugin-upgrades/SKILL.md",
+			"computedHash": "0fb32a3813426cd066347baa657e7901459a1e3454aae4c45d19053d59f17747"
+		},
+		"capacitor-plugins": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/capacitor-plugins/SKILL.md",
+			"computedHash": "0ef6f24864f7cac80a134fee6bd0604e005d640f29c0f185688f26a91fee552e"
+		},
+		"capacitor-push-notifications": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/capacitor-push-notifications/SKILL.md",
+			"computedHash": "807134bb4fd4e7ca9e10514637a22fef929bb4bf8d227b43c3fe45b860e3bfa3"
+		},
+		"expo-api-routes": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/expo-api-routes/SKILL.md",
+			"computedHash": "015c6b849507fda73fcc32d2448f033aaaaa21f5229085342b8421727a90cafb"
+		},
+		"expo-cicd-workflows": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/expo-cicd-workflows/SKILL.md",
+			"computedHash": "700b20b575fcbe75ad238b41a0bd57938abe495e62dc53e05400712ab01ee7c0"
+		},
+		"expo-deployment": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/expo-deployment/SKILL.md",
+			"computedHash": "9ea9f16374765c1b16764a51bd43a64098921b33f48e94d9c5c1cce24b335c10"
+		},
+		"expo-dev-client": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/expo-dev-client/SKILL.md",
+			"computedHash": "234e2633b7fbcef2d479f8fe8ab20d53d08ed3e4beec7c965da4aff5b43affe7"
+		},
+		"expo-tailwind-setup": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/expo-tailwind-setup/SKILL.md",
+			"computedHash": "d39e806942fe880347f161056729b588a3cb0f1796270eebf52633fe11cfdce1"
+		},
+		"frontend-mobile-development-component-scaffold": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/frontend-mobile-development-component-scaffold/SKILL.md",
+			"computedHash": "f7b442ed2cec78b3865d00c826a3a11c01274b44d43ee873107eebc32f0e87c5"
+		},
+		"frontend-ui-dark-ts": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/frontend-ui-dark-ts/SKILL.md",
+			"computedHash": "1b892ece7247b97fa6faa35754b30eedec11eb9dde83b8b39783f7fdb6afc38d"
+		},
+		"ionic-appflow-migration": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/ionic-appflow-migration/SKILL.md",
+			"computedHash": "5f777ead245cb9b5978d086ea557f11de0d07bb9f9a35810ff5a5f6a0c03545c"
+		},
+		"node-to-bun": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/node-to-bun/SKILL.md",
+			"computedHash": "336ecb6d7aac355932517f2eee992eb4f97627e13f1eb09f13fe007f48d19e8c"
+		},
+		"planning-with-files": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/planning-with-files/SKILL.md",
+			"computedHash": "512a8e6c9e4a90c5cbd784c1c0b9d133a101db85bae4cba244f8057f9c3aa590"
+		},
+		"react-best-practices": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-best-practices/SKILL.md",
+			"computedHash": "c95f0733edbac15652f2675063effc03d2b913ddb71700324dc9608e4b37565c"
+		},
+		"react-flow-architect": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-flow-architect/SKILL.md",
+			"computedHash": "ef8b6036da4f4f64f1a9beab3f6ab578e36fb3832a4e9d8c1367741d8e880acc"
+		},
+		"react-flow-node-ts": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-flow-node-ts/SKILL.md",
+			"computedHash": "d9dac2d52375603acf5fc144d15d0f7264037bcf1cd4b6725422d1866eec2b17"
+		},
+		"react-native-architecture": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-native-architecture/SKILL.md",
+			"computedHash": "1fc885d67348ba21dfca50b0bca5849ba51458f5154271ac55e9258abd2f4519"
+		},
+		"react-patterns": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-patterns/SKILL.md",
+			"computedHash": "adf4d735002b35fc8688d041ca3a44b7365cfb5a5646ce23dfed0fa07efa641f"
+		},
+		"react-state-management": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-state-management/SKILL.md",
+			"computedHash": "73db499ebe9a8da68919dbc0891129aea2150b0b535eac4ac9cba53b0d6e65af"
+		},
+		"react-ui-patterns": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-ui-patterns/SKILL.md",
+			"computedHash": "6d4eb6b0bda3479324f508314a737ed7cac0c4ed60538bd7bf892b1977a3e09e"
+		},
+		"react:components": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-components/SKILL.md",
+			"computedHash": "01a94f035a1c3a1a405f611c0df212433d8973f18bf16e94540875ec58ee7b9b"
+		},
+		"shadcn-ui": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/shadcn-ui/SKILL.md",
+			"computedHash": "dadbca54d35a33fe73e40018611af2179689305bf6da812ab2643987fefd9da3"
+		},
+		"web-design-guidelines": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/web-design-guidelines/SKILL.md",
+			"computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+		},
+		"web-design-reviewer": {
+			"source": "involvex/skills",
+			"sourceType": "github",
+			"skillPath": "skills/web-design-reviewer/SKILL.md",
+			"computedHash": "10c6fad8b4f01dbeae969009d81d6c306c8a96d56077cad9bfe2a73a38f5dcbe"
+		}
+	}
 }

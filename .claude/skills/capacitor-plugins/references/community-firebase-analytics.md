@@ -32,51 +32,51 @@ This plugin uses the following variable (defined in `android/app/variables.gradl
 ## Usage
 
 ```typescript
-import { FirebaseAnalytics } from '@capacitor-community/firebase-analytics';
+import {FirebaseAnalytics} from '@capacitor-community/firebase-analytics'
 
 // Web only: initialize Firebase
 FirebaseAnalytics.initializeFirebase({
-  apiKey: '...',
-  authDomain: '...',
-  projectId: '...',
-  storageBucket: '...',
-  messagingSenderId: '...',
-  appId: '...',
-  measurementId: '...',
-});
+	apiKey: '...',
+	authDomain: '...',
+	projectId: '...',
+	storageBucket: '...',
+	messagingSenderId: '...',
+	appId: '...',
+	measurementId: '...',
+})
 
 // Set user ID
-await FirebaseAnalytics.setUserId({ userId: 'john_doe_123' });
+await FirebaseAnalytics.setUserId({userId: 'john_doe_123'})
 
 // Set user property
-await FirebaseAnalytics.setUserProperty({ name: 'favorite_food', value: 'pizza' });
+await FirebaseAnalytics.setUserProperty({name: 'favorite_food', value: 'pizza'})
 
 // Log event
 await FirebaseAnalytics.logEvent({
-  name: 'select_content',
-  params: {
-    content_type: 'image',
-    content_id: 'P12453',
-  },
-});
+	name: 'select_content',
+	params: {
+		content_type: 'image',
+		content_id: 'P12453',
+	},
+})
 
 // Get app instance ID (Android/iOS only)
-const { instanceId } = await FirebaseAnalytics.getAppInstanceId();
+const {instanceId} = await FirebaseAnalytics.getAppInstanceId()
 
 // Set screen name (Android/iOS only)
 await FirebaseAnalytics.setScreenName({
-  screenName: 'login',
-  nameOverride: 'LoginScreen',
-});
+	screenName: 'login',
+	nameOverride: 'LoginScreen',
+})
 
 // Enable or disable analytics collection
-await FirebaseAnalytics.setCollectionEnabled({ enabled: true });
+await FirebaseAnalytics.setCollectionEnabled({enabled: true})
 
 // Set session timeout duration (in seconds, default: 18000)
-await FirebaseAnalytics.setSessionTimeoutDuration({ duration: 10000 });
+await FirebaseAnalytics.setSessionTimeoutDuration({duration: 10000})
 
 // Reset analytics data
-await FirebaseAnalytics.reset();
+await FirebaseAnalytics.reset()
 ```
 
 ## Notes

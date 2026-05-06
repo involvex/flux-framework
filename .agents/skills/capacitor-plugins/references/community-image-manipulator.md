@@ -14,26 +14,26 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { ImageManipulator } from '@capacitor-community/image-manipulator';
+import {ImageManipulator} from '@capacitor-community/image-manipulator'
 
 // Get image dimensions
 const dimensions = await ImageManipulator.getDimensions({
-  imagePath: '/path/to/image.jpg',
-});
-console.log(dimensions.width, dimensions.height);
+	imagePath: '/path/to/image.jpg',
+})
+console.log(dimensions.width, dimensions.height)
 
 // Resize an image
 const result = await ImageManipulator.resize({
-  imagePath: '/path/to/image.jpg',
-  maxWidth: 300,
-  maxHeight: 300,
-  quality: 85,
-  fileName: 'resized',
-  fixRotation: true,
-});
-console.log(result.resizedWidth, result.resizedHeight);
-console.log(result.imagePath, result.webPath);
-console.log(result.resized); // false if image was already smaller
+	imagePath: '/path/to/image.jpg',
+	maxWidth: 300,
+	maxHeight: 300,
+	quality: 85,
+	fileName: 'resized',
+	fixRotation: true,
+})
+console.log(result.resizedWidth, result.resizedHeight)
+console.log(result.imagePath, result.webPath)
+console.log(result.resized) // false if image was already smaller
 ```
 
 ## Notes

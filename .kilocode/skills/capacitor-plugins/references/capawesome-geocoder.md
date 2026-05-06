@@ -31,26 +31,26 @@ No platform-specific configuration required.
 ### Geocode (Address to Coordinates)
 
 ```typescript
-import { Geocoder } from '@capawesome-team/capacitor-geocoder';
+import {Geocoder} from '@capawesome-team/capacitor-geocoder'
 
 const geocode = async () => {
-  const result = await Geocoder.geocode({
-    address: '1600 Amphitheatre Parkway, Mountain View, CA',
-  });
-  console.log(result.latitude, result.longitude);
-};
+	const result = await Geocoder.geocode({
+		address: '1600 Amphitheatre Parkway, Mountain View, CA',
+	})
+	console.log(result.latitude, result.longitude)
+}
 ```
 
 ### Reverse Geocode (Coordinates to Address)
 
 ```typescript
 const geodecode = async () => {
-  const result = await Geocoder.geodecode({
-    latitude: 37.422,
-    longitude: -122.084,
-  });
-  console.log(result.addresses);
-};
+	const result = await Geocoder.geodecode({
+		latitude: 37.422,
+		longitude: -122.084,
+	})
+	console.log(result.addresses)
+}
 ```
 
 ## Key Options

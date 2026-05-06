@@ -50,7 +50,7 @@ To scan without location permission on Android 12+ (API 31+), add to `android/ap
 Then initialize with `androidNeverForLocation: true`:
 
 ```typescript
-await BleClient.initialize({ androidNeverForLocation: true });
+await BleClient.initialize({androidNeverForLocation: true})
 ```
 
 ### Optional: Display Strings
@@ -59,74 +59,79 @@ Customize the device selection dialog via `capacitor.config.json`:
 
 ```json
 {
-  "plugins": {
-    "BluetoothLe": {
-      "displayStrings": {
-        "scanning": "Scanning...",
-        "cancel": "Cancel",
-        "availableDevices": "Available devices",
-        "noDeviceFound": "No device found"
-      }
-    }
-  }
+	"plugins": {
+		"BluetoothLe": {
+			"displayStrings": {
+				"scanning": "Scanning...",
+				"cancel": "Cancel",
+				"availableDevices": "Available devices",
+				"noDeviceFound": "No device found"
+			}
+		}
+	}
 }
 ```
 
 ## Usage
 
 ```typescript
-import { BleClient, numberToUUID } from '@capacitor-community/bluetooth-le';
+import {BleClient, numberToUUID} from '@capacitor-community/bluetooth-le'
 
-const HEART_RATE_SERVICE = numberToUUID(0x180d);
-const HEART_RATE_CHARACTERISTIC = numberToUUID(0x2a37);
+const HEART_RATE_SERVICE = numberToUUID(0x180d)
+const HEART_RATE_CHARACTERISTIC = numberToUUID(0x2a37)
 
 // Initialize
-await BleClient.initialize();
+await BleClient.initialize()
 
 // Request a device
 const device = await BleClient.requestDevice({
-  services: [HEART_RATE_SERVICE],
-});
+	services: [HEART_RATE_SERVICE],
+})
 
 // Connect
-await BleClient.connect(device.deviceId, (deviceId) => {
-  console.log(`Device ${deviceId} disconnected`);
-});
+await BleClient.connect(device.deviceId, deviceId => {
+	console.log(`Device ${deviceId} disconnected`)
+})
 
 // Read a characteristic
-const value = await BleClient.read(device.deviceId, HEART_RATE_SERVICE, HEART_RATE_CHARACTERISTIC);
+const value = await BleClient.read(
+	device.deviceId,
+	HEART_RATE_SERVICE,
+	HEART_RATE_CHARACTERISTIC,
+)
 
 // Start notifications
 await BleClient.startNotifications(
-  device.deviceId,
-  HEART_RATE_SERVICE,
-  HEART_RATE_CHARACTERISTIC,
-  (value) => {
-    console.log('Received value:', value);
-  },
-);
+	device.deviceId,
+	HEART_RATE_SERVICE,
+	HEART_RATE_CHARACTERISTIC,
+	value => {
+		console.log('Received value:', value)
+	},
+)
 
 // Stop notifications and disconnect
-await BleClient.stopNotifications(device.deviceId, HEART_RATE_SERVICE, HEART_RATE_CHARACTERISTIC);
-await BleClient.disconnect(device.deviceId);
+await BleClient.stopNotifications(
+	device.deviceId,
+	HEART_RATE_SERVICE,
+	HEART_RATE_CHARACTERISTIC,
+)
+await BleClient.disconnect(device.deviceId)
 ```
 
 ### Scanning API
 
 ```typescript
-import { BleClient, numberToUUID } from '@capacitor-community/bluetooth-le';
+import {BleClient, numberToUUID} from '@capacitor-community/bluetooth-le'
 
-await BleClient.initialize();
+await BleClient.initialize()
 
-await BleClient.requestLEScan(
-  { services: [numberToUUID(0x180d)] },
-  (result) => {
-    console.log('Found device:', result.device.name);
-  },
-);
+await BleClient.requestLEScan({services: [numberToUUID(0x180d)]}, result => {
+	console.log('Found device:', result.device.name)
+})
 
 // Stop scanning after 5 seconds
-setTimeout(() => BleClient.stopLEScan(), 5000);
+setTimeout(() => BleClient.stopLEScan(), 5000)
 ```
 
 ## Notes

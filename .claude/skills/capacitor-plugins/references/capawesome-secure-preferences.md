@@ -81,30 +81,30 @@ If using Proguard, add to `android/app/proguard-rules.pro`:
 ### Store and retrieve a value
 
 ```typescript
-import { SecurePreferences } from '@capawesome-team/capacitor-secure-preferences';
+import {SecurePreferences} from '@capawesome-team/capacitor-secure-preferences'
 
 await SecurePreferences.set({
-  key: 'password',
-  value: '123456',
-});
+	key: 'password',
+	value: '123456',
+})
 
-const { value } = await SecurePreferences.get({
-  key: 'password',
-});
-console.log(value);
+const {value} = await SecurePreferences.get({
+	key: 'password',
+})
+console.log(value)
 ```
 
 ### List keys and remove values
 
 ```typescript
-import { SecurePreferences } from '@capawesome-team/capacitor-secure-preferences';
+import {SecurePreferences} from '@capawesome-team/capacitor-secure-preferences'
 
-const { keys } = await SecurePreferences.keys();
-console.log(keys);
+const {keys} = await SecurePreferences.keys()
+console.log(keys)
 
-await SecurePreferences.remove({ key: 'password' });
+await SecurePreferences.remove({key: 'password'})
 
-await SecurePreferences.clear();
+await SecurePreferences.clear()
 ```
 
 ## Notes

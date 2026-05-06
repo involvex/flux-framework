@@ -12,15 +12,11 @@ When rendering content that depends on client-side storage (localStorage, cookie
 **Incorrect (breaks SSR):**
 
 ```tsx
-function ThemeWrapper({ children }: { children: ReactNode }) {
-  // localStorage is not available on server - throws error
-  const theme = localStorage.getItem('theme') || 'light'
-  
-  return (
-    <div className={theme}>
-      {children}
-    </div>
-  )
+function ThemeWrapper({children}: {children: ReactNode}) {
+	// localStorage is not available on server - throws error
+	const theme = localStorage.getItem('theme') || 'light'
+
+	return <div className={theme}>{children}</div>
 }
 ```
 
@@ -29,22 +25,18 @@ Server-side rendering will fail because `localStorage` is undefined.
 **Incorrect (visual flickering):**
 
 ```tsx
-function ThemeWrapper({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState('light')
-  
-  useEffect(() => {
-    // Runs after hydration - causes visible flash
-    const stored = localStorage.getItem('theme')
-    if (stored) {
-      setTheme(stored)
-    }
-  }, [])
-  
-  return (
-    <div className={theme}>
-      {children}
-    </div>
-  )
+function ThemeWrapper({children}: {children: ReactNode}) {
+	const [theme, setTheme] = useState('light')
+
+	useEffect(() => {
+		// Runs after hydration - causes visible flash
+		const stored = localStorage.getItem('theme')
+		if (stored) {
+			setTheme(stored)
+		}
+	}, [])
+
+	return <div className={theme}>{children}</div>
 }
 ```
 
@@ -53,15 +45,13 @@ Component first renders with default value (`light`), then updates after hydrati
 **Correct (no flicker, no hydration mismatch):**
 
 ```tsx
-function ThemeWrapper({ children }: { children: ReactNode }) {
-  return (
-    <>
-      <div id="theme-wrapper">
-        {children}
-      </div>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
+function ThemeWrapper({children}: {children: ReactNode}) {
+	return (
+		<>
+			<div id="theme-wrapper">{children}</div>
+			<script
+				dangerouslySetInnerHTML={{
+					__html: `
             (function() {
               try {
                 var theme = localStorage.getItem('theme') || 'light';
@@ -70,10 +60,10 @@ function ThemeWrapper({ children }: { children: ReactNode }) {
               } catch (e) {}
             })();
           `,
-        }}
-      />
-    </>
-  )
+				}}
+			/>
+		</>
+	)
 }
 ```
 

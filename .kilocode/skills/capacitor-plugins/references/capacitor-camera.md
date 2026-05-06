@@ -37,15 +37,15 @@ Requires PWA Elements (`@ionic/pwa-elements`).
 ## Usage
 
 ```typescript
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import {Camera, CameraResultType, CameraSource} from '@capacitor/camera'
 
 const photo = await Camera.getPhoto({
-  quality: 90,
-  allowEditing: true,
-  resultType: CameraResultType.Uri,
-  source: CameraSource.Prompt,
-});
-const imageUrl = photo.webPath;
+	quality: 90,
+	allowEditing: true,
+	resultType: CameraResultType.Uri,
+	source: CameraSource.Prompt,
+})
+const imageUrl = photo.webPath
 ```
 
 ## Notes

@@ -50,47 +50,47 @@ Add to `ios/App/App/Info.plist`:
 ### Get a single measurement
 
 ```typescript
-import { Accelerometer } from '@capawesome-team/capacitor-accelerometer';
+import {Accelerometer} from '@capawesome-team/capacitor-accelerometer'
 
-const measurement = await Accelerometer.getMeasurement();
-console.log('X:', measurement.x);
-console.log('Y:', measurement.y);
-console.log('Z:', measurement.z);
+const measurement = await Accelerometer.getMeasurement()
+console.log('X:', measurement.x)
+console.log('Y:', measurement.y)
+console.log('Z:', measurement.z)
 ```
 
 ### Continuous measurement updates
 
 ```typescript
-import { Accelerometer } from '@capawesome-team/capacitor-accelerometer';
+import {Accelerometer} from '@capawesome-team/capacitor-accelerometer'
 
-await Accelerometer.addListener('measurement', (event) => {
-  console.log('X:', event.x, 'Y:', event.y, 'Z:', event.z);
-});
+await Accelerometer.addListener('measurement', event => {
+	console.log('X:', event.x, 'Y:', event.y, 'Z:', event.z)
+})
 
-await Accelerometer.startMeasurementUpdates();
+await Accelerometer.startMeasurementUpdates()
 
 // Later, stop updates:
-await Accelerometer.stopMeasurementUpdates();
-await Accelerometer.removeAllListeners();
+await Accelerometer.stopMeasurementUpdates()
+await Accelerometer.removeAllListeners()
 ```
 
 ### Check and request permissions
 
 ```typescript
-import { Accelerometer } from '@capawesome-team/capacitor-accelerometer';
+import {Accelerometer} from '@capawesome-team/capacitor-accelerometer'
 
-const status = await Accelerometer.checkPermissions();
+const status = await Accelerometer.checkPermissions()
 if (status.accelerometer !== 'granted') {
-  await Accelerometer.requestPermissions();
+	await Accelerometer.requestPermissions()
 }
 ```
 
 ### Check availability
 
 ```typescript
-import { Accelerometer } from '@capawesome-team/capacitor-accelerometer';
+import {Accelerometer} from '@capawesome-team/capacitor-accelerometer'
 
-const { isAvailable } = await Accelerometer.isAvailable();
+const {isAvailable} = await Accelerometer.isAvailable()
 ```
 
 ## Notes

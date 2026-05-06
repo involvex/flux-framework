@@ -20,13 +20,13 @@ Set `androidxBrowserVersion` in `variables.gradle` (default: `1.9.0`).
 ## Usage
 
 ```typescript
-import { Browser } from '@capacitor/browser';
+import {Browser} from '@capacitor/browser'
 
-await Browser.open({ url: 'https://capacitorjs.com/', toolbarColor: '#ffffff' });
+await Browser.open({url: 'https://capacitorjs.com/', toolbarColor: '#ffffff'})
 
 Browser.addListener('browserFinished', () => {
-  console.log('Browser closed');
-});
+	console.log('Browser closed')
+})
 ```
 
 ## Notes

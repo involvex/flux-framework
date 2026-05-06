@@ -14,13 +14,13 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { Toast } from '@capacitor/toast';
+import {Toast} from '@capacitor/toast'
 
 await Toast.show({
-  text: 'Hello!',
-  duration: 'short',
-  position: 'bottom',
-});
+	text: 'Hello!',
+	duration: 'short',
+	position: 'bottom',
+})
 ```
 
 ## Notes

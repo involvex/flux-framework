@@ -38,41 +38,41 @@ To use with Mac Catalyst, add to your entitlements:
 ### Pick Files
 
 ```typescript
-import { FilePicker } from '@capawesome/capacitor-file-picker';
+import {FilePicker} from '@capawesome/capacitor-file-picker'
 
 const pickFiles = async () => {
-  const result = await FilePicker.pickFiles({
-    types: ['image/png'],
-    limit: 1,
-  });
-  const file = result.files[0];
-  console.log(file.name, file.mimeType, file.size);
-};
+	const result = await FilePicker.pickFiles({
+		types: ['image/png'],
+		limit: 1,
+	})
+	const file = result.files[0]
+	console.log(file.name, file.mimeType, file.size)
+}
 ```
 
 ### Pick Images / Videos / Media
 
 ```typescript
 const pickImages = async () => {
-  const result = await FilePicker.pickImages();
-};
+	const result = await FilePicker.pickImages()
+}
 
 const pickVideos = async () => {
-  const result = await FilePicker.pickVideos();
-};
+	const result = await FilePicker.pickVideos()
+}
 
 const pickMedia = async () => {
-  const result = await FilePicker.pickMedia();
-};
+	const result = await FilePicker.pickMedia()
+}
 ```
 
 ### Pick Directory
 
 ```typescript
 const pickDirectory = async () => {
-  const result = await FilePicker.pickDirectory();
-  console.log(result.path);
-};
+	const result = await FilePicker.pickDirectory()
+	console.log(result.path)
+}
 ```
 
 ## Key Options

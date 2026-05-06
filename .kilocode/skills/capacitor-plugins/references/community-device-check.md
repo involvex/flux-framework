@@ -14,14 +14,14 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { DeviceCheck } from '@capacitor-community/device-check';
+import {DeviceCheck} from '@capacitor-community/device-check'
 
 try {
-  const { token } = await DeviceCheck.generateToken();
-  // Send the base64-encoded token to your backend for verification with Apple servers
-  console.log('DeviceCheck token', token);
+	const {token} = await DeviceCheck.generateToken()
+	// Send the base64-encoded token to your backend for verification with Apple servers
+	console.log('DeviceCheck token', token)
 } catch (err) {
-  // Handle error - consider reporting to backend and exiting the app
+	// Handle error - consider reporting to backend and exiting the app
 }
 ```
 

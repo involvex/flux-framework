@@ -104,21 +104,21 @@ To receive files (images, videos), enable "App Groups" for both the main app and
 ## Usage
 
 ```typescript
-import { Capacitor } from '@capacitor/core';
-import { ShareTarget } from '@capawesome-team/capacitor-share-target';
+import {ShareTarget} from '@capawesome-team/capacitor-share-target'
+import {Capacitor} from '@capacitor/core'
 
-await ShareTarget.addListener('shareReceived', (event) => {
-  console.log('Share received:', event);
+await ShareTarget.addListener('shareReceived', event => {
+	console.log('Share received:', event)
 
-  if (event.files) {
-    event.files.forEach(async (file) => {
-      const webPath = Capacitor.convertFileSrc(file.uri);
-      const response = await fetch(webPath);
-      const blob = await response.blob();
-      // Process the file...
-    });
-  }
-});
+	if (event.files) {
+		event.files.forEach(async file => {
+			const webPath = Capacitor.convertFileSrc(file.uri)
+			const response = await fetch(webPath)
+			const blob = await response.blob()
+			// Process the file...
+		})
+	}
+})
 ```
 
 ## Notes

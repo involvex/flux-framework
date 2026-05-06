@@ -59,25 +59,25 @@ platform :ios, '16.0'
 ### Unzip a file
 
 ```typescript
-import { Zip } from '@capawesome-team/capacitor-zip';
+import {Zip} from '@capawesome-team/capacitor-zip'
 
 await Zip.unzip({
-  source: 'file:///path/to/archive.zip',
-  destination: 'file:///path/to/output/',
-  password: 'secret',
-});
+	source: 'file:///path/to/archive.zip',
+	destination: 'file:///path/to/output/',
+	password: 'secret',
+})
 ```
 
 ### Zip a file or directory
 
 ```typescript
-import { Zip } from '@capawesome-team/capacitor-zip';
+import {Zip} from '@capawesome-team/capacitor-zip'
 
 await Zip.zip({
-  source: 'file:///path/to/directory/',
-  destination: 'file:///path/to/archive.zip',
-  password: 'secret',
-});
+	source: 'file:///path/to/directory/',
+	destination: 'file:///path/to/archive.zip',
+	password: 'secret',
+})
 ```
 
 ## Notes

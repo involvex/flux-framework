@@ -14,11 +14,11 @@ Enable in `capacitor.config.ts` (or `.json`):
 
 ```json
 {
-  "plugins": {
-    "CapacitorCookies": {
-      "enabled": true
-    }
-  }
+	"plugins": {
+		"CapacitorCookies": {
+			"enabled": true
+		}
+	}
 }
 ```
 
@@ -29,14 +29,14 @@ iOS 14+ third-party cookies require domain whitelisting via `WKAppBoundDomains` 
 ## Usage
 
 ```typescript
-import { CapacitorCookies } from '@capacitor/core';
+import {CapacitorCookies} from '@capacitor/core'
 
 await CapacitorCookies.setCookie({
-  url: 'https://example.com',
-  key: 'token',
-  value: 'abc123',
-});
-const cookies = await CapacitorCookies.getCookies({ url: 'https://example.com' });
-await CapacitorCookies.deleteCookie({ url: 'https://example.com', key: 'token' });
-await CapacitorCookies.clearAllCookies();
+	url: 'https://example.com',
+	key: 'token',
+	value: 'abc123',
+})
+const cookies = await CapacitorCookies.getCookies({url: 'https://example.com'})
+await CapacitorCookies.deleteCookie({url: 'https://example.com', key: 'token'})
+await CapacitorCookies.clearAllCookies()
 ```

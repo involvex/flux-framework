@@ -38,40 +38,40 @@ Add the `com.apple.developer.declared-age-range` entitlement to your app's entit
 ### Check age signals
 
 ```typescript
-import { AgeSignals } from '@capawesome/capacitor-age-signals';
+import {AgeSignals} from '@capawesome/capacitor-age-signals'
 
-const result = await AgeSignals.checkAgeSignals();
-console.log('User Status:', result.userStatus);
-console.log('Age Lower:', result.ageLower);
-console.log('Age Upper:', result.ageUpper);
+const result = await AgeSignals.checkAgeSignals()
+console.log('User Status:', result.userStatus)
+console.log('Age Lower:', result.ageLower)
+console.log('Age Upper:', result.ageUpper)
 ```
 
 ### Check eligibility (iOS only)
 
 ```typescript
-import { AgeSignals } from '@capawesome/capacitor-age-signals';
+import {AgeSignals} from '@capawesome/capacitor-age-signals'
 
-const { isEligible } = await AgeSignals.checkEligibility();
+const {isEligible} = await AgeSignals.checkEligibility()
 ```
 
 ### Testing with FakeAgeSignalsManager (Android only)
 
 ```typescript
-import { AgeSignals, UserStatus } from '@capawesome/capacitor-age-signals';
+import {AgeSignals, UserStatus} from '@capawesome/capacitor-age-signals'
 
 // Enable fake manager
-await AgeSignals.setUseFakeManager({ useFake: true });
+await AgeSignals.setUseFakeManager({useFake: true})
 
 // Set a fake result
 await AgeSignals.setNextAgeSignalsResult({
-  userStatus: UserStatus.Verified,
-});
+	userStatus: UserStatus.Verified,
+})
 
 // Check age signals returns the fake result
-const result = await AgeSignals.checkAgeSignals();
+const result = await AgeSignals.checkAgeSignals()
 
 // Disable fake manager
-await AgeSignals.setUseFakeManager({ useFake: false });
+await AgeSignals.setUseFakeManager({useFake: false})
 ```
 
 ## Notes

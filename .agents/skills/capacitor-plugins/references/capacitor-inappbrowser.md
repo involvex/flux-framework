@@ -14,15 +14,15 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { InAppBrowser } from '@capacitor/inappbrowser';
+import {InAppBrowser} from '@capacitor/inappbrowser'
 
-await InAppBrowser.openInWebView({ url: 'https://example.com' });
-await InAppBrowser.openInSystemBrowser({ url: 'https://example.com' });
-await InAppBrowser.openInExternalBrowser({ url: 'https://example.com' });
-await InAppBrowser.close();
+await InAppBrowser.openInWebView({url: 'https://example.com'})
+await InAppBrowser.openInSystemBrowser({url: 'https://example.com'})
+await InAppBrowser.openInExternalBrowser({url: 'https://example.com'})
+await InAppBrowser.close()
 
-InAppBrowser.addListener('browserClosed', () => {});
-InAppBrowser.addListener('browserPageLoaded', () => {});
+InAppBrowser.addListener('browserClosed', () => {})
+InAppBrowser.addListener('browserPageLoaded', () => {})
 ```
 
 ## Notes

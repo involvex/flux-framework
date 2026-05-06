@@ -48,28 +48,28 @@ Optionally define in `variables.gradle`:
 ### Initialize
 
 ```typescript
-import { Cloudinary, ResourceType } from '@capawesome/capacitor-cloudinary';
+import {Cloudinary, ResourceType} from '@capawesome/capacitor-cloudinary'
 
-await Cloudinary.initialize({ cloudName: 'my_cloud_name' });
+await Cloudinary.initialize({cloudName: 'my_cloud_name'})
 ```
 
 ### Upload a resource
 
 ```typescript
 await Cloudinary.uploadResource({
-  path: 'file:///path/to/file.png',
-  publicId: 'my_public_id',
-  resourceType: ResourceType.Image,
-  uploadPreset: 'my_preset',
-});
+	path: 'file:///path/to/file.png',
+	publicId: 'my_public_id',
+	resourceType: ResourceType.Image,
+	uploadPreset: 'my_preset',
+})
 ```
 
 ### Download a resource
 
 ```typescript
-const { path } = await Cloudinary.downloadResource({
-  url: 'https://res.cloudinary.com/myCloudName/image/upload/v123/123.png',
-});
+const {path} = await Cloudinary.downloadResource({
+	url: 'https://res.cloudinary.com/myCloudName/image/upload/v123/123.png',
+})
 ```
 
 ## Notes

@@ -2,7 +2,7 @@
 name: node-to-bun
 description: Migrate Node.js projects to Bun with compatibility analysis. Use when converting existing npm/pnpm/yarn projects to Bun or auditing dependencies for Bun compatibility.
 compatibility: Requires Bun 1.0+
-allowed-tools: ["Bash", "Read", "Grep", "Write"]
+allowed-tools: [Bash, Read, Grep, Write]
 metadata:
   author: daleseo
   category: bun-runtime
@@ -18,11 +18,13 @@ You are assisting with migrating an existing Node.js project to Bun. This involv
 ### 1. Pre-Migration Analysis
 
 **Check if Bun is installed:**
+
 ```bash
 bun --version
 ```
 
 **Analyze current project:**
+
 ```bash
 # Check Node.js version
 node --version
@@ -54,6 +56,7 @@ Common problematic packages (check against current dependencies):
 - `esbuild` → Bun has built-in bundler, may be redundant
 
 **Check workspace configuration** (for monorepos):
+
 ```bash
 # Check if workspaces are defined
 grep -n "workspaces" package.json
@@ -67,6 +70,7 @@ Create a migration report file `BUN_MIGRATION_REPORT.md`:
 # Bun Migration Analysis Report
 
 ## Project Overview
+
 - **Name**: [project name]
 - **Current Node Version**: [version]
 - **Package Manager**: [npm/yarn/pnpm]
@@ -75,30 +79,37 @@ Create a migration report file `BUN_MIGRATION_REPORT.md`:
 ## Dependency Analysis
 
 ### ✅ Compatible Dependencies
+
 [List dependencies that are Bun-compatible]
 
 ### ⚠️ Potentially Incompatible Dependencies
+
 [List dependencies that may have issues]
 
 **Recommended Actions:**
+
 - [Specific migration steps for each incompatible dependency]
 
 ### 🔄 Recommended Replacements
+
 [List suggested package replacements]
 
 ## Configuration Changes Needed
 
 ### package.json
+
 - [ ] Update scripts to use `bun` instead of `npm`/`yarn`
 - [ ] Review and update `engines` field
 - [ ] Check `type` field (ESM vs CommonJS)
 
 ### tsconfig.json
+
 - [ ] Update `moduleResolution` to `"bundler"`
 - [ ] Add `bun-types` to types array
 - [ ] Set `allowImportingTsExtensions` to `true`
 
 ### Build Configuration
+
 - [ ] Review webpack/rollup/esbuild config (may use Bun bundler)
 - [ ] Update test runner config (use Bun test instead of Jest)
 
@@ -138,6 +149,7 @@ git commit -m "Backup before Bun migration"
 ### 5. Update package.json
 
 **Read current package.json:**
+
 ```typescript
 // Read and parse package.json
 ```
@@ -146,43 +158,46 @@ git commit -m "Backup before Bun migration"
 
 ```json
 {
-  "scripts": {
-    "dev": "bun run --hot src/index.ts",
-    "start": "bun run src/index.ts",
-    "build": "bun build src/index.ts --outdir=dist",
-    "test": "bun test",
-    "typecheck": "bun run --bun tsc --noEmit",
-    "lint": "bun run --bun eslint ."
-  }
+	"scripts": {
+		"dev": "bun run --hot src/index.ts",
+		"start": "bun run src/index.ts",
+		"build": "bun build src/index.ts --outdir=dist",
+		"test": "bun test",
+		"typecheck": "bun run --bun tsc --noEmit",
+		"lint": "bun run --bun eslint ."
+	}
 }
 ```
 
 **Update engines field:**
+
 ```json
 {
-  "engines": {
-    "bun": ">=1.0.0"
-  }
+	"engines": {
+		"bun": ">=1.0.0"
+	}
 }
 ```
 
 **For libraries, add exports field** if not present:
+
 ```json
 {
-  "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  }
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
+	}
 }
 ```
 
 ### 6. Update tsconfig.json
 
 **Read current tsconfig:**
+
 ```bash
 cat tsconfig.json
 ```
@@ -191,24 +206,25 @@ cat tsconfig.json
 
 ```json
 {
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "types": ["bun-types"],
-    "lib": ["ES2022"],
-    "jsx": "react-jsx",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true
-  }
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"types": ["bun-types"],
+		"lib": ["ES2022"],
+		"jsx": "react-jsx",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true
+	}
 }
 ```
 
 **Key changes explained:**
+
 - `moduleResolution: "bundler"` → Uses Bun's module resolution
 - `types: ["bun-types"]` → Adds Bun's TypeScript definitions
 - `allowImportingTsExtensions: true` → Allows importing `.ts` files directly
@@ -222,16 +238,14 @@ Verify workspace configuration is compatible:
 
 ```json
 {
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ]
+	"workspaces": ["packages/*", "apps/*"]
 }
 ```
 
 Bun supports the same workspace syntax as npm/yarn/pnpm.
 
 **Check workspace dependencies:**
+
 ```bash
 # Verify workspace structure
 find . -name "package.json" -not -path "*/node_modules/*"
@@ -240,11 +254,13 @@ find . -name "package.json" -not -path "*/node_modules/*"
 ### 8. Install Dependencies with Bun
 
 **Remove old lockfiles:**
+
 ```bash
 rm -f package-lock.json yarn.lock pnpm-lock.yaml
 ```
 
 **Install with Bun:**
+
 ```bash
 bun install
 ```
@@ -252,6 +268,7 @@ bun install
 This creates `bun.lockb` (Bun's binary lockfile).
 
 **For workspaces:**
+
 ```bash
 bun install --frozen-lockfile  # Equivalent to npm ci
 ```
@@ -270,10 +287,12 @@ coverageThreshold = 0.8
 ```
 
 **Update test files:**
+
 - Replace `import { test, expect } from '@jest/globals'`
 - With `import { test, expect } from 'bun:test'`
 
 **Jest compatibility notes:**
+
 - Most Jest APIs work out of the box
 - `jest.mock()` → Use `mock()` from `bun:test`
 - Snapshot testing works the same
@@ -282,6 +301,7 @@ coverageThreshold = 0.8
 ### 10. Update Environment Configuration
 
 **Check .env files:**
+
 ```bash
 ls -la | grep .env
 ```
@@ -289,6 +309,7 @@ ls -la | grep .env
 Bun loads `.env` files automatically (same as dotenv package).
 
 **Update environment loading code:**
+
 - Remove `require('dotenv').config()`
 - Bun loads `.env` by default
 
@@ -301,21 +322,22 @@ Consider replacing with Bun's built-in bundler:
 ```typescript
 // bun-build.ts
 await Bun.build({
-  entrypoints: ['./src/index.ts'],
-  outdir: './dist',
-  minify: true,
-  splitting: true,
-  sourcemap: 'external',
-  target: 'bun',
-});
+	entrypoints: ['./src/index.ts'],
+	outdir: './dist',
+	minify: true,
+	splitting: true,
+	sourcemap: 'external',
+	target: 'bun',
+})
 ```
 
 **Update build script in package.json:**
+
 ```json
 {
-  "scripts": {
-    "build": "bun run bun-build.ts"
-  }
+	"scripts": {
+		"build": "bun run bun-build.ts"
+	}
 }
 ```
 
@@ -378,7 +400,8 @@ bun run build
 Create or update these documentation sections:
 
 **README.md:**
-```markdown
+
+````markdown
 ## Prerequisites
 
 - [Bun](https://bun.sh) 1.0 or higher
@@ -388,6 +411,7 @@ Create or update these documentation sections:
 ```bash
 bun install
 ```
+````
 
 ## Development
 
@@ -400,7 +424,8 @@ bun run dev
 ```bash
 bun test
 ```
-```
+
+````
 
 **CHANGELOG.md entry:**
 ```markdown
@@ -411,18 +436,20 @@ bun test
 - Updated all dependencies to Bun-compatible versions
 - Replaced [specific packages] with [alternatives]
 - Updated TypeScript configuration for Bun
-```
+````
 
 ## Common Migration Issues & Solutions
 
 ### Issue: Native Module Incompatibility
 
 **Symptoms:**
+
 ```
 error: Cannot find module "bcrypt"
 ```
 
 **Solution:**
+
 ```bash
 # Replace with pure JavaScript alternative
 bun remove bcrypt
@@ -436,6 +463,7 @@ bun add bcryptjs
 ### Issue: ESM/CommonJS Conflicts
 
 **Symptoms:**
+
 ```
 error: require() of ES Module not supported
 ```
@@ -443,9 +471,10 @@ error: require() of ES Module not supported
 **Solution:**
 
 Add to `package.json`:
+
 ```json
 {
-  "type": "module"
+	"type": "module"
 }
 ```
 
@@ -454,6 +483,7 @@ Or use `.mts` extension for ES modules and `.cts` for CommonJS.
 ### Issue: Path Alias Resolution
 
 **Symptoms:**
+
 ```
 error: Cannot resolve "@/components"
 ```
@@ -461,14 +491,15 @@ error: Cannot resolve "@/components"
 **Solution:**
 
 Verify `tsconfig.json` paths match:
+
 ```json
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	}
 }
 ```
 
@@ -477,6 +508,7 @@ Bun respects TypeScript path aliases automatically.
 ### Issue: Test Failures
 
 **Symptoms:**
+
 ```
 error: jest is not defined
 ```
@@ -484,12 +516,13 @@ error: jest is not defined
 **Solution:**
 
 Update test imports:
+
 ```typescript
 // Before
-import { describe, it, expect } from '@jest/globals';
+import {describe, it, expect} from '@jest/globals'
 
 // After
-import { describe, it, expect } from 'bun:test';
+import {describe, it, expect} from 'bun:test'
 ```
 
 ## Migration Checklist
@@ -544,6 +577,7 @@ npm install  # or yarn/pnpm
 ## Completion
 
 Once migration is complete, provide summary:
+
 - ✅ Migration status (success/partial/issues)
 - ✅ List of changes made
 - ✅ Performance improvements observed

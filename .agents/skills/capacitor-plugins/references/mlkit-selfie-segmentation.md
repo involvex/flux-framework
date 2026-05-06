@@ -30,12 +30,12 @@ CocoaPods only — SPM is not supported.
 ## Usage
 
 ```typescript
-import { SelfieSegmentation } from '@capacitor-mlkit/selfie-segmentation';
+import {SelfieSegmentation} from '@capacitor-mlkit/selfie-segmentation'
 
-const { path } = await SelfieSegmentation.processImage({
-  path: 'path/to/image.jpg',
-  confidence: 0.7,
-});
+const {path} = await SelfieSegmentation.processImage({
+	path: 'path/to/image.jpg',
+	confidence: 0.7,
+})
 ```
 
 ## Notes

@@ -131,34 +131,42 @@ Replace `[APP_ID]`, `[CLIENT_TOKEN]`, and `[APP_NAME]` with your Facebook applic
 Initialize the Facebook SDK in your app after the DOM is ready:
 
 ```typescript
-import { FacebookLogin } from '@capacitor-community/facebook-login';
+import {FacebookLogin} from '@capacitor-community/facebook-login'
 
-await FacebookLogin.initialize({ appId: '105890006170720' });
+await FacebookLogin.initialize({appId: '105890006170720'})
 ```
 
 ## Usage
 
 ```typescript
-import { FacebookLogin, FacebookLoginResponse } from '@capacitor-community/facebook-login';
+import {
+	FacebookLogin,
+	FacebookLoginResponse,
+} from '@capacitor-community/facebook-login'
 
 // Login
-const FACEBOOK_PERMISSIONS = ['email', 'user_birthday', 'user_photos', 'user_gender'];
-const result = await FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS });
+const FACEBOOK_PERMISSIONS = [
+	'email',
+	'user_birthday',
+	'user_photos',
+	'user_gender',
+]
+const result = await FacebookLogin.login({permissions: FACEBOOK_PERMISSIONS})
 
 if (result.accessToken) {
-  console.log(`Facebook access token is ${result.accessToken.token}`);
+	console.log(`Facebook access token is ${result.accessToken.token}`)
 }
 
 // Get current access token
-const tokenResult = await FacebookLogin.getCurrentAccessToken();
+const tokenResult = await FacebookLogin.getCurrentAccessToken()
 
 // Get user profile
-const profile = await FacebookLogin.getProfile<{ email: string }>({
-  fields: ['email'],
-});
+const profile = await FacebookLogin.getProfile<{email: string}>({
+	fields: ['email'],
+})
 
 // Logout
-await FacebookLogin.logout();
+await FacebookLogin.logout()
 ```
 
 ## Notes

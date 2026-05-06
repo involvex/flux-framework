@@ -181,6 +181,6 @@ Build the plugin's test/example app on both platforms to verify.
 
 ## Error Handling
 
-* If the automated upgrade tool fails, apply the manual steps above for the failing parts.
-* If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
-* If iOS build fails, verify the deployment target is set to 14.0 in both the podspec and Package.swift.
+- If the automated upgrade tool fails, apply the manual steps above for the failing parts.
+- If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
+- If iOS build fails, verify the deployment target is set to 14.0 in both the podspec and Package.swift.

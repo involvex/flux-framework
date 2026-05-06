@@ -32,33 +32,33 @@ Enable Push Notifications capability in Xcode. Add two delegate methods to `ios/
 
 ```json
 {
-  "plugins": {
-    "PushNotifications": {
-      "presentationOptions": ["badge", "sound", "alert"]
-    }
-  }
+	"plugins": {
+		"PushNotifications": {
+			"presentationOptions": ["badge", "sound", "alert"]
+		}
+	}
 }
 ```
 
 ## Usage
 
 ```typescript
-import { PushNotifications } from '@capacitor/push-notifications';
+import {PushNotifications} from '@capacitor/push-notifications'
 
-await PushNotifications.requestPermissions();
-await PushNotifications.register();
+await PushNotifications.requestPermissions()
+await PushNotifications.register()
 
-PushNotifications.addListener('registration', (token) => {
-  console.log('FCM/APNs token:', token.value);
-});
+PushNotifications.addListener('registration', token => {
+	console.log('FCM/APNs token:', token.value)
+})
 
-PushNotifications.addListener('pushNotificationReceived', (notification) => {
-  console.log('Received:', notification.title, notification.body);
-});
+PushNotifications.addListener('pushNotificationReceived', notification => {
+	console.log('Received:', notification.title, notification.body)
+})
 
-PushNotifications.addListener('pushNotificationActionPerformed', (action) => {
-  console.log('Action:', action.actionId);
-});
+PushNotifications.addListener('pushNotificationActionPerformed', action => {
+	console.log('Action:', action.actionId)
+})
 ```
 
 ## Notes

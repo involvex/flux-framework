@@ -31,16 +31,16 @@ This plugin uses the following project variable (defined in `android/variables.g
 ## Usage
 
 ```typescript
-import { AdvertisingId } from '@capacitor-community/advertising-id';
+import {AdvertisingId} from '@capacitor-community/advertising-id'
 
 // Request tracking authorization (iOS only, no-op on Android)
-const { value } = await AdvertisingId.requestTracking();
+const {value} = await AdvertisingId.requestTracking()
 
 // Get the advertising ID and tracking status
-const { id, status } = await AdvertisingId.getAdvertisingId();
+const {id, status} = await AdvertisingId.getAdvertisingId()
 
 // Get only the tracking status
-const { status: currentStatus } = await AdvertisingId.getAdvertisingStatus();
+const {status: currentStatus} = await AdvertisingId.getAdvertisingStatus()
 ```
 
 ## Notes

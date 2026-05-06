@@ -16,27 +16,29 @@ npx cap sync
 ## Usage
 
 ```typescript
-import { NativeMarket } from '@capacitor-community/native-market';
-import { Capacitor } from '@capacitor/core';
+import {NativeMarket} from '@capacitor-community/native-market'
+import {Capacitor} from '@capacitor/core'
 
 // Open a store listing
-let appId = 'id1622127552'; // iOS App Store ID
+let appId = 'id1622127552' // iOS App Store ID
 if (Capacitor.getPlatform() === 'android') {
-  appId = 'io.ionic.ioniconf'; // Android package name
+	appId = 'io.ionic.ioniconf' // Android package name
 }
-await NativeMarket.openStoreListing({ appId });
+await NativeMarket.openStoreListing({appId})
 
 // Open a developer page (Android only)
-await NativeMarket.openDevPage({ devId: '5700313618786177705' });
+await NativeMarket.openDevPage({devId: '5700313618786177705'})
 
 // Open a collection / top charts (Android only)
-await NativeMarket.openCollection({ name: 'featured' });
+await NativeMarket.openCollection({name: 'featured'})
 
 // Open Editor's Choice page (Android only)
-await NativeMarket.openEditorChoicePage({ editorChoice: 'editorial_fitness_apps_us' });
+await NativeMarket.openEditorChoicePage({
+	editorChoice: 'editorial_fitness_apps_us',
+})
 
 // Search the store
-await NativeMarket.search({ terms: 'capacitor' });
+await NativeMarket.search({terms: 'capacitor'})
 ```
 
 ## Notes
