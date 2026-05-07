@@ -1,0 +1,28 @@
+{
+	"name": "{{projectName}}",
+	"version": "0.1.0",
+	"description": "{{description}}",
+	"type": "module",
+	"main": "src/index.ts",
+	"scripts": {
+		"android": "flux run android",
+		"prebuild": "flux prebuild",
+		"build": "flux build",
+		"dev": "flux start",
+		"test": "flux test",
+		"web": "flux start --web"
+	},
+	"dependencies": {
+		"flux": "^0.1.0",
+		"react": "^19.2.6",
+		"react-dom": "^19.2.6"
+	},
+	"devDependencies": {
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"typescript": "^5.3.0"
+	},
+	"engines": {
+		"bun": ">=1.0.0"
+	}
+}

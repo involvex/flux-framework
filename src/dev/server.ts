@@ -38,6 +38,7 @@ export async function startDevServer(options: DevServerOptions) {
 		const viteConfig = createViteConfig()
 		const server = await createViteServer({
 			...viteConfig,
+			configFile: false,
 			server: {
 				...viteConfig.server,
 				port: parseInt(options.port, 10),
