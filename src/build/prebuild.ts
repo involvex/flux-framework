@@ -1,7 +1,8 @@
-import {existsSync, mkdirSync, writeFileSync} from 'fs'
+import {existsSync} from 'fs'
 import {loadConfig} from '../config/loader.js'
 import {execSync} from 'child_process'
 import {resolve} from 'path'
+import {generateAndroidProject} from '../android/generator.js'
 import chalk from 'chalk'
 
 export interface PrebuildOptions {
@@ -26,7 +27,7 @@ export async function prebuildNative(options: PrebuildOptions) {
 
 	try {
 		if (!options.platform || options.platform === 'android') {
-			await generateAndroid(config)
+			await generateAndroidProject()
 		}
 
 		console.log(chalk.green('✅ Prebuild completed successfully!'))
@@ -46,47 +47,4 @@ async function cleanNativeDirs() {
 			console.log(chalk.gray(`✓ Removed ${dir}/`))
 		}
 	}
-}
-
-async function generateAndroid(_config: any) {
-	console.log(chalk.blue('🤖 Generating Android project...'))
-
-	const androidDir = resolve(process.cwd(), 'android')
-
-	if (!existsSync(androidDir)) {
-		mkdirSync(androidDir, {recursive: true})
-	}
-
-	const buildGradle = `
-buildscript {
-    ext {
-        buildToolsVersion = "34.0.0"
-        minSdkVersion = 21
-        compileSdkVersion = 34
-        targetSdkVersion = 34
-        ndkVersion = "25.1.8937393"
-    }
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.1.0")
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-`
-
-	writeFileSync(resolve(androidDir, 'build.gradle'), buildGradle)
-	console.log(chalk.green('✓ Android project generated'))
 }

@@ -64,7 +64,7 @@ export interface UpdatesConfig {
 
 export interface PluginConfig {
 	name: string
-	options?: Record<string, any>
+	options?: Record<string, unknown>
 }
 
 export type ConfigPlugin = (config: FluxConfig) => FluxConfig

@@ -1,6 +1,8 @@
 import {loadConfig} from '../config/loader.js'
 import {execSync} from 'child_process'
+import {buildAndroid as buildAndroidApp} from '../android/builder.js'
 import chalk from 'chalk'
+import type {FluxConfig} from '../config/types.js'
 
 export interface BuildOptions {
 	platform: string
@@ -37,11 +39,12 @@ export async function buildProject(options: BuildOptions) {
 	}
 }
 
-async function buildWeb(_config: any) {
+async function buildWeb(_config: FluxConfig) {
 	console.log(chalk.blue('🌐 Building for web...'))
 
 	try {
-		execSync('bun build src/index.ts --outdir dist/web --target browser', {
+		// Use Vite for web builds
+		execSync('bunx vite build', {
 			stdio: 'inherit',
 		})
 		console.log(chalk.green('✓ Web build complete'))
@@ -51,19 +54,25 @@ async function buildWeb(_config: any) {
 	}
 }
 
-async function buildAndroid(_config: any, options: BuildOptions) {
+async function buildAndroid(config: FluxConfig, options: BuildOptions) {
 	console.log(chalk.blue('🤖 Building for Android...'))
 
-	try {
-		if (options.type === 'app-bundle') {
-			console.log(chalk.gray('Building AAB for Play Store'))
-		} else {
-			console.log(chalk.gray('Building APK'))
-		}
+	const androidConfig = config.platform?.android
+	if (!androidConfig) {
+		console.error(chalk.red('✗ Android configuration not found'))
+		return
+	}
 
-		execSync('bun build src/index.ts --outdir dist/android --target node', {
-			stdio: 'inherit',
+	try {
+		const buildType = options.profile === 'production' ? 'release' : 'debug'
+		const outputType = options.type === 'app-bundle' ? 'aab' : 'apk'
+
+		await buildAndroidApp({
+			buildType: buildType,
+			outputType: outputType,
+			package: androidConfig.package,
 		})
+
 		console.log(chalk.green('✓ Android build complete'))
 	} catch (error) {
 		console.error(chalk.red('✗ Android build failed'))

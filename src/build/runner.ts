@@ -1,5 +1,6 @@
 import {loadConfig} from '../config/loader.js'
 import {execSync} from 'child_process'
+import {runAndroid as runAndroidApp} from '../android/builder.js'
 import chalk from 'chalk'
 
 export interface RunOptions {
@@ -39,6 +40,18 @@ export async function runOnPlatform(options: RunOptions) {
 async function runAndroid(options: RunOptions) {
 	console.log(chalk.blue('🤖 Running on Android...'))
 
+	const config = loadConfig()
+	if (!config) {
+		console.error('Failed to load config')
+		return
+	}
+
+	const androidConfig = config.platform?.android
+	if (!androidConfig) {
+		console.error(chalk.red('✗ Android configuration not found'))
+		return
+	}
+
 	try {
 		if (options.device) {
 			console.log(chalk.gray(`Device: ${options.device}`))
@@ -48,10 +61,13 @@ async function runAndroid(options: RunOptions) {
 			console.log(chalk.gray('Debug mode enabled'))
 		}
 
-		execSync('adb shell am start -n com.expoic.app/.MainActivity', {
-			stdio: 'inherit',
+		await runAndroidApp({
+			buildType: 'debug',
+			outputType: 'apk',
+			package: androidConfig.package,
 		})
-		console.log(chalk.green('✓ App launched on Android'))
+
+		console.log(chalk.green('✓ App running on Android'))
 	} catch (error) {
 		console.error(chalk.red('✗ Failed to run on Android'))
 		throw error
@@ -63,13 +79,13 @@ async function runWeb(_options: RunOptions) {
 
 	try {
 		const port = 8081
-		console.log(chalk.gray(`Opening http://localhost:${port}`))
+		console.log(chalk.gray(`Starting Vite dev server on port ${port}`))
 
-		execSync(`start http://localhost:${port}`, {
+		execSync('bunx vite', {
 			stdio: 'inherit',
-			shell: 'powershell.exe',
 		})
-		console.log(chalk.green('✓ Browser opened'))
+
+		console.log(chalk.green('✓ Web dev server started'))
 	} catch (error) {
 		console.error(chalk.red('✗ Failed to run on web'))
 		throw error

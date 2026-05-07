@@ -1,6 +1,7 @@
+import {createServer as createViteServer} from 'vite'
+import {createViteConfig} from '../web/vite.js'
 import {loadConfig} from '../config/loader.js'
-import {WebSocketServer} from 'ws'
-import {createServer} from 'http'
+import chalk from 'chalk'
 
 export interface DevServerOptions {
 	web?: boolean
@@ -17,72 +18,46 @@ export async function startDevServer(options: DevServerOptions) {
 		process.exit(1)
 	}
 
-	console.log(`🚀 Starting Expoic dev server...`)
-	console.log(`📦 App: ${config.name} v${config.version}`)
-	console.log(`🌐 Port: ${options.port}`)
+	console.log(chalk.blue('🚀 Starting Flux dev server...'))
+	console.log(chalk.gray(`📦 App: ${config.name} v${config.version}`))
+	console.log(chalk.gray(`🌐 Port: ${options.port}`))
 
 	if (options.web) {
-		console.log(`🌍 Web mode enabled`)
+		console.log(chalk.gray('🌍 Web mode enabled'))
 	}
 
 	if (options.tunnel) {
-		console.log(`🔗 Tunnel mode enabled`)
+		console.log(chalk.gray('🔗 Tunnel mode enabled'))
 	}
 
 	if (options.debug) {
-		console.log(`🐛 Debug mode enabled`)
+		console.log(chalk.gray('🐛 Debug mode enabled'))
 	}
 
-	const server = createServer((_req, res) => {
-		res.writeHead(200, {'Content-Type': 'text/html'})
-		res.end(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>${config.name}</title>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
-        <body>
-          <div id="root">
-            <h1>${config.name}</h1>
-            <p>Expoic dev server running on port ${options.port}</p>
-            <p>Fast Refresh enabled</p>
-          </div>
-          <script>
-            // WebSocket connection for HMR
-            const ws = new WebSocket('ws://localhost:${options.port}');
-            ws.onmessage = (event) => {
-              console.log('Update received:', event.data);
-              location.reload();
-            };
-          </script>
-        </body>
-      </html>
-    `)
-	})
-
-	const wss = new WebSocketServer({server})
-
-	wss.on('connection', (ws: any) => {
-		console.log('📱 Client connected')
-
-		ws.on('message', (message: {toString: () => string}) => {
-			console.log('Received:', message.toString())
+	try {
+		const viteConfig = createViteConfig()
+		const server = await createViteServer({
+			...viteConfig,
+			server: {
+				...viteConfig.server,
+				port: parseInt(options.port, 10),
+				host: true,
+			},
 		})
-	})
 
-	server.listen(options.port, () => {
-		console.log(`✅ Server running at http://localhost:${options.port}`)
-		console.log(`📡 WebSocket server ready`)
-	})
+		void server.listen()
 
-	process.on('SIGINT', () => {
-		console.log('\n🛑 Shutting down server...')
-		const serverTyped = server as {close: (callback?: () => void) => void}
-		const wssTyped = wss as unknown as {close: (callback?: () => void) => void}
-		serverTyped.close()
-		wssTyped.close()
-		process.exit(0)
-	})
+		console.log(
+			chalk.green('✅ Server running at http://localhost:' + options.port),
+		)
+		console.log(chalk.green('📡 React Fast Refresh enabled'))
+
+		process.on('SIGINT', () => {
+			console.log(chalk.yellow('\n🛑 Shutting down server...'))
+			void server.close().then(() => process.exit(0))
+		})
+	} catch (error) {
+		console.error(chalk.red('❌ Failed to start dev server:'), error)
+		process.exit(1)
+	}
 }
