@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 export * from './config/index.js'
 export * from './cli/index.js'
 export * from './utils/index.js'

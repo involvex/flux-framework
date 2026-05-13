@@ -28,7 +28,7 @@
 	},
 	"module": "src/index.ts",
 	"bin": {
-		"flux": "./dist/cli.js"
+		"flux": "./dist/index.js"
 	},
 	"scripts": {
 		"prebuild": "bun run format && bun run lint && bun run typecheck",
