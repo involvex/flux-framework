@@ -55,7 +55,20 @@ async function copyDirectory(
 			mkdirSync(targetPath, {recursive: true})
 			await copyDirectory(sourcePath, targetPath, variables)
 		} else {
-			const binaryExtensions = ['.jar', '.zip', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.woff', '.woff2', '.ttf', '.eot', '.svg']
+			const binaryExtensions = [
+				'.jar',
+				'.zip',
+				'.png',
+				'.jpg',
+				'.jpeg',
+				'.gif',
+				'.ico',
+				'.woff',
+				'.woff2',
+				'.ttf',
+				'.eot',
+				'.svg',
+			]
 			const ext = entry.slice(entry.lastIndexOf('.')).toLowerCase()
 			if (binaryExtensions.includes(ext)) {
 				const binaryContent = readFileSync(sourcePath)
