@@ -11,8 +11,8 @@ import {
 	Switch,
 	Slider,
 	Modal,
-} from 'flux/ui'
-import {useRouter} from 'flux/navigation'
+} from '@involvex/flux/ui'
+import {useRouter} from '@involvex/flux/navigation'
 import {useState} from 'react'
 
 export default function App() {

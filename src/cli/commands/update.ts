@@ -1,10 +1,3 @@
-import {
-	createUpdate,
-	publishUpdate,
-	rollbackUpdate,
-	inspectUpdates,
-} from '../../build/updates.js'
-import type {UpdateOptions} from '../../build/updates.js'
 import {Command} from 'commander'
 
 export const updateCommand = new Command('update').description(
@@ -15,6 +8,7 @@ updateCommand
 	.command('create')
 	.description('Create update')
 	.action(async () => {
+		const {createUpdate} = await import('../../build/updates.js')
 		await createUpdate()
 	})
 
@@ -22,21 +16,26 @@ updateCommand
 	.command('publish')
 	.description('Publish update')
 	.option('--channel <channel>', 'Update channel', 'production')
-	.action(async (options: UpdateOptions) => {
-		await publishUpdate({channel: options.channel})
+	.action(async (options: Record<string, unknown>) => {
+		const {publishUpdate} = await import('../../build/updates.js')
+		await publishUpdate({channel: options.channel as string | undefined})
 	})
 
 updateCommand
 	.command('rollback')
 	.description('Rollback update')
 	.option('--version <version>', 'Version to rollback to')
-	.action(async (options: UpdateOptions) => {
-		await rollbackUpdate({version: options.version})
+	.action(async (options: Record<string, unknown>) => {
+		const {rollbackUpdate} = await import('../../build/updates.js')
+		await rollbackUpdate({version: options.version as string | undefined})
 	})
 
 updateCommand
 	.command('inspect')
 	.description('Inspect updates')
 	.action(async () => {
+		const {inspectUpdates} = await import('../../build/updates.js')
 		await inspectUpdates()
 	})
+
+updateCommand.parse(process.argv)

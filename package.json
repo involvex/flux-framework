@@ -1,5 +1,5 @@
 {
-	"name": "flux",
+	"name": "@involvex/flux",
 	"version": "0.1.0",
 	"description": "Next-generation hybrid mobile development framework combining Expo and Ionic",
 	"keywords": [
@@ -37,6 +37,7 @@
 		"format": "prettier . --write",
 		"lint": "eslint src",
 		"lint:fix": "eslint src --fix",
+		"prepublishOnly": "bun run build",
 		"test": "bun test",
 		"test:coverage": "bun test --coverage",
 		"test:e2e": "bun test tests/e2e",

@@ -24,11 +24,13 @@ export async function copyTemplate(
 	targetPath: string,
 	variables: TemplateVariables,
 ): Promise<void> {
-	const templatePath = resolve(__dirname, '../../../templates', templateName)
-
-	if (!existsSync(templatePath)) {
-		throw new Error(`Template not found: ${templateName}`)
-	}
+	// Determine project root: in dev, __dirname is src/utils; in prod bundle,
+	// __dirname is dist/. Try source-relative path first, then dist-relative.
+	const srcTemplatePath = resolve(__dirname, '../../../templates', templateName)
+	const prodTemplatePath = resolve(__dirname, '../templates', templateName)
+	const templatePath = existsSync(srcTemplatePath)
+		? srcTemplatePath
+		: prodTemplatePath
 
 	console.log(chalk.gray(`📋 Copying template: ${templateName}`))
 
