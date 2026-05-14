@@ -1,4 +1,4 @@
-import {defineConfig} from 'flux/config'
+import {defineConfig} from '@involvex/flux/config'
 
 export default defineConfig({
 	name: 'My Flux App',

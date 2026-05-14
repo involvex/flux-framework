@@ -26,7 +26,7 @@ export async function copyTemplate(
 ): Promise<void> {
 	// Determine project root: in dev, __dirname is src/utils; in prod bundle,
 	// __dirname is dist/. Try source-relative path first, then dist-relative.
-	const srcTemplatePath = resolve(__dirname, '../../../templates', templateName)
+	const srcTemplatePath = resolve(__dirname, '../../templates', templateName)
 	const prodTemplatePath = resolve(__dirname, '../templates', templateName)
 	const templatePath = existsSync(srcTemplatePath)
 		? srcTemplatePath

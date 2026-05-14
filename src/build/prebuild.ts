@@ -1,6 +1,5 @@
-import {existsSync} from 'fs'
+import {existsSync, rmSync} from 'fs'
 import {loadConfig} from '../config/loader.js'
-import {execSync} from 'child_process'
 import {resolve} from 'path'
 import {generateAndroidProject} from '../android/generator.js'
 import chalk from 'chalk'
@@ -43,7 +42,7 @@ async function cleanNativeDirs() {
 	for (const dir of dirs) {
 		const dirPath = resolve(process.cwd(), dir)
 		if (existsSync(dirPath)) {
-			execSync(`rm -rf ${dirPath}`, {stdio: 'inherit'})
+			rmSync(dirPath, {recursive: true, force: true})
 			console.log(chalk.gray(`✓ Removed ${dir}/`))
 		}
 	}

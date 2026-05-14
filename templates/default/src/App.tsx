@@ -1,4 +1,4 @@
-import {View, Text, Button} from 'flux/ui'
+import {View, Text, Button} from '@involvex/flux/ui'
 import {useState} from 'react'
 
 export default function App() {
