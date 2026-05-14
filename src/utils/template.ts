@@ -55,14 +55,21 @@ async function copyDirectory(
 			mkdirSync(targetPath, {recursive: true})
 			await copyDirectory(sourcePath, targetPath, variables)
 		} else {
-			let content = readFileSync(sourcePath, 'utf-8')
+			const binaryExtensions = ['.jar', '.zip', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.woff', '.woff2', '.ttf', '.eot', '.svg']
+			const ext = entry.slice(entry.lastIndexOf('.')).toLowerCase()
+			if (binaryExtensions.includes(ext)) {
+				const binaryContent = readFileSync(sourcePath)
+				writeFileSync(targetPath, binaryContent)
+			} else {
+				let content = readFileSync(sourcePath, 'utf-8')
 
-			// Replace template variables
-			content = content.replace(/\{\{projectName\}\}/g, variables.projectName)
-			content = content.replace(/\{\{projectSlug\}\}/g, variables.projectSlug)
-			content = content.replace(/\{\{description\}\}/g, variables.description)
+				// Replace template variables
+				content = content.replace(/\{\{projectName\}\}/g, variables.projectName)
+				content = content.replace(/\{\{projectSlug\}\}/g, variables.projectSlug)
+				content = content.replace(/\{\{description\}\}/g, variables.description)
 
-			writeFileSync(targetPath, content, 'utf-8')
+				writeFileSync(targetPath, content, 'utf-8')
+			}
 		}
 	}
 }
