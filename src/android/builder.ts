@@ -1,7 +1,16 @@
 import {execSync} from 'child_process'
+import {resolve, join} from 'path'
 import {existsSync} from 'fs'
-import {resolve} from 'path'
 import chalk from 'chalk'
+
+function getGradleWrapper(): string {
+	const isWindows = process.platform === 'win32'
+	const wrapperDir = resolve(process.cwd(), 'android')
+	if (isWindows) {
+		return join(wrapperDir, 'gradlew.bat')
+	}
+	return join(wrapperDir, 'gradlew')
+}
 
 export interface AndroidBuildOptions {
 	buildType: 'debug' | 'release'
@@ -32,14 +41,15 @@ export async function buildAndroid(options: AndroidBuildOptions) {
 
 		// Clean previous builds
 		console.log(chalk.gray('Cleaning previous builds...'))
-		execSync(`cd ${androidDir} && ./gradlew clean`, {stdio: 'inherit'})
+		const gradlew = getGradleWrapper()
+		execSync(`cd ${androidDir} && "${gradlew}" clean`, {stdio: 'inherit'})
 
 		// Build the app
 		console.log(chalk.gray('Building app...'))
 
 		if (options.outputType === 'aab') {
 			execSync(
-				`cd ${androidDir} && ./gradlew bundle${capitalize(options.buildType)}`,
+				`cd ${androidDir} && "${gradlew}" bundle${capitalize(options.buildType)}`,
 				{
 					stdio: 'inherit',
 				},
@@ -47,7 +57,7 @@ export async function buildAndroid(options: AndroidBuildOptions) {
 			console.log(chalk.green('✓ AAB build completed'))
 		} else {
 			execSync(
-				`cd ${androidDir} && ./gradlew assemble${capitalize(options.buildType)}`,
+				`cd ${androidDir} && "${gradlew}" assemble${capitalize(options.buildType)}`,
 				{
 					stdio: 'inherit',
 				},
